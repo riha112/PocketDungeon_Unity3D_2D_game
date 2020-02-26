@@ -1,2 +1,10 @@
 # PocketDungeon_Unity3D_2D_game
-Unity3D 2D dungeon type game with procedural map generation and NN AI.
+## Description
+Unity3D rouge like 2D game project with procedural generation and NN 
+
+## Goals
+- Maze like map generation
+- Procedural room generation
+- NEET GNN AI
+- Multiplayer
+- Original art
