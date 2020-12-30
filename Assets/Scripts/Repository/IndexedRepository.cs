@@ -16,28 +16,20 @@ namespace Assets.Scripts.Repository
         private readonly string _path;
 
         /// <summary>
-        /// Get data object by its Id
+        /// Shorthand method for getting data object by its Id
         /// </summary>
         /// <param name="id">Indexable objects Id</param>
         /// <returns>Object whose Id is same as passed</returns>
-        public T this[int id]
-        {
-            get
-            {
-                if (Raw is null) Rebuild();
-
-                return Raw[id];
-            }
-        }
+        public T this[int id] => Raw[id];
 
         /// <summary>
         /// Reloads data from json file
         /// </summary>
         private void Rebuild()
         {
-            Raw = new Dictionary<int, T>();
+            _repository = new Dictionary<int, T>();
             var items = Util.LoadJsonFromFile<List<T>>($"{_path}");
-            foreach (var item in items) Raw.Add(item.Id, item);
+            foreach (var item in items) _repository.Add(item.Id, item);
         }
 
         /// <summary>
@@ -47,10 +39,7 @@ namespace Assets.Scripts.Repository
         /// <returns>Data object</returns>
         public bool Has(int id)
         {
-            if (Raw is null)
-                Rebuild();
-
-            return Raw.ContainsKey(id);
+            return Raw?.ContainsKey(id) ?? false;
         }
 
         public IndexedRepository(string path)
@@ -58,7 +47,17 @@ namespace Assets.Scripts.Repository
             _path = path;
         }
 
-        public Dictionary<int, T> Raw { get; private set; }
+        private Dictionary<int, T> _repository;
+
+        public Dictionary<int, T> Raw
+        {
+            get
+            {
+                if(_repository is null)
+                    Rebuild();
+                return _repository;
+            }
+        }
 
         /// <summary>
         /// Shorthand for dictionary method Count
