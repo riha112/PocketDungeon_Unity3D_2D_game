@@ -1,0 +1,159 @@
+[
+    {
+        "Comment": "3x3 Treasure room (1)",
+        "RoomType": 2,
+        "Width": 3,
+        "Height": 3,
+        "RoomLayout": [
+            {
+                "X": 1,
+                "Y": 1,
+                "PrefabIds": [2]
+            },
+            {
+                "X": 0,
+                "Y": 0,
+                "PrefabIds": [5]
+            },
+            {
+                "X": 2,
+                "Y": 2,
+                "PrefabIds": [5]
+            }
+        ]
+    },
+    {
+        "Comment": "3x3 Treasure room (2)",
+        "RoomType": 2,
+        "Width": 3,
+        "Height": 3,
+        "RoomLayout": [
+            {
+                "X": 0,
+                "Y": 1,
+                "PrefabIds": [2]
+            },
+            {
+                "X": 2,
+                "Y": 1,
+                "PrefabIds": [2]
+            },
+            {
+                "X":1,
+                "Y": 1,
+                "PrefabIds": [5]
+            },
+            {
+                "X":0,
+                "Y": 2,
+                "PrefabIds": [5]
+            },
+            {
+                "X":2,
+                "Y": 2,
+                "PrefabIds": [5]
+            }
+        ]
+    },
+    {
+        "Comment": "3x3 Treasure room (1)",
+        "RoomType": 2,
+        "Width": 3,
+        "Height": 3,
+        "RoomLayout": [
+            {
+                "X": 1,
+                "Y": 1,
+                "PrefabIds": [2]
+            }
+        ]
+    },
+    {
+        "Comment": "5x5 Treasure room (1)",
+        "RoomType": 2,
+        "Width": 5,
+        "Height": 5,
+        "RoomLayout": [
+            {
+                "X": 2,
+                "Y": 2,
+                "PrefabIds": [2]
+            }
+        ]
+    },
+    {
+        "Comment": "3x3 Design room (1)",
+        "RoomType": 0,
+        "Width": 3,
+        "Height": 3,
+        "RoomLayout": [
+            {
+                "X": 0,
+                "Y": 0,
+                "PrefabIds": [10,11,12]
+            },
+            {
+                "X": 2,
+                "Y": 2,
+                "PrefabIds": [10,11,12]
+            }
+        ]
+    },
+    {
+        "Comment": "3x3 Design room (1)",
+        "RoomType": 0,
+        "Width": 3,
+        "Height": 3,
+        "RoomLayout": []
+    },
+    {
+        "Comment": "3x3 Design room (1)",
+        "RoomType": 0,
+        "Width": 3,
+        "Height": 3,
+        "RoomLayout": [
+            {
+                "X": 1,
+                "Y": 1,
+                "PrefabIds": [10,11,12]
+            }
+        ]
+    },
+    {
+        "Comment": "3x3 Design room (1)",
+        "RoomType": 0,
+        "Width": 3,
+        "Height": 3,
+        "RoomLayout": [
+            {
+                "X": 2,
+                "Y": 0,
+                "PrefabIds": [10,11,12]
+            },
+            {
+                "X": 0,
+                "Y": 2,
+                "PrefabIds": [10,11,12]
+            }
+        ]
+    },
+    {
+        "Comment": "3x3 Design room (1)",
+        "RoomType": 0,
+        "Width": 3,
+        "Height": 3,
+        "RoomLayout": [
+            {
+                "X": 2,
+                "Y": 1,
+                "PrefabIds": [10,11,12]
+            },
+            {
+                "X": 1,
+                "Y": 0,
+                "PrefabIds": [10,11,12]
+            }
+        ]
+    }
+
+]

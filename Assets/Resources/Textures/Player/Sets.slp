@@ -1,0 +1,58 @@
+{
+    "project": {
+        "creationVersion": "",
+        "currentLayerIndex": 1,
+        "guides": [
+        ],
+        "layers": [
+            {
+                "imageData": "iVBORw0KGgoAAAANSUhEUgAAADsAAAAqCAYAAAANryONAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABb0lEQVRoge2YPUjDQBiG35ROCQE3uzi6WBC6tTi4O2rStVtxKEIRcXB2EBFXF0Ed1cHJXaogODhmcDJDB7cgdo2DXPVyJyr0Pdr6PdN9l+cOPnL54QUEQZgkvOLE4/VRXpyrrawbHtNl+aWfFvxl81G4TF9rNntJtbGqbZuxXKavNdvq1ZElKbIkRatXx+Lqhm1vqsv0y1+Lq7U+suRjfLpwj+fbPgZvr9aFLJfpGw/83cW+cVSW4i3ri4HlsvxSUZhmtM6j5fkcAHa2NwEAu3sHmnx58+SxXab/r+6s1my307ZK3U7buMZymb7WrB+Ew6MAfB4LPwjhByFcuEy/XFx4dnKs1XOzM8bmbJflG89sFDe1sapt/6Usl+VrzaoLUdzE4fmDp75Ttg80y3XhD2lUK3mjWsm/q124LnxBEISxQjKo3yAZ1Ahcpi8ZFCAZlIFkUGOMZFDTimRQCsmgHLgsXzIoyaAcui58QZhQ3gHOM/Yfxz/gAQAAAABJRU5ErkJggg==",
+                "name": "Layer 1",
+                "opacity": 1,
+                "visible": true
+            },
+            {
+                "imageData": "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",
+                "name": "Layer 2",
+                "opacity": 1,
+                "visible": true
+            },
+            {
+                "imageData": "iVBORw0KGgoAAAANSUhEUgAAADsAAAAqCAYAAAANryONAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAArUlEQVRoge3SMQrCMBiG4a+ikx3cOrkIBZeeoYuzU/E2XsCTiKNXcOgBJODsYoub6OISpyaDUHSIGHifKZB/yPsTCQAAAED0qjK3VZnbT+cHIR8T0jeRnWGIh/zKM7tIkpar1ErSfndP+uajjp0XY3c+HR+SfLgkXU2q2jRuAb2b+GfdN55mE42Ks4uV/BIOW59XmyaJNlbywbPF7e1us26jbgMAAAAAAAAAhPcCw4QjKoGqtBUAAAAASUVORK5CYII=",
+                "name": "Layer 1",
+                "opacity": 1,
+                "visible": false
+            }
+        ],
+        "modificationVersion": "0.9.0",
+        "notes": [
+        ],
+        "swatch": {
+            "colours": [
+            ]
+        },
+        "uiState": {
+            "colourPanelExpanded": true,
+            "firstPane": {
+                "offsetX": 274,
+                "offsetY": 218,
+                "sceneCentered": false,
+                "size": 1,
+                "zoomLevel": 16
+            },
+            "lastFillToolUsed": "FillTool",
+            "layerListViewContentY": 0,
+            "layerPanelExpanded": true,
+            "mainSplitViewState": "gqJlaW5kZXgAbnByZWZlcnJlZFdpZHRo+0CEAAAAAAAAomVpbmRleAFucHJlZmVycmVkV2lkdGj7QG4AAAAAAAA=",
+            "panelSplitViewState": "gaJlaW5kZXgBb3ByZWZlcnJlZEhlaWdodPtAbIAAAAAAAA==",
+            "secondPane": {
+                "offsetX": -29,
+                "offsetY": 451,
+                "sceneCentered": true,
+                "size": 0,
+                "zoomLevel": 1
+            },
+            "swatchPanelExpanded": true
+        }
+    }
+}

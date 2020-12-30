@@ -1,0 +1,203 @@
+[
+    {
+        "Id": 0,
+        "Title": "Skull Man",
+        "BaseAttributes": {
+            "Vitality": 20,
+            "Magic": 0,
+            "Luck": 0,
+            "Resistance": 0,
+            "Agility": 2,
+            "Strength": 8
+        },
+        "AttributesMultiplierByLevel": {
+            "Vitality": 5,
+            "Magic": 0,
+            "Luck": 0,
+            "Resistance": 2,
+            "Agility": 1,
+            "Strength": 4
+        },
+        "ExpToDrop": 2,
+        "ExpMultiplierByLevel": 1,
+        "AggroRange": 5,
+        "AttackDistance": 1.5,
+        "BaseCoolDownForAttack": 4,
+        "PathToPrefabs": [
+            "enemy_prefab_type0_skull_man"
+        ]
+    },
+    {
+        "Id": 1,
+        "Title": "Skull Man Evolved",
+        "BaseAttributes": {
+            "Vitality": 30,
+            "Magic": 10,
+            "Luck": 0,
+            "Resistance": 2,
+            "Agility": 2,
+            "Strength": 12
+        },
+        "AttributesMultiplierByLevel": {
+            "Vitality": 5,
+            "Magic": 2,
+            "Luck": 0,
+            "Resistance": 2,
+            "Agility": 1,
+            "Strength": 8
+        },
+        "ExpToDrop": 3,
+        "ExpMultiplierByLevel": 2,
+        "AggroRange": 5,
+        "AttackDistance": 1.5,
+        "BaseCoolDownForAttack": 3.5,
+        "PathToPrefabs": [
+            "enemy_prefab_type0_skull_man_evolved"
+        ]
+    },
+    {
+        "Id": 2,
+        "Title": "Skeleton",
+        "BaseAttributes": {
+            "Vitality": 20,
+            "Magic": 0,
+            "Luck": 0,
+            "Resistance": 0,
+            "Agility": 2,
+            "Strength": 8
+        },
+        "AttributesMultiplierByLevel": {
+            "Vitality": 5,
+            "Magic": 0,
+            "Luck": 0,
+            "Resistance": 2,
+            "Agility": 1,
+            "Strength": 8
+        },
+        "ExpToDrop": 2,
+        "ExpMultiplierByLevel": 1,
+        "AggroRange": 5,
+        "AttackDistance": 1.5,
+        "BaseCoolDownForAttack": 4,
+        "PathToPrefabs": [
+            "enemy_prefab_type1_skeleton"
+        ]
+    },
+    {
+        "Id": 3,
+        "Title": "Giant Snake",
+        "BaseAttributes": {
+            "Vitality": 100,
+            "Magic": 0,
+            "Luck": 0,
+            "Resistance": 10,
+            "Agility": 12,
+            "Strength": 40
+        },
+        "AttributesMultiplierByLevel": {
+            "Vitality": 20,
+            "Magic": 0,
+            "Luck": 0,
+            "Resistance": 10,
+            "Agility": 1,
+            "Strength": 8
+        },
+        "ExpToDrop": 10,
+        "ExpMultiplierByLevel": 2,
+        "AggroRange": 6,
+        "AttackDistance": 1,
+        "BaseCoolDownForAttack": 10,
+        "PathToPrefabs": [
+            "enemy_prefab_type2_giant_snake"
+        ]
+    },
+    {
+        "Id": 4,
+        "Title": "Ranged Skeleton",
+        "BaseAttributes": {
+            "Vitality": 20,
+            "Magic": 0,
+            "Luck": 0,
+            "Resistance": 0,
+            "Agility": 2,
+            "Strength": 8
+        },
+        "AttributesMultiplierByLevel": {
+            "Vitality": 5,
+            "Magic": 0,
+            "Luck": 0,
+            "Resistance": 2,
+            "Agility": 1,
+            "Strength": 8
+        },
+        "ExpToDrop": 5,
+        "ExpMultiplierByLevel": 2,
+        "AggroRange": 6,
+        "AttackDistance": 6,
+        "BaseCoolDownForAttack": 1.5,
+        "PathToPrefabs": [
+            "enemy_prefab_type1_skeleton"
+        ]
+    },
+    {
+        "Id": 5,
+        "Title": "Bat",
+        "BaseAttributes": {
+            "Vitality": 10,
+            "Magic": 0,
+            "Luck": 0,
+            "Resistance": 0,
+            "Agility": 2,
+            "Strength": 8
+        },
+        "AttributesMultiplierByLevel": {
+            "Vitality": 5,
+            "Magic": 0,
+            "Luck": 0,
+            "Resistance": 2,
+            "Agility": 1,
+            "Strength": 8
+        },
+        "ExpToDrop": 0,
+        "ExpMultiplierByLevel": 0,
+        "AggroRange": 1.6,
+        "AttackDistance": 2,
+        "BaseCoolDownForAttack": 3,
+        "KeepAggroIfAttacked": true,
+        "KeepAggroAfterFirstInRange": true,
+        "PathToPrefabs": [
+            "enemy_prefab_type5_bat"
+        ]
+    },
+    {
+        "Id": 6,
+        "Title": "Summoned Warrior",
+        "PathToIcon": "icon_enemy_summon_warrior",
+        "BaseAttributes": {
+            "Vitality": 10,
+            "Magic": 0,
+            "Luck": 0,
+            "Resistance": 0,
+            "Agility": 2,
+            "Strength": 8
+        },
+        "AttributesMultiplierByLevel": {
+            "Vitality": 5,
+            "Magic": 0,
+            "Luck": 0,
+            "Resistance": 2,
+            "Agility": 1,
+            "Strength": 8
+        },
+        "ExpToDrop": 0,
+        "ExpMultiplierByLevel": 0,
+        "AggroRange": 100,
+        "AttackDistance": 1.2,
+        "BaseCoolDownForAttack": 1,
+        "KeepAggroIfAttacked": true,
+        "KeepAggroAfterFirstInRange": true,
+        "PathToPrefabs": [
+            "enemy_prefab_type5_bat"
+        ]
+    }
+]

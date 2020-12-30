@@ -1,0 +1,64 @@
+[
+    {
+        "Id": 1,
+        "Title": "Monster Spawner",
+        "Width": 3,
+        "Height": 3,
+        "PathToPrefab": "prefab_world_monster_spawner"
+    },
+    {
+        "Id": 2,
+        "Title": "Chest (Front)",
+        "PathToPrefab": "prefab_world_chest_front"
+    },
+    {
+        "Id": 3,
+        "Title": "WoodBlock",
+        "PathToPrefab": "prefab_world_wood_block"
+    },
+    {
+        "Id": 4,
+        "Title": "WoodBlock",
+        "PathToPrefab": "prefab_world_stone_block"
+    },
+    {
+        "Id": 5,
+        "Title": "Trap Spikes",
+        "PathToPrefab": "prefab_world_spike"
+    },
+    {
+        "Id": 6,
+        "Title": "Collectable Resource Wood",
+        "PathToPrefab": "prefab_world_resource_wood"
+    },
+    {
+        "Id": 7,
+        "Title": "Collectable Resource: Stone",
+        "PathToPrefab": "prefab_world_resource_stone"
+    },
+    {
+        "Id": 10,
+        "Title": "Skull 0",
+        "PathToPrefab": "prefab_world_skull_0"
+    },
+    {
+        "Id": 11,
+        "Title": "Skull 1",
+        "PathToPrefab": "prefab_world_skull_1"
+    },
+    {
+        "Id": 12,
+        "Title": "Skull 2",
+        "PathToPrefab": "prefab_world_skull_2"
+    },
+    {
+        "Id": 13,
+        "Title": "EXP orb",
+        "PathToPrefab": "Enemy/prefab_enemy_exp_orb"
+    },
+    {
+        "Id": 14,
+        "Title": "Damage Indicator",
+        "PathToPrefab": "Enemy/prefab_enemy_damage_indicator"
+    }
+]

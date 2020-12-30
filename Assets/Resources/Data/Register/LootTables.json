@@ -1,0 +1,52 @@
+[
+    {
+        "Id": 0,
+        "LootItems": [
+            {
+                "item1": 2,
+                "item2": 10
+            },
+            {
+                "item1": 500,
+                "item2": 40
+            },
+            {
+                "item1": 501,
+                "item2": 40
+            },
+            {
+                "item1": 3,
+                "item2": 10
+            }
+        ],
+        "MinItems": 0,
+        "MaxItems": 5
+    },
+    {
+        "Id": 1,
+        "LootItems": [
+            {
+                "item1": 211,
+                "item2": 25
+            },
+            {
+                "item1": 215,
+                "item2": 25
+            },
+            {
+                "item1": 205,
+                "item2": 20
+            },
+            {
+                "item1": 210,
+                "item2": 20
+            },
+            {
+                "item1": 201,
+                "item2": 10
+            }
+        ],
+        "MinItems": 0,
+        "MaxItems": 4
+    }
+]

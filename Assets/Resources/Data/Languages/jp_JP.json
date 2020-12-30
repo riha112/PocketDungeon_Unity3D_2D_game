@@ -1,0 +1,21 @@
+{
+    "Item": "Item JP",
+    "Strength": "力",
+    "Vitality": "活力",
+    "Agility": "機敏",
+    "Magic": "マジック",
+    "Resistance": "レジスタンス",
+    "Luck": "幸運",
+    "ATTRIBUTES": "属性",
+    "INVENTORY": "在庫",
+    "Drop": "ドロップ",
+    "Use": "利用",
+    "About": "情報",
+    "Cancel": "キャンセル",
+    "Accept": "アクセプト",
+    "RESOURCES": "リソース",
+    "Wood": "木材",
+    "Stone": "結石",
+    "Iron": "鉄",
+    "Obsidian": "黒曜石"
+}

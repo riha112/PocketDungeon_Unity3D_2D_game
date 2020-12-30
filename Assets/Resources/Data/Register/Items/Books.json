@@ -1,0 +1,42 @@
+[
+    {
+        "ItemId": 1000,
+        "Title": "SpellBook: Fire Storm",
+        "PathToIcon": "Books/icon_book_spell_fire",
+        "Type": 3,
+        "Slot": 0,
+        "MagicId": 1
+    },
+    {
+        "ItemId": 1001,
+        "Title": "SpellBook: Fire Storm double",
+        "PathToIcon": "Books/icon_book_spell_water",
+        "Type": 3,
+        "Slot": 0,
+        "MagicId": 2
+    },
+    {
+        "ItemId": 1002,
+        "Title": "SpellBook: Fire Horizontal",
+        "PathToIcon": "Books/icon_book_spell_wind",
+        "Type": 3,
+        "Slot": 0,
+        "MagicId": 3
+    },
+    {
+        "ItemId": 1003,
+        "Title": "SpellBook: Fire Vertical",
+        "PathToIcon": "Books/icon_book_spell",
+        "Type": 3,
+        "Slot": 0,
+        "MagicId": 4
+    },
+    {
+        "ItemId": 1004,
+        "Title": "SpellBook: Summon Warriors (4)",
+        "PathToIcon": "Books/icon_book_spell",
+        "Type": 3,
+        "Slot": 0,
+        "MagicId": 5
+    }
+]

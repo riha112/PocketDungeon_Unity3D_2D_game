@@ -1,0 +1,230 @@
+
+  [
+  {
+    "ItemId": 200,
+    "Title": "Axe 1",
+    "PathToPrefabs": [
+      "Weapons/Axe/weapon_type1_prefab_axe"
+    ],
+    "PathToIcon": "Weapons/Axe/icon_weapon_axe_1",
+    "Type": 1,
+    "Slot": 9
+  },
+  {
+    "ItemId": 201,
+    "Title": "Axe 2",
+    "PathToPrefabs": [
+      "Weapons/Axe/weapon_type2_prefab_axe"
+    ],
+    "PathToIcon": "Weapons/Axe/icon_weapon_axe_2",
+    "Type": 1,
+    "Slot": 9
+  },
+  {
+    "ItemId": 202,
+    "Title": "Axe 3",
+    "PathToPrefabs": [
+      "Weapons/Axe/weapon_type3_prefab_axe"
+    ],
+    "PathToIcon": "Weapons/Axe/icon_weapon_axe_3",
+    "Type": 1,
+    "Slot": 9
+  },
+  {
+    "ItemId": 203,
+    "Title": "Axe 4",
+    "PathToPrefabs": [
+      "Weapons/Axe/weapon_type4_prefab_axe"
+    ],
+    "PathToIcon": "Weapons/Axe/icon_weapon_axe_4",
+    "Type": 1,
+    "Slot": 9
+  },
+  {
+    "ItemId": 204,
+    "Title": "bow 1",
+    "PathToPrefabs": [
+      "Weapons/Bow/weapon_type1_prefab_bow"
+    ],
+    "PathToIcon": "Weapons/Bow/icon_weapon_bow_1",
+    "Type": 7,
+    "Slot": 9,
+    "DurabilityReducer": 0.01
+  },
+  {
+    "ItemId": 205,
+    "Title": "Dagger 2",
+    "PathToPrefabs": [
+      "Weapons/Dagger/weapon_type2_prefab_dagger"
+    ],
+    "PathToIcon": "Weapons/Daggers/icon_weapon_dagger_2",
+    "Type": 8,
+    "Slot": 9
+  },
+  {
+    "ItemId": 206,
+    "Title": "Dagger 3",
+    "PathToPrefabs": [
+      "Weapons/Dagger/weapon_type3_prefab_dagger"
+    ],
+    "PathToIcon": "Weapons/Daggers/icon_weapon_dagger_3",
+    "Type": 8,
+    "Slot": 9
+  },
+  {
+    "ItemId": 207,
+    "Title": "Other 1",
+    "PathToPrefabs": [
+      "Weapons/Other/weapon_type1_prefab_other"
+    ],
+    "PathToIcon": "Weapons/Other/icon_weapon_other_1",
+    "Type": 1,
+    "Slot": 9
+  },
+  {
+    "ItemId": 208,
+    "Title": "Other 2",
+    "PathToPrefabs": [
+      "Weapons/Other/weapon_type2_prefab_other"
+    ],
+    "PathToIcon": "Weapons/Other/icon_weapon_other_2",
+    "Type": 1,
+    "Slot": 9
+  },
+  {
+    "ItemId": 209,
+    "Title": "Other 3",
+    "PathToPrefabs": [
+      "Weapons/Other/weapon_type3_prefab_other"
+    ],
+    "PathToIcon": "Weapons/Other/icon_weapon_other_3",
+    "Type": 1,
+    "Slot": 9
+  },
+  {
+    "ItemId": 210,
+    "Title": "Other 4",
+    "PathToPrefabs": [
+      "Weapons/Other/weapon_type4_prefab_other"
+    ],
+    "PathToIcon": "Weapons/Other/icon_weapon_other_4",
+    "Type": 1,
+    "Slot": 9
+  },
+  {
+    "ItemId": 211,
+    "Title": "Other 5",
+    "PathToPrefabs": [
+      "Weapons/Other/weapon_type5_prefab_other"
+    ],
+    "PathToIcon": "Weapons/Other/icon_weapon_other_5",
+    "Type": 1,
+    "Slot": 9
+  },
+  {
+    "ItemId": 212,
+    "Title": "Staff 1",
+    "PathToPrefabs": [
+      "Weapons/Staff/weapon_type1_prefab_staff"
+    ],
+    "PathToIcon": "Weapons/Staff/icon_weapon_staff_1",
+    "Type": 1,
+    "Slot": 9
+  },
+  {
+    "ItemId": 213,
+    "Title": "Staff 2",
+    "PathToPrefabs": [
+      "Weapons/Staff/weapon_type2_prefab_staff"
+    ],
+    "PathToIcon": "Weapons/Staff/icon_weapon_staff_2",
+    "Type": 1,
+    "Slot": 9
+  },
+  {
+    "ItemId": 214,
+    "Title": "Sword 1",
+    "PathToPrefabs": [
+      "Weapons/Sword/weapon_type1_prefab_sword"
+    ],
+    "PathToIcon": "Weapons/Sword/icon_weapon_sword_1",
+    "Type": 10,
+    "Slot": 9
+  },
+  {
+    "ItemId": 215,
+    "Title": "Sword 3",
+    "PathToPrefabs": [
+      "Weapons/Sword/weapon_type3_prefab_sword"
+    ],
+    "PathToIcon": "Weapons/Sword/icon_weapon_sword_3",
+    "Type": 10,
+    "Slot": 9
+  },
+  {
+    "ItemId": 216,
+    "Title": "Sword 4",
+    "PathToPrefabs": [
+      "Weapons/Sword/weapon_type4_prefab_sword"
+    ],
+    "PathToIcon": "Weapons/Sword/icon_weapon_sword_4",
+    "Type": 10,
+    "Slot": 9
+  },
+  {
+    "ItemId": 217,
+    "Title": "Sword 5",
+    "PathToPrefabs": [
+      "Weapons/Sword/weapon_type5_prefab_sword"
+    ],
+    "PathToIcon": "Weapons/Sword/icon_weapon_sword_5",
+    "Type": 10,
+    "Slot": 9
+  },
+  {
+    "ItemId": 218,
+    "Title": "Wrecking Ball",
+    "PathToPrefabs": [
+      "Weapons/Sword/weapon_type5_prefab_sword",
+      "Weapons/Instances/weapon_instance_prefab_wrecking_ball"
+    ],
+    "PathToIcon": "Weapons/Other/icon_weapon_other_wrecking_ball",
+    "Type": 9,
+    "Slot": 2,
+    "DurabilityReducer": 0.01
+  },
+  {
+    "ItemId": 219,
+    "Title": "Dagger",
+    "PathToPrefabs": [
+      "Weapons/Dagger/weapon_type0_prefab_dagger"
+    ],
+    "PathToIcon": "Weapons/Daggers/icon_weapon_dagger_0",
+    "Type": 8,
+    "Slot": 9
+  },
+  {
+    "ItemId": 220,
+    "Title": "Ring of Fairy Summon",
+    "PathToPrefabs": [
+      "Weapons/Sword/weapon_type5_prefab_sword",
+      "Summons/prefab_item_summon_fairy"
+    ],
+    "PathToIcon": "Summons/icon_summon_fairy",
+    "Type": 9,
+    "Slot": 1,
+    "DurabilityReducer": 0.0025
+  },
+  {
+    "ItemId": 221,
+    "Title": "Ring of Wizard Summon",
+    "PathToPrefabs": [
+      "Weapons/Sword/weapon_type5_prefab_sword",
+      "Summons/prefab_item_summon_wizard"
+    ],
+    "PathToIcon": "Summons/icon_summon_wizard",
+    "Type": 9,
+    "Slot": 1,
+    "DurabilityReducer": 0.0025
+  }
+]

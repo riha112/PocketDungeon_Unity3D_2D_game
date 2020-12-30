@@ -1,0 +1,24 @@
+[
+    {
+        "ItemId": 500,
+        "Title": "Potion Magic Small",
+        "PathToIcon": "Potions/icon_potion_magic_sml",
+        "Type": 2,
+        "Slot": 0,
+        "IsSplash": false,
+        "EffectAmount": {
+            "Magic": 20
+        }
+    },
+    {
+        "ItemId": 501,
+        "Title": "Potion Health Small",
+        "PathToIcon": "Potions/icon_potion_health_sml",
+        "Type": 2,
+        "Slot": 0,
+        "IsSplash": false,
+        "EffectAmount": {
+            "Vitality": 20
+        }
+    }
+]

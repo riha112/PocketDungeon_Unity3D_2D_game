@@ -1,0 +1,54 @@
+[
+    {
+        "Id": 1,
+        "Title": "Fire rotating",
+        "PathToIcon": "icon_magic_type1",
+        "Cooldown": 10,
+        "PathToObject": "magic_prefab_type1",
+        "MinLevelRequirement": 0,
+        "EquippedItemRequirements": [
+            4
+        ]
+    },
+    {
+        "Id": 2,
+        "Title": "Fire rotating double",
+        "PathToIcon": "icon_magic_type2",
+        "Cooldown": 15,
+        "PathToObject": "magic_prefab_type2",
+        "MinLevelRequirement": 0,
+        "EquippedItemRequirements": [
+            4
+        ]
+    },
+    {
+        "Id": 3,
+        "Title": "Fire horizontal",
+        "PathToIcon": "icon_magic_type3",
+        "Cooldown": 5,
+        "PathToObject": "magic_prefab_type3",
+        "EquippedItemRequirements": [
+            4
+        ]
+    },
+    {
+        "Id": 4,
+        "Title": "Fire vertical",
+        "PathToIcon": "icon_magic_type4",
+        "Cooldown": 5,
+        "PathToObject": "magic_prefab_type4",
+        "EquippedItemRequirements": [
+            4
+        ]
+    },
+    {
+        "Id": 5,
+        "Title": "Summon Warriors (5)",
+        "PathToIcon": "icon_magic_type4",
+        "Cooldown": 5,
+        "PathToObject": "magic_prefab_summon_warriors_4",
+        "EquippedItemRequirements": [
+            4
+        ]
+    }
+]

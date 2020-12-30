@@ -1,0 +1,1006 @@
+{
+    "0": [
+        {
+            "Id": 0,
+            "TileTypes": {
+                "0": {
+                    "Sprites": [{
+                            "Percentage": 50,
+                            "PathToSprite": "tile_map_type1:tile_map_type1_floor_2"
+                        },
+                        {
+                            "Percentage": 50,
+                            "PathToSprite": "tile_map_type1:tile_map_type1_floor_2_2"
+                        }
+                    ]
+                },
+                "1": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_floor_left"
+                    }]
+                },
+                "2": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_floor_top"
+                    }]
+                },
+                "3": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_floor_right"
+                    }]
+                },
+                "4": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_floor_bottom"
+                    }]
+                },
+                "5": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_floor_top_right"
+                    }]
+                },
+                "6": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_floor_top_left"
+                    }]
+                },
+                "9": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_floor_bottom_right"
+                    }]
+                },
+                "10": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_floor_bottom_left"
+                    }]
+                },
+                "15": {
+                    "Sprites": [{
+                            "Percentage": 50,
+                            "PathToSprite": "tile_map_type1:tile_map_type1_floor_1"
+                        },
+                        {
+                            "Percentage": 33,
+                            "PathToSprite": "tile_map_type1:tile_map_type1_floor_1_2"
+                        },
+                        {
+                            "Percentage": 17,
+                            "PathToSprite": "tile_map_type1:tile_map_type1_floor_1_3"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "Id": 1,
+            "TileTypes": {
+                "0": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_floor_1"
+                    }]
+                },
+                "1": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_wall_left"
+                    }]
+                },
+                "2": {
+                    "Sprites": [{
+                            "Percentage": 80,
+                            "PathToSprite": "tile_map_type1:tile_map_type1_wall_top"
+                        },
+                        {
+                            "Percentage": 10,
+                            "PathToSprite": "tile_map_type1:tile_map_type1_wall_top_2"
+                        },
+                        {
+                            "Percentage": 3,
+                            "PathToSprite": "tile_map_type1:tile_map_type1_wall_top_3"
+                        },
+                        {
+                            "Percentage": 7,
+                            "PathToSprite": "tile_map_type1:tile_map_type1_wall_top_4"
+                        }
+                    ]
+                },
+                "3": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_wall_right"
+                    }]
+                },
+                "4": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_wall_bottom"
+                    }]
+                },
+                "5": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_wall_top_right"
+                    }]
+                },
+                "6": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_wall_top_left"
+                    }]
+                },
+                "7": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_wall_inv_top_left"
+                    }]
+                },
+                "8": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_wall_inv_top_right"
+                    }]
+                },
+                "9": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_wall_bottom_right"
+                    }]
+                },
+                "10": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_wall_bottom_left"
+                    }]
+                },
+                "11": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_wall_inv_bottom_left"
+                    }]
+                },
+                "12": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_wall_inv_bottom_right"
+                    }]
+                },
+                "15": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_floor_2"
+                    }]
+                },
+                "16": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_wall_single_width_bottom"
+                    }]
+                },
+                "17": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_wall_single_width_mid"
+                    }]
+                },
+                "18": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_wall_single_width_top"
+                    }]
+                }
+
+                ,
+                "19": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_wall_single_width_left_horizontal"
+                    }]
+                },
+                "20": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_wall_single_width_middle_horizontal"
+                    }]
+                },
+                "21": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_wall_single_width_right_horizontal"
+                    }]
+                },
+                "99": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_debug"
+                    }]
+                }
+            }
+        },
+        {
+            "Id": 2,
+            "TileTypes": {
+                "0": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_water_1_base"
+                    }]
+                },
+                "1": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_water_1_top"
+                    }]
+                }
+            }
+        },
+        {
+            "Id": 3,
+            "TileTypes": {
+                "0": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_door_right"
+                    }]
+                },
+                "1": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_door_left"
+                    }]
+                }
+            }
+        }
+    ],
+    "1": [
+        {
+            "Id": 0,
+            "TileTypes": {
+                "0": {
+                    "Sprites": [{
+                            "Percentage": 50,
+                            "PathToSprite": "tile_map_type2:tile_map_type2_floor_2"
+                        },
+                        {
+                            "Percentage": 50,
+                            "PathToSprite": "tile_map_type2:tile_map_type2_floor_2_2"
+                        }
+                    ]
+                },
+                "1": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type2:tile_map_type2_floor_left"
+                    }]
+                },
+                "2": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type2:tile_map_type2_floor_top"
+                    }]
+                },
+                "3": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type2:tile_map_type2_floor_right"
+                    }]
+                },
+                "4": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type2:tile_map_type2_floor_bottom"
+                    }]
+                },
+                "5": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type2:tile_map_type2_floor_top_right"
+                    }]
+                },
+                "6": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type2:tile_map_type2_floor_top_left"
+                    }]
+                },
+                "9": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type2:tile_map_type2_floor_bottom_right"
+                    }]
+                },
+                "10": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type2:tile_map_type2_floor_bottom_left"
+                    }]
+                },
+                "15": {
+                    "Sprites": [{
+                            "Percentage": 50,
+                            "PathToSprite": "tile_map_type2:tile_map_type2_floor_1"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "Id": 1,
+            "TileTypes": {
+                "0": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type2:tile_map_type2_floor_1"
+                    }]
+                },
+                "1": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type2:tile_map_type2_wall_left"
+                    }]
+                },
+                "2": {
+                    "Sprites": [{
+                            "Percentage": 80,
+                            "PathToSprite": "tile_map_type2:tile_map_type2_wall_top"
+                        },
+                        {
+                            "Percentage": 10,
+                            "PathToSprite": "tile_map_type2:tile_map_type2_wall_top_1"
+                        },
+                        {
+                            "Percentage": 3,
+                            "PathToSprite": "tile_map_type2:tile_map_type2_wall_top_2"
+                        },
+                        {
+                            "Percentage": 7,
+                            "PathToSprite": "tile_map_type2:tile_map_type2_wall_top_3"
+                        }
+                    ]
+                },
+                "3": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type2:tile_map_type2_wall_right"
+                    }]
+                },
+                "4": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type2:tile_map_type2_wall_bottom"
+                    }]
+                },
+                "5": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type2:tile_map_type2_wall_top_right"
+                    }]
+                },
+                "6": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type2:tile_map_type2_wall_top_left"
+                    }]
+                },
+                "7": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type2:tile_map_type2_wall_inv_top_left"
+                    }]
+                },
+                "8": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type2:tile_map_type2_wall_inv_top_right"
+                    }]
+                },
+                "9": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type2:tile_map_type2_wall_bottom_right"
+                    }]
+                },
+                "10": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type2:tile_map_type2_wall_bottom_left"
+                    }]
+                },
+                "11": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type2:tile_map_type2_wall_inv_bottom_left"
+                    }]
+                },
+                "12": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type2:tile_map_type2_wall_inv_bottom_right"
+                    }]
+                },
+                "15": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type2:tile_map_type2_floor_2"
+                    }]
+                },
+                "16": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type2:tile_map_type2_wall_single_width_bottom"
+                    }]
+                },
+                "17": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type2:tile_map_type2_wall_single_width_mid"
+                    }]
+                },
+                "18": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type2:tile_map_type2_wall_single_width_top"
+                    }]
+                }
+    
+                ,
+                "19": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type2:tile_map_type2_wall_single_width_left_horizontal"
+                    }]
+                },
+                "20": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type2:tile_map_type2_wall_single_width_middle_horizontal"
+                    }]
+                },
+                "21": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type2:tile_map_type2_wall_single_width_right_horizontal"
+                    }]
+                },
+                "99": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_debug"
+                    }]
+                }
+            }
+        },
+        {
+            "Id": 2,
+            "TileTypes": {
+                "0": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type2:tile_map_type2_water_1_base"
+                    }]
+                },
+                "1": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type2:tile_map_type2_water_1_top"
+                    }]
+                }
+            }
+        },
+        {
+            "Id": 3,
+            "TileTypes": {
+                "0": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type2:tile_map_type2_door_right"
+                    }]
+                },
+                "1": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type2:tile_map_type2_door_left"
+                    }]
+                }
+            }
+        }
+    ],
+    "2": [
+        {
+            "Id": 0,
+            "TileTypes": {
+                "0": {
+                    "Sprites": [{
+                            "Percentage": 50,
+                            "PathToSprite": "tile_map_type3:tile_map_type3_floor_2"
+                        },
+                        {
+                            "Percentage": 50,
+                            "PathToSprite": "tile_map_type3:tile_map_type3_floor_2_2"
+                        }
+                    ]
+                },
+                "1": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type3:tile_map_type3_floor_left"
+                    }]
+                },
+                "2": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type3:tile_map_type3_floor_top"
+                    }]
+                },
+                "3": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type3:tile_map_type3_floor_right"
+                    }]
+                },
+                "4": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type3:tile_map_type3_floor_bottom"
+                    }]
+                },
+                "5": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type3:tile_map_type3_floor_top_right"
+                    }]
+                },
+                "6": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type3:tile_map_type3_floor_top_left"
+                    }]
+                },
+                "9": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type3:tile_map_type3_floor_bottom_right"
+                    }]
+                },
+                "10": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type3:tile_map_type3_floor_bottom_left"
+                    }]
+                },
+                "15": {
+                    "Sprites": [{
+                            "Percentage": 100,
+                            "PathToSprite": "tile_map_type3:tile_map_type3_floor_1"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "Id": 1,
+            "TileTypes": {
+                "0": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type3:tile_map_type3_floor_1"
+                    }]
+                },
+                "1": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type3:tile_map_type3_wall_left"
+                    }]
+                },
+                "2": {
+                    "Sprites": [{
+                            "Percentage": 95,
+                            "PathToSprite": "tile_map_type3:tile_map_type3_wall_top"
+                        },
+                        {
+                            "Percentage": 5,
+                            "PathToSprite": "tile_map_type3:tile_map_type3_wall_top_1"
+                        }
+                    ]
+                },
+                "3": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type3:tile_map_type3_wall_right"
+                    }]
+                },
+                "4": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type3:tile_map_type3_wall_bottom"
+                    }]
+                },
+                "5": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type3:tile_map_type3_wall_top_right"
+                    }]
+                },
+                "6": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type3:tile_map_type3_wall_top_left"
+                    }]
+                },
+                "7": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type3:tile_map_type3_wall_inv_top_left"
+                    }]
+                },
+                "8": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type3:tile_map_type3_wall_inv_top_right"
+                    }]
+                },
+                "9": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type3:tile_map_type3_wall_bottom_right"
+                    }]
+                },
+                "10": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type3:tile_map_type3_wall_bottom_left"
+                    }]
+                },
+                "11": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type3:tile_map_type3_wall_inv_bottom_left"
+                    }]
+                },
+                "12": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type3:tile_map_type3_wall_inv_bottom_right"
+                    }]
+                },
+                "15": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type3:tile_map_type3_floor_2"
+                    }]
+                },
+                "16": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type3:tile_map_type3_wall_single_width_bottom"
+                    }]
+                },
+                "17": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type3:tile_map_type3_wall_single_width_mid"
+                    }]
+                },
+                "18": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type3:tile_map_type3_wall_single_width_top"
+                    }]
+                }
+    
+                ,
+                "19": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type3:tile_map_type3_wall_single_width_left_horizontal"
+                    }]
+                },
+                "20": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type3:tile_map_type3_wall_single_width_middle_horizontal"
+                    }]
+                },
+                "21": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type3:tile_map_type3_wall_single_width_right_horizontal"
+                    }]
+                },
+                "99": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_debug"
+                    }]
+                }
+            }
+        },
+        {
+            "Id": 2,
+            "TileTypes": {
+                "0": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type3:tile_map_type3_water_1_base"
+                    }]
+                },
+                "1": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type3:tile_map_type3_water_1_top"
+                    }]
+                }
+            }
+        },
+        {
+            "Id": 3,
+            "TileTypes": {
+                "0": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type3:tile_map_type3_door_right"
+                    }]
+                },
+                "1": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type3:tile_map_type3_door_left"
+                    }]
+                }
+            }
+        }
+    ],
+    "3": [
+        {
+            "Id": 0,
+            "TileTypes": {
+                "0": {
+                    "Sprites": [{
+                            "Percentage": 50,
+                            "PathToSprite": "tile_map_type4:tile_map_type4_floor_2"
+                        },
+                        {
+                            "Percentage": 50,
+                            "PathToSprite": "tile_map_type4:tile_map_type4_floor_2_2"
+                        }
+                    ]
+                },
+                "1": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type4:tile_map_type4_floor_left"
+                    }]
+                },
+                "2": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type4:tile_map_type4_floor_top"
+                    }]
+                },
+                "3": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type4:tile_map_type4_floor_right"
+                    }]
+                },
+                "4": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type4:tile_map_type4_floor_bottom"
+                    }]
+                },
+                "5": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type4:tile_map_type4_floor_top_right"
+                    }]
+                },
+                "6": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type4:tile_map_type4_floor_top_left"
+                    }]
+                },
+                "9": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type4:tile_map_type4_floor_bottom_right"
+                    }]
+                },
+                "10": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type4:tile_map_type4_floor_bottom_left"
+                    }]
+                },
+                "15": {
+                    "Sprites": [{
+                            "Percentage": 100,
+                            "PathToSprite": "tile_map_type4:tile_map_type4_floor_1"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "Id": 1,
+            "TileTypes": {
+                "0": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type4:tile_map_type4_floor_1"
+                    }]
+                },
+                "1": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type4:tile_map_type4_wall_left"
+                    }]
+                },
+                "2": {
+                    "Sprites": [{
+                            "Percentage": 95,
+                            "PathToSprite": "tile_map_type4:tile_map_type4_wall_top"
+                        },
+                        {
+                            "Percentage": 5,
+                            "PathToSprite": "tile_map_type4:tile_map_type4_wall_top_1"
+                        }
+                    ]
+                },
+                "3": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type4:tile_map_type4_wall_right"
+                    }]
+                },
+                "4": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type4:tile_map_type4_wall_bottom"
+                    }]
+                },
+                "5": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type4:tile_map_type4_wall_top_right"
+                    }]
+                },
+                "6": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type4:tile_map_type4_wall_top_left"
+                    }]
+                },
+                "7": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type4:tile_map_type4_wall_inv_top_left"
+                    }]
+                },
+                "8": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type4:tile_map_type4_wall_inv_top_right"
+                    }]
+                },
+                "9": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type4:tile_map_type4_wall_bottom_right"
+                    }]
+                },
+                "10": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type4:tile_map_type4_wall_bottom_left"
+                    }]
+                },
+                "11": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type4:tile_map_type4_wall_inv_bottom_left"
+                    }]
+                },
+                "12": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type4:tile_map_type4_wall_inv_bottom_right"
+                    }]
+                },
+                "15": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type4:tile_map_type4_floor_2"
+                    }]
+                },
+                "16": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type4:tile_map_type4_wall_single_width_bottom"
+                    }]
+                },
+                "17": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type4:tile_map_type4_wall_single_width_mid"
+                    }]
+                },
+                "18": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type4:tile_map_type4_wall_single_width_top"
+                    }]
+                }
+    
+                ,
+                "19": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type4:tile_map_type4_wall_single_width_left_horizontal"
+                    }]
+                },
+                "20": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type4:tile_map_type4_wall_single_width_middle_horizontal"
+                    }]
+                },
+                "21": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type4:tile_map_type4_wall_single_width_right_horizontal"
+                    }]
+                },
+                "99": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type1:tile_map_type1_debug"
+                    }]
+                }
+            }
+        },
+        {
+            "Id": 2,
+            "TileTypes": {
+                "0": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type4:tile_map_type4_water_1_base"
+                    }]
+                },
+                "1": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type4:tile_map_type4_water_1_top"
+                    }]
+                }
+            }
+        },
+        {
+            "Id": 3,
+            "TileTypes": {
+                "0": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type4:tile_map_type4_door_right"
+                    }]
+                },
+                "1": {
+                    "Sprites": [{
+                        "Percentage": 100,
+                        "PathToSprite": "tile_map_type4:tile_map_type4_door_left"
+                    }]
+                }
+            }
+        }
+    ]
+}

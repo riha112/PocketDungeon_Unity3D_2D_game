@@ -1,0 +1,194 @@
+[
+  {
+    "ItemId": 0,
+    "Title": "Gem: Ground",
+    "PathToIcon": "Gems/icon_gem_ground",
+    "Type": 6,
+    "Slot": 7,
+    "PathToPrefabs": [
+      "Gem/particle_gem_on_ground"
+    ]
+  },
+  {
+    "ItemId": 1,
+    "Title": "Gem: Water",
+    "PathToIcon": "Gems/icon_gem_water",
+    "Type": 6,
+    "Slot": 7,
+    "PathToPrefabs": [
+      "Gem/particle_gem_on_water"
+    ]
+  },
+  {
+    "ItemId": 2,
+    "Title": "Gem: Wind",
+    "PathToIcon": "Gems/icon_gem_wind",
+    "Type": 6,
+    "Slot": 7,
+    "PathToPrefabs": [
+      "Gem/particle_gem_on_wind"
+    ]
+  },
+  {
+    "ItemId": 3,
+    "Title": "Gem: Lightning",
+    "PathToIcon": "Gems/icon_gem_lightning",
+    "Type": 6,
+    "Slot": 7,
+    "PathToPrefabs": [
+      "Gem/particle_gem_on_lightning"
+    ]
+  },
+  {
+    "ItemId": 4,
+    "Title": "Gem: Fire",
+    "PathToIcon": "Gems/icon_gem_fire",
+    "Type": 6,
+    "Slot": 7,
+    "PathToPrefabs": [
+      "Gem/particle_gem_on_fire"
+    ]
+  },
+  {
+    "ItemId": 21,
+    "Title": "Dragoon Helmet",
+    "PathToPrefabs": [
+      "Armor/head/armor_set1_head"
+    ],
+    "PathToIcon": "Armor/icon_armor_set1_head",
+    "Type": 5,
+    "Slot": 0
+  },
+  {
+    "ItemId": 5,
+    "Title": "Dragoon Helmet",
+    "PathToPrefabs": [
+      "Armor/head/armor_set3_head"
+    ],
+    "PathToIcon": "Armor/icon_armor_set3_head",
+    "Type": 5,
+    "Slot": 0
+  },
+  {
+    "ItemId": 6,
+    "Title": "Dragoon Helmet",
+    "PathToPrefabs": [
+      "Armor/head/armor_set4_head"
+    ],
+    "PathToIcon": "Armor/icon_armor_set4_head",
+    "Type": 5,
+    "Slot": 0
+  },
+  {
+    "ItemId": 7,
+    "Title": "Dragoon Helmet",
+    "PathToPrefabs": [
+      "Armor/head/armor_set5_head"
+    ],
+    "PathToIcon": "Armor/icon_armor_set5_head",
+    "Type": 5,
+    "Slot": 0
+  },
+  {
+    "ItemId": 8,
+    "Title": "Dragoon Helmet",
+    "PathToPrefabs": [
+      "Armor/head/armor_set7_head"
+    ],
+    "PathToIcon": "Armor/icon_armor_set7_head",
+    "Type": 5,
+    "Slot": 0
+  },
+  {
+    "ItemId": 9,
+    "Title": "Dragoon Helmet",
+    "PathToPrefabs": [
+      "Armor/head/armor_set6_head"
+    ],
+    "PathToIcon": "Armor/icon_armor_set6_head",
+    "Type": 5,
+    "Slot": 0
+  },
+  {
+    "ItemId": 12,
+    "Title": "Torch",
+    "PathToPrefabs": [
+      "Weapons/Misc/Torch/weapon_type0_prefab_torch"
+    ],
+    "PathToIcon": "Weapons/Misc/icon_weapon_misc_torch",
+    "Type": 1,
+    "Slot": 9
+  },
+  {
+    "ItemId": 14,
+    "Title": "Dragon armor (Body)",
+    "PathToPrefabs": [
+      "Armor/body/armor_set1_body",
+      "Armor/arm0/armor_set1_hand_0",
+      "Armor/arm1/armor_set1_hand_1"
+    ],
+    "PathToIcon": "Armor/icon_armor_set1_body",
+    "Type": 5,
+    "Slot": 3
+  },
+  {
+    "ItemId": 15,
+    "Title": "Pillager armor (Body)",
+    "PathToPrefabs": [
+      "Armor/body/armor_set3_body",
+      "Armor/arm0/armor_set3_hand_0",
+      "Armor/arm1/armor_set3_hand_1"
+    ],
+    "PathToIcon": "Armor/icon_armor_set3_body",
+    "Type": 5,
+    "Slot": 3
+  },
+  {
+    "ItemId": 16,
+    "Title": "Which armor (Body)",
+    "PathToPrefabs": [
+      "Armor/body/armor_set4_body",
+      "Armor/arm0/armor_set4_hand_0",
+      "Armor/arm1/armor_set4_hand_1"
+    ],
+    "PathToIcon": "Armor/icon_armor_set4_body",
+    "Type": 5,
+    "Slot": 3
+  },
+  {
+    "ItemId": 17,
+    "Title": "Royal armor (Body)",
+    "PathToPrefabs": [
+      "Armor/body/armor_set5_body",
+      "Armor/arm0/armor_set5_hand_0",
+      "Armor/arm1/armor_set5_hand_1"
+    ],
+    "PathToIcon": "Armor/icon_armor_set5_body",
+    "Type": 5,
+    "Slot": 3
+  },
+  {
+    "ItemId": 18,
+    "Title": "Woodland armor (Body)",
+    "PathToPrefabs": [
+      "Armor/body/armor_set7_body",
+      "Armor/arm0/armor_set7_hand_0",
+      "Armor/arm1/armor_set7_hand_1"
+    ],
+    "PathToIcon": "Armor/icon_armor_set7_body",
+    "Type": 5,
+    "Slot": 3
+  },
+  {
+    "ItemId": 19,
+    "Title": "Heavy armor (Body)",
+    "PathToPrefabs": [
+      "Armor/body/armor_set6_body",
+      "Armor/arm0/armor_set6_hand_0",
+      "Armor/arm1/armor_set6_hand_1"
+    ],
+    "PathToIcon": "Armor/icon_armor_set6_body",
+    "Type": 5,
+    "Slot": 3
+  }
+]

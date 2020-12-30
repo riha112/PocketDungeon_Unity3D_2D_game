@@ -1,0 +1,34 @@
+[
+    {
+        "Id": 0,
+        "Title": "Wood",
+        "Durability": 10,
+        "PathToIcon": "icon_resource_wood",
+        "PathToGroundedStyle": "tile_map_type1:tile_map_type1_resource_wood_grounded",
+        "PathToSubmergedStyle": "tile_map_type1:tile_map_type1_resource_wood_submerged"
+    },
+    {
+        "Id": 1,
+        "Title": "Stone",
+        "Durability": 20,
+        "PathToIcon": "icon_resource_stone",
+        "PathToGroundedStyle": "tile_map_type1:tile_map_type1_resource_stone_grounded",
+        "PathToSubmergedStyle": "tile_map_type1:tile_map_type1_resource_stone_submerged"
+    },
+    {
+        "Id": 2,
+        "Title": "Iron",
+        "Durability": 40,
+        "PathToIcon": "icon_resource_iron",
+        "PathToGroundedStyle": "tile_map_type1:tile_map_type1_resource_iron_grounded",
+        "PathToSubmergedStyle": "tile_map_type1:tile_map_type1_resource_iron_submerged"
+    },
+    {
+        "Id": 3,
+        "Title": "Obsidian",
+        "Durability": 70,
+        "PathToIcon": "icon_resource_obsidian",
+        "PathToGroundedStyle": "tile_map_type1:tile_map_type1_resource_obsidian_grounded",
+        "PathToSubmergedStyle": "tile_map_type1:tile_map_type1_resource_obsidian_submerged"
+    }
+]
