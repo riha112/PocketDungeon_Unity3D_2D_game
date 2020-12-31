@@ -20,12 +20,12 @@
             "item2": 100
         },
         "BatchRange": {
-            "item1": 2,
-            "item2": 6
+            "item1": 1,
+            "item2": 1
         },
         "CoolDownRange": {
-            "item1": 40,
-            "item2": 65
+            "item1": 15,
+            "item2": 16
         }
     }
 ]

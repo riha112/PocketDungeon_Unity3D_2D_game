@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assets.Scripts.Items;
 using Assets.Scripts.Items.Type.Controller;
 using Assets.Scripts.Misc;
 using Assets.Scripts.Misc.ObjectManager;
@@ -144,6 +145,8 @@ namespace Assets.Scripts.SaveLoad
         {
             if (Inventory is null) return;
 
+            InventoryManager.InventoryGrid = new List<SimpleItem>();
+
             for (var i = 0; i < Inventory.Length; i++)
             {
                 var item = ItemRepository.GetItemObjectFromId(Inventory[i].ItemId);
@@ -159,7 +162,6 @@ namespace Assets.Scripts.SaveLoad
             if (SavableEquipment is null) return;
 
             var ec = DI.Fetch<EquipmentController>();
-
             DI.Fetch<FightingController>()?.Start();
 
             foreach (var localItemId in SavableEquipment)

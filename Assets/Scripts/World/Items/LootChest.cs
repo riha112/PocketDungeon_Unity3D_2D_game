@@ -81,6 +81,7 @@ namespace Assets.Scripts.World.Items
             BuildLootItems();
             UIController.ActionKeyPress += OnActionKeyPress;
             ToggleEvent += OnTogglePopup;
+            base.Start();
         }
 
         /// <summary>

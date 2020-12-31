@@ -12,6 +12,7 @@ using Assets.Scripts.User.Equipment;
 using Assets.Scripts.User.Inventory;
 using Assets.Scripts.User.Magic;
 using Assets.Scripts.User.Map;
+using Assets.Scripts.User.Map.MapDraw;
 using Assets.Scripts.User.Messages;
 using Assets.Scripts.User.Party;
 using Assets.Scripts.User.Resource;
@@ -19,7 +20,6 @@ using Assets.Scripts.World.Generation;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Random = UnityEngine.Random;
 
 namespace Assets.Scripts.World
 {
@@ -41,6 +41,7 @@ namespace Assets.Scripts.World
             DI.Register(this);
             DI.Register(GetComponent<MonoUtil>());
             DI.Register(GetComponent<Gui>());
+            DI.Register(GetComponent<MapCreator>());
 
             var character = Util.GetCharacterTransform();
             DI.Register(character.GetComponent<CharacterEntity>());
