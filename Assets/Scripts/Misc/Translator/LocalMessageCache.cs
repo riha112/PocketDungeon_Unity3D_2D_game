@@ -41,7 +41,8 @@ namespace Assets.Scripts.Misc.Translator
 
             foreach (var msg in Messages)
             {
-                _translatedDictionary.Add(msg, T.Translate(msg));
+                if(!_translatedDictionary.ContainsKey(msg))
+                    _translatedDictionary.Add(msg, T.Translate(msg));
             }
 
             _isCached = true;

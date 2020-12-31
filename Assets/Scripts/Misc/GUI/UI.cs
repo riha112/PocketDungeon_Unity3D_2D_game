@@ -101,7 +101,7 @@ namespace Assets.Scripts.Misc.GUI
 
         protected string LT(string text)
         {
-            return LMC.Messages.Contains(text) ? LMC[text] : T.Translate(text);
+            return LMC.Messages != null && LMC.Messages.Contains(text) ? LMC[text] : T.Translate(text);
         }
     }
 }

@@ -94,6 +94,9 @@ namespace Assets.Scripts.SaveLoad
 
         private void SaveInventory()
         {
+            if(InventoryManager.InventoryGrid.Count == 0)
+                return;
+
             Inventory = new SavableItem[InventoryManager.InventoryGrid.Count];
             for (var i = 0; i < InventoryManager.InventoryGrid.Count; i++)
             {

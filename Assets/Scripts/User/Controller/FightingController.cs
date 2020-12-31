@@ -80,8 +80,21 @@ namespace Assets.Scripts.User.Controller
             for (var i = 0; i < 2; i++)
             {
                 if (!Input.GetMouseButtonUp(i) || _weapons[i] is null) continue;
+
+                if (IsOnGuiElements()) continue;
+
                 _weapons[i].Attack();
             }
+        }
+
+        private bool IsOnGuiElements()
+        {
+            var mouse = Input.mousePosition;
+
+            Debug.Log(mouse);
+
+            if (mouse.y > 200) return false;
+            return mouse.x < 320 || mouse.x > Screen.width - 180;
         }
     }
 }

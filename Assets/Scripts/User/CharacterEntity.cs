@@ -11,6 +11,7 @@ using Assets.Scripts.User.Messages;
 using Assets.Scripts.User.Resource;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.User
 {
@@ -118,6 +119,15 @@ namespace Assets.Scripts.User
         protected override void Death()
         {
             Time.timeScale = 0;
+            DI.Fetch<FightingController>().enabled = false;
+            DI.Fetch<MovementController>().enabled = false;
+            DI.Fetch<UIController>().enabled = false;
+           // Invoke(nameof(ReloadDungeon), 0.5f);
+        }
+
+        private void ReloadDungeon()
+        {
+            SceneManager.LoadScene("Dungeon");
         }
     }
 }

@@ -66,5 +66,20 @@ namespace Assets.Scripts.Items.Type.Controller
         {
             InventoryManager.DropItem(this);
         }
+
+
+        private static readonly string[] ATT_NAMES = {"Strength", "Vitality", "Agility", "Magic", "Resistance", "Luck"};
+        public override string GetDescription()
+        {
+            var output = base.GetDescription() + 
+                   $"\n<b>Durability: </b>{Durability}";
+
+            for (var i = 0; i < 6; i++)
+            {
+                output += $"\n{ATT_NAMES[i]}: {Attribute[i]}";
+            }
+
+            return output;
+        }
     }
 }

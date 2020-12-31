@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Misc;
 using Assets.Scripts.Misc.GUI;
 using Assets.Scripts.Misc.ObjectManager;
+using Assets.Scripts.SaveLoad;
 using Assets.Scripts.User.Map.MapDraw;
 using UnityEngine;
 
@@ -56,9 +57,19 @@ namespace Assets.Scripts.User.Map
 
         public override int Depth => 10;
 
+        private int _floor;
+
+        protected override void Init()
+        {
+            _floor = DI.Fetch<SavableGame>()?.World.DungeonFloor ?? 1;
+            base.Init();
+        }
+
         protected override void Design()
         {
             DrawBackground();
+
+            GUI.Label(new Rect(ScreenSize.x / 2 - 225, ScreenSize.y / 2 - 285, 450, 60), $"Floor {_floor}", "map_title");
 
             // Map background
             GUI.DrawTexture(new Rect(ScreenSize.x / 2 - 225, ScreenSize.y / 2 - 225, 450, 450), MapTexture2D);

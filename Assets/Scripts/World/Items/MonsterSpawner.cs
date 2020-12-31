@@ -3,6 +3,7 @@ using Assets.Scripts.Misc.ObjectManager;
 using Assets.Scripts.Misc.Random;
 using Assets.Scripts.Repository;
 using Assets.Scripts.Repository.Data;
+using Assets.Scripts.SaveLoad;
 using Assets.Scripts.User.FloorSwitcher;
 using Assets.Scripts.World.Generation.Data;
 using UnityEngine;
@@ -47,7 +48,9 @@ namespace Assets.Scripts.World.Items
             _spawnPerBatch = R.RandomRange(_data.SpawnAmountPerBatch.min, _data.SpawnAmountPerBatch.max);
             _spawnBatchCount = R.RandomRange(_data.BatchRange.min, _data.BatchRange.max);
 
-            InvokeRepeating(nameof(SpawnMonsters), _coolDownTimer - 10, _coolDownTimer);
+            var startTimer = DI.Fetch<SavableGame>()?.World.DungeonFloor <= 2 ? _coolDownTimer - 10 : _coolDownTimer / 3;
+
+            InvokeRepeating(nameof(SpawnMonsters), startTimer, _coolDownTimer);
             DI.Fetch<FloorSwitcher>()?.Register(this);
         }
 

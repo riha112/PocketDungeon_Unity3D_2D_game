@@ -1,5 +1,6 @@
 ﻿using System;
 using Assets.Scripts.User.Attributes;
+using Assets.Scripts.User.Messages;
 using Assets.Scripts.User.Stats;
 using Assets.Scripts.Weapons.Projectile;
 using JetBrains.Annotations;

@@ -63,6 +63,8 @@ namespace Assets.Scripts.World
 
         public void StartGame()
         {
+            Time.timeScale = 1;
+
             if (Data.DungeonFloorSeeds == null || Data.DungeonFloorSeeds.Length == 0)
                 PopulateFloorSeeds(Data);
 

@@ -31,7 +31,7 @@ namespace Assets.Scripts.User.Attributes
 
             _backupAttributeData[attributeId]++;
             IsModified = true;
-            Points++;
+            Points--;
         }
 
         public static void RemovePointFrom(int attributeId)

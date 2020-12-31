@@ -13,19 +13,292 @@
         ],
         "SpawnAmountPerBatch": {
             "item1": 2,
+            "item2": 4
+        },
+        "SpawnOnLevelsInRangeOf": {
+            "item1": 1,
+            "item2": 2
+        },
+        "BatchRange": {
+            "item1": 1,
+            "item2": 4
+        },
+        "CoolDownRange": {
+            "item1": 45,
+            "item2": 60
+        }
+    },
+    {
+        "Id": 2,
+        "Monsters": [
+            {
+                "MonsterId": 0,
+                "PossibilityOfSpawning": 50
+            },
+            {
+                "MonsterId": 2,
+                "PossibilityOfSpawning": 50
+            }
+        ],
+        "SpawnAmountPerBatch": {
+            "item1": 2,
             "item2": 5
         },
         "SpawnOnLevelsInRangeOf": {
-            "item1": 0,
+            "item1": 2,
+            "item2": 16
+        },
+        "BatchRange": {
+            "item1": 2,
+            "item2": 6
+        },
+        "CoolDownRange": {
+            "item1": 35,
+            "item2": 50
+        }
+    },
+    {
+        "Id": 3,
+        "Monsters": [
+            {
+                "MonsterId": 0,
+                "PossibilityOfSpawning": 34
+            },
+            {
+                "MonsterId": 2,
+                "PossibilityOfSpawning": 33
+            },
+            {
+                "MonsterId": 4,
+                "PossibilityOfSpawning": 33
+            }
+        ],
+        "SpawnAmountPerBatch": {
+            "item1": 2,
+            "item2": 5
+        },
+        "SpawnOnLevelsInRangeOf": {
+            "item1": 5,
+            "item2": 16
+        },
+        "BatchRange": {
+            "item1": 2,
+            "item2": 3
+        },
+        "CoolDownRange": {
+            "item1": 40,
+            "item2": 65
+        }
+    },
+    {
+        "Id": 4,
+        "Monsters": [
+            {
+                "MonsterId": 0,
+                "PossibilityOfSpawning": 25
+            },
+            {
+                "MonsterId": 2,
+                "PossibilityOfSpawning": 25
+            },
+            {
+                "MonsterId": 4,
+                "PossibilityOfSpawning": 25
+            },
+            {
+                "MonsterId": 1,
+                "PossibilityOfSpawning": 25
+            }
+        ],
+        "SpawnAmountPerBatch": {
+            "item1": 2,
+            "item2": 5
+        },
+        "SpawnOnLevelsInRangeOf": {
+            "item1": 10,
+            "item2": 100
+        },
+        "BatchRange": {
+            "item1": 2,
+            "item2": 5
+        },
+        "CoolDownRange": {
+            "item1": 40,
+            "item2": 65
+        }
+    },
+    {
+        "Id": 5,
+        "Monsters": [
+            {
+                "MonsterId": 4,
+                "PossibilityOfSpawning": 100
+            }
+        ],
+        "SpawnAmountPerBatch": {
+            "item1": 1,
+            "item2": 4
+        },
+        "SpawnOnLevelsInRangeOf": {
+            "item1": 5,
+            "item2": 16
+        },
+        "BatchRange": {
+            "item1": 2,
+            "item2": 4
+        },
+        "CoolDownRange": {
+            "item1": 40,
+            "item2": 65
+        }
+    },
+    {
+        "Id": 6,
+        "Monsters": [
+            {
+                "MonsterId": 3,
+                "PossibilityOfSpawning": 100
+            }
+        ],
+        "SpawnAmountPerBatch": {
+            "item1": 1,
+            "item2": 2
+        },
+        "SpawnOnLevelsInRangeOf": {
+            "item1": 15,
             "item2": 100
         },
         "BatchRange": {
             "item1": 1,
-            "item2": 1
+            "item2": 3
         },
         "CoolDownRange": {
+            "item1": 60,
+            "item2": 120
+        }
+    },
+    {
+        "Id": 7,
+        "Monsters": [
+            {
+                "MonsterId": 0,
+                "PossibilityOfSpawning": 50
+            },
+            {
+                "MonsterId": 2,
+                "PossibilityOfSpawning": 50
+            }
+        ],
+        "SpawnAmountPerBatch": {
+            "item1": 4,
+            "item2": 10
+        },
+        "SpawnOnLevelsInRangeOf": {
             "item1": 15,
-            "item2": 16
+            "item2": 100
+        },
+        "BatchRange": {
+            "item1": 2,
+            "item2": 6
+        },
+        "CoolDownRange": {
+            "item1": 25,
+            "item2": 50
+        }
+    },
+    {
+        "Id": 8,
+        "Monsters": [
+            {
+                "MonsterId": 0,
+                "PossibilityOfSpawning": 34
+            },
+            {
+                "MonsterId": 2,
+                "PossibilityOfSpawning": 33
+            },
+            {
+                "MonsterId": 4,
+                "PossibilityOfSpawning": 33
+            }
+        ],
+        "SpawnAmountPerBatch": {
+            "item1": 4,
+            "item2": 10
+        },
+        "SpawnOnLevelsInRangeOf": {
+            "item1": 15,
+            "item2": 100
+        },
+        "BatchRange": {
+            "item1": 2,
+            "item2": 3
+        },
+        "CoolDownRange": {
+            "item1": 20,
+            "item2": 40
+        }
+    },
+    {
+        "Id": 9,
+        "Monsters": [
+            {
+                "MonsterId": 0,
+                "PossibilityOfSpawning": 25
+            },
+            {
+                "MonsterId": 2,
+                "PossibilityOfSpawning": 25
+            },
+            {
+                "MonsterId": 4,
+                "PossibilityOfSpawning": 25
+            },
+            {
+                "MonsterId": 1,
+                "PossibilityOfSpawning": 25
+            }
+        ],
+        "SpawnAmountPerBatch": {
+            "item1": 4,
+            "item2": 10
+        },
+        "SpawnOnLevelsInRangeOf": {
+            "item1": 15,
+            "item2": 100
+        },
+        "BatchRange": {
+            "item1": 2,
+            "item2": 5
+        },
+        "CoolDownRange": {
+            "item1": 20,
+            "item2": 40
+        }
+    },
+    {
+        "Id": 10,
+        "Monsters": [
+            {
+                "MonsterId": 4,
+                "PossibilityOfSpawning": 100
+            }
+        ],
+        "SpawnAmountPerBatch": {
+            "item1": 4,
+            "item2": 10
+        },
+        "SpawnOnLevelsInRangeOf": {
+            "item1": 15,
+            "item2": 100
+        },
+        "BatchRange": {
+            "item1": 2,
+            "item2": 4
+        },
+        "CoolDownRange": {
+            "item1": 20,
+            "item2": 40
         }
     }
 ]

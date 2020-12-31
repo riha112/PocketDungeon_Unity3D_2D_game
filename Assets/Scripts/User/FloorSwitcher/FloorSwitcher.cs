@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Assets.Scripts.Misc.ObjectManager;
+using Assets.Scripts.Misc.Translator;
 using Assets.Scripts.World;
 using Assets.Scripts.World.Items;
 using UnityEngine;
@@ -16,6 +17,8 @@ namespace Assets.Scripts.User.FloorSwitcher
     public class FloorSwitcher : Injectable
     {
         private List<MonsterSpawner> _spawners;
+
+        public GUISkin Theme;
 
         /// <summary>
         /// Shorthand method for adding monster spawner to list
@@ -46,8 +49,9 @@ namespace Assets.Scripts.User.FloorSwitcher
                 return;
 
             GUI.depth = -5;
+            GUI.skin = Theme;
 
-            if (GUI.Button(new Rect(Screen.width - 150, Screen.height - 60, 130, 40), "Next floor"))
+            if (GUI.Button(new Rect(Screen.width - 150, 60, 130, 40), T.Translate("Next floor"), "btn_next_floor"))
             {
                 DI.Fetch<WorldController>()?.EndGame();
             }

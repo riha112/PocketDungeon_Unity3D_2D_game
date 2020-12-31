@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.Scripts.MainMenu;
 using Assets.Scripts.Misc;
 using Assets.Scripts.Misc.GUI;
 using Assets.Scripts.Misc.ObjectManager;
@@ -87,6 +88,14 @@ namespace Assets.Scripts.User.Controller
                         DI.Fetch<ResourceController>()
                     },
                     KeyCode = KeyCode.Space
+                },
+                new UISection()
+                {
+                    UiControllers = new List<UI>
+                    {
+                        DI.Fetch<InGameMainMenu>()
+                    },
+                    KeyCode = KeyCode.Escape
                 }
             };
         }

@@ -82,7 +82,7 @@ namespace Assets.Scripts.SaveLoad
         {
             if (World is null)
             {
-                World = DI.Fetch<WorldController>().Data;
+                World = DI.Fetch<WorldController>()?.Data;
             }
 
             CharacterData.Save();

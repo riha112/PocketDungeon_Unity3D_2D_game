@@ -21,6 +21,8 @@ namespace Assets.Scripts.MainMenu
         private string[] _savedGameFiles;
         private static string _savedGameDir;
 
+        private Vector2 _scrollView;
+
         private void Awake()
         {
             _savedGameDir = $"{Application.persistentDataPath}/Games/";
@@ -88,8 +90,11 @@ namespace Assets.Scripts.MainMenu
                             Application.Quit();
                             break;
                         case 1:
-                            var files =  Directory.GetFiles(_savedGameDir, "*.json");
-                            _savedGameFiles = files.Select(Path.GetFileNameWithoutExtension).ToArray();
+                            if (Directory.Exists(_savedGameDir))
+                            {
+                                var files =  Directory.GetFiles(_savedGameDir, "*.json");
+                                _savedGameFiles = files.Select(Path.GetFileNameWithoutExtension).ToArray();
+                            }
                             break;
                     }
                 }
@@ -129,15 +134,22 @@ namespace Assets.Scripts.MainMenu
             GUI.Box(new Rect(Screen.width / 2 - 215, Screen.height / 2 - 175, 430, 350), "", "Holder");
 
             GUI.Label(new Rect(Screen.width / 2 - 175, Screen.height / 2 - 250, 350, 80), _lmc[1], "Title");
-
             GUI.BeginGroup(new Rect(Screen.width / 2 - 175, Screen.height / 2 - 125, 350, 260));
-            for(var i = 0; i < _savedGameFiles.Length; i++)
+
+            if (_savedGameFiles != null)
             {
-                if (GUI.Button(new Rect(0, 50 * i, 350, 45), _savedGameFiles[i], "LoadLevel"))
+                _scrollView = GUI.BeginScrollView(new Rect(0, 0, 350, 210), _scrollView,
+                    new Rect(0, 0, 320, 50 * _savedGameFiles.Length));
+                for (var i = 0; i < _savedGameFiles.Length; i++)
                 {
-                    LoadGame(_savedGameFiles[i]);
+                    if (GUI.Button(new Rect(0, 50 * i, 350, 45), _savedGameFiles[i], "LoadLevel"))
+                    {
+                        LoadGame(_savedGameFiles[i]);
+                    }
                 }
+                GUI.EndScrollView();
             }
+
             if (GUI.Button(new Rect(240, 220, 110, 40), _lmc[4]))
                 _activeWindow = -1;
             GUI.EndGroup();
