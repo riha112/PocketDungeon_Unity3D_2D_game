@@ -116,6 +116,11 @@ namespace Assets.Scripts.World.Items
                 ShowChest();
         }
 
+        private void OnDestroy()
+        {
+            UIController.ActionKeyPress -= OnActionKeyPress;
+        }
+
         /// <summary>
         /// Populates Loot chest with random items
         /// </summary>

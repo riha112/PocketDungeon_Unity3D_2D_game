@@ -30,14 +30,6 @@ namespace Assets.Scripts.User.Resource
 
         private void OnActionKeyPress(object sender, Vector2 characterPosition)
         {
-            // Unity 3D does not clean event subscriptions
-            // on scene changes
-            if (transform is null)
-            {
-                CleanUp();
-                return;
-            }
-
             if (Vector2.Distance(transform.position, characterPosition) > 0.8f) return;
             CharacterEntity.Resources[ResourceId]++;
             DI.Fetch<MessageController>()?.AddMessage("+ 1 resource");
@@ -48,6 +40,11 @@ namespace Assets.Scripts.User.Resource
         {
             UIController.ActionKeyPress -= OnActionKeyPress;
             Destroy(gameObject);
+        }
+
+        private void OnDestroy()
+        {
+            CleanUp();
         }
     }
 }
