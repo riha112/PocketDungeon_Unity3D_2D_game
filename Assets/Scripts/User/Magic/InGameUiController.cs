@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using Assets.Scripts.Items.Type;
 using Assets.Scripts.Items.Type.Controller;
 using Assets.Scripts.Misc;
+using Assets.Scripts.Misc.GUI;
 using Assets.Scripts.Misc.ObjectManager;
-using Assets.Scripts.UI;
 using Assets.Scripts.User.Equipment;
 using Assets.Scripts.User.Inventory;
 using JetBrains.Annotations;
@@ -22,7 +22,7 @@ namespace Assets.Scripts.User.Magic
         public KeyCode Key { get; set; }
     }
 
-    public class InGameUiController : UI.UI
+    public class InGameUiController : UI
     {
         private const short ICON_SIZE = 60;
         private const short FAN_SLOT_SIZE = 40;
@@ -83,7 +83,7 @@ namespace Assets.Scripts.User.Magic
             else
             {
                 // Item filtration
-                _filteredOutPinnables = DI.Fetch<InventoryController>()?.FetchFilteredItems<IPinnable>();
+                _filteredOutPinnables = InventoryManager.FetchFilteredItems<IPinnable>();
             }
 
             if (_filteredOutPinnables.Count == 0 && PinnedSlots[slotId].Pinnable == null)

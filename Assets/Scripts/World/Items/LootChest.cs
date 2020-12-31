@@ -1,49 +1,62 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Assets.Scripts.Items;
-using Assets.Scripts.Misc;
+using Assets.Scripts.Items.Type.Controller;
+using Assets.Scripts.Misc.GUI;
 using Assets.Scripts.Misc.ObjectManager;
 using Assets.Scripts.Misc.Random;
 using Assets.Scripts.Misc.Translator;
 using Assets.Scripts.Repository;
 using Assets.Scripts.Repository.Data;
-using Assets.Scripts.UI;
 using Assets.Scripts.User;
 using Assets.Scripts.User.Controller;
-using Assets.Scripts.User.Equipment;
 using Assets.Scripts.User.Inventory;
-using Assets.Scripts.User.Stats;
 using UnityEngine;
 
 namespace Assets.Scripts.World.Items
 {
+    /// <summary>
+    /// Contains logic for item: Loot Chest
+    /// - Loads random items,
+    /// - Allows player to collect them when in range
+    /// - Animates between open/closed state
+    /// </summary>
     public class LootChest : Popup
     {
-        public int LootTableId;
-        public int AccessRange = 2;
-        public Sprite[] ChestStates;
+        private const float ACCESS_RANGE = 1f;
 
-        private List<SimpleItem> _chestItems;
-        private LootTableData _lootTableData;
+        #region Animaton Data
+        /// <summary>
+        /// Designs for open & closed states
+        /// </summary>
+        public Sprite[] ChestStates;
         private SpriteRenderer _spriteRenderer;
+        #endregion
+
+        #region Info
+        private LootTableData _lootTableData;
+        private List<SimpleItem> _chestItems;
 
         private bool _isVisible;
+
         private bool IsVisible
         {
             get => _isVisible;
             set
             {
                 _isVisible = value;
-                if(_spriteRenderer != null)
+                if (_spriteRenderer != null)
                     _spriteRenderer.sprite = ChestStates[!_isVisible ? 0 : 1];
             }
         }
 
-        protected override int Depth { get; set; } = 5;
+        public override int Depth => 5;
+        #endregion
 
+        /// <summary>
+        /// Configuration for Popup UI
+        /// <seealso cref="Popup"/>
+        /// <seealso cref="UI"/>
+        /// </summary>
         protected override void Init()
         {
             RectConfig.Title = T.Translate("Loot Chest");
@@ -52,25 +65,44 @@ namespace Assets.Scripts.World.Items
             RectConfig.TitleRect = new Rect(360 / 2 - 100, 0, 200, 80);
 
             RectConfig.ShowBackground = false;
-
-            _lootTableData = LootTableRepository.Repository[LootTableId];
         }
 
+        /// <summary>
+        /// Called on start of object
+        /// - Subscribes to events
+        /// - Populates loot table
+        /// - Loads components
+        /// </summary>
         protected void Start()
         {
+            _lootTableData = LootTableRepository.GetLootTable();
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+
             BuildLootItems();
             UIController.ActionKeyPress += OnActionKeyPress;
             ToggleEvent += OnTogglePopup;
-            _spriteRenderer = GetComponent<SpriteRenderer>();
         }
 
+        /// <summary>
+        /// Event subscription for hiding Loot Table Chest UI, when
+        /// other UI windows are visible
+        /// </summary>
+        /// <param name="sender">UI object that is toggled</param>
+        /// <param name="state">UI objects new state</param>
         private void OnTogglePopup(object sender, bool state)
         {
             // Hide when any other popup is active (except for inventory)
-            if (sender is Popup && state && !(sender is InventoryController))
+            if (sender is Popup && state && !(sender is InventoryPopupUi))
                 IsVisible = false;
         }
 
+        /// <summary>
+        /// Event subscription to check distance between chest and player
+        /// when "Action Key" is pressed - F, if player is within the renge
+        /// toggles UI
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="characterPosition">Location of character in game</param>
         private void OnActionKeyPress(object sender, Vector2 characterPosition)
         {
             if (IsVisible)
@@ -79,84 +111,71 @@ namespace Assets.Scripts.World.Items
                 return;
             }
 
-            if (Vector2.Distance(transform.position, characterPosition) < AccessRange)
+            if (Vector2.Distance(transform.position, characterPosition) < ACCESS_RANGE)
                 ShowChest();
         }
 
+        /// <summary>
+        /// Populates Loot chest with random items
+        /// </summary>
         protected void BuildLootItems()
         {
-            var itemCount = R.RandomRange(_lootTableData.MinItems, _lootTableData.MaxItems);
+            var itemCount = R.RandomRange(_lootTableData.ItemCount.min, _lootTableData.ItemCount.max);
 
             var userData = DI.Fetch<CharacterEntity>();
-            var luck = userData is null ? 0 : (int)userData.Stats.CurrentLuck;
+            var luck = userData is null ? 1 : (int) userData.Stats.CurrentLuck;
             _chestItems = new List<SimpleItem>();
 
             for (var i = 0; i < itemCount; i++)
             {
                 var item = ItemRepository.GetItemObjectFromId(
-                    FetchItemFromLootTable()
+                    _lootTableData.GetRandomItem()
                 );
 
-                SetItemGrade(item, luck);
+                ItemManager.AssignRandomGrade(item, luck);
+                if(item is EquipableItem item1)
+                    ItemManager.AssignRandomDurability(item1, luck);
+
                 _chestItems.Add(item);
             }
         }
 
+        /// <inheritdoc cref="Popup"/>
         public override void Toggle(bool state)
         {
             base.Toggle(state);
             IsVisible = state;
             enabled = true;
 
+            // Hides other Popups when chest UI is visible,
+            // except inventory, as we want to see it when accessing
+            // loot table
             DI.Fetch<UIController>()?.HideAllSections();
-            DI.Fetch<InventoryController>()?.Toggle(state);
-            DI.Fetch<UIController>()?.SetToggleState<InventoryController>(state);
+            DI.Fetch<InventoryPopupUi>()?.Toggle(state);
+            DI.Fetch<UIController>()?.SetToggleState<InventoryPopupUi>(state);
         }
 
-        public override void OnGUI()
+
+
+        /// <summary>
+        /// Moves item from chest to users inventory
+        /// </summary>
+        /// <param name="id">Items id in list</param>
+        protected void CollectItem(int id)
         {
-            if(!IsVisible)
+            InventoryManager.AddItem(_chestItems[id]);
+            _chestItems.RemoveAt(id);
+        }
+
+        #region GUI
+        public override void GuiDraw()
+        {
+            if (!IsVisible)
                 return;
 
-            // TODO: Some issue with setting depth
-            GUI.skin = Theme;
-            GUI.depth = Depth;
             Design();
         }
 
-        private int FetchItemFromLootTable()
-        {
-            var percentage = R.RandomRange(0, 100);
-            var curr = 0;
-
-            for (var i = 0; i < _lootTableData.LootItems.Length - 1; i++)
-            {
-                curr += _lootTableData.LootItems[i].percentage;
-                if (curr > percentage)
-                    return _lootTableData.LootItems[i].itemId;
-            }
-
-            return _lootTableData.LootItems[_lootTableData.LootItems.Length - 1].itemId;
-        }
-
-        private static void SetItemGrade(SimpleItem item, int luck)
-        {
-            var percentage = R.RandomRange(0, 100);
-            percentage += luck;
-
-            if (percentage < 40)
-                item.Grade = ItemGrade.D;
-            else if (percentage < 65)
-                item.Grade = ItemGrade.C;
-            else if (percentage < 80)
-                item.Grade = ItemGrade.B;
-            else if (percentage < 94)
-                item.Grade = ItemGrade.A;
-            else if (percentage < 99)
-                item.Grade = ItemGrade.S;
-            else
-                item.Grade = ItemGrade.SS;
-        }
 
         public void ShowChest()
         {
@@ -169,26 +188,21 @@ namespace Assets.Scripts.World.Items
         protected override void DrawBody()
         {
             for (var x = 0; x < 4; x++)
+            for (var y = 0; y < Mathf.CeilToInt(_chestItems.Count / 4.0f); y++)
             {
-                for (var y = 0; y < Mathf.CeilToInt(_chestItems.Count / 4.0f); y++)
-                {
-                    var realId = x + y * 4;
-                    if (realId >= _chestItems.Count)
-                        break;
+                var realId = x + y * 4;
+                if (realId >= _chestItems.Count)
+                    break;
 
-                    if (GUI.Button(new Rect(25 + x * 65, 65 + y * 65, 60, 60), _chestItems[realId].Info.Icon.texture, "inv_item"))
-                    {
-                        CollectItem(realId);
-                        break;
-                    }
+                if (GUI.Button(new Rect(25 + x * 65, 65 + y * 65, 60, 60), _chestItems[realId].Info.Icon.texture,
+                    "inv_item"))
+                {
+                    CollectItem(realId);
+                    break;
                 }
             }
         }
+        #endregion
 
-        protected void CollectItem(int id)
-        {
-            DI.Fetch<InventoryController>()?.AddItem(_chestItems[id]);
-            _chestItems.RemoveAt(id);
-        }
     }
 }

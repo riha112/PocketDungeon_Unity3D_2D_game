@@ -1,52 +1,64 @@
 [
     {
         "Id": 0,
-        "LootItems": [
+        "Items": [
             {
-                "item1": 2,
-                "item2": 10
+                "ItemId": 2,
+                "PossibilityOfSpawning": 10
             },
             {
-                "item1": 500,
-                "item2": 40
+                "ItemId": 500,
+                "PossibilityOfSpawning": 40
             },
             {
-                "item1": 501,
-                "item2": 40
+                "ItemId": 501,
+                "PossibilityOfSpawning": 40
             },
             {
-                "item1": 3,
-                "item2": 10
+                "ItemId": 3,
+                "PossibilityOfSpawning": 10
             }
         ],
-        "MinItems": 0,
-        "MaxItems": 5
+        "ItemCount": {
+            "item1": 0,
+            "item2": 5
+        },
+        "SpawnOnLevelsInRangeOf": {
+            "item1": 0,
+            "item2": 100
+        }
     },
     {
         "Id": 1,
-        "LootItems": [
+        "Items": [
             {
-                "item1": 211,
-                "item2": 25
+                "ItemId": 211,
+                "PossibilityOfSpawning": 25
             },
             {
-                "item1": 215,
-                "item2": 25
+                "ItemId": 215,
+                "PossibilityOfSpawning": 25
             },
             {
-                "item1": 205,
-                "item2": 20
+                "ItemId": 205,
+                "PossibilityOfSpawning": 20
             },
             {
-                "item1": 210,
-                "item2": 20
+                "ItemId": 210,
+                "PossibilityOfSpawning": 20
             },
             {
-                "item1": 201,
-                "item2": 10
+                "ItemId": 201,
+                "PossibilityOfSpawning": 10
             }
         ],
-        "MinItems": 0,
-        "MaxItems": 4
+        "ItemCount": {
+            "item1": 0,
+            "item2": 4
+        },
+        "SpawnOnLevelsInRangeOf": {
+            "item1": 0,
+            "item2": 100
+        }
     }
 ]

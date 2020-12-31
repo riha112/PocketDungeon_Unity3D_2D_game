@@ -1,22 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Assets.Scripts.Misc;
+﻿using Assets.Scripts.Misc;
+using Assets.Scripts.Misc.GUI;
 using Assets.Scripts.Misc.ObjectManager;
-using Assets.Scripts.World.MapDraw;
+using Assets.Scripts.User.Map.MapDraw;
 using UnityEngine;
 
 namespace Assets.Scripts.User.Map
 {
-    public class MapController : UI.UI
+    /// <summary>
+    /// Outputs mini-map of current dungeons floor
+    /// </summary>
+    public class MapController : UI
     {
         public Texture2D MapTexture2D;
-        public Texture2D CharacterTexture;
 
+        #region Foreground data
+        public Texture2D CharacterTexture;
         private Texture2D _mapForeground;
+        
+        /// <summary>
+        /// Calculated size of one pixel in foreground image
+        /// </summary>
         private float _pixelSize;
+
+        /// <summary>
+        /// New foreground height based on pixel size
+        /// </summary>
         private float _mapHeight;
 
         private Texture2D MapForeground
@@ -33,6 +41,7 @@ namespace Assets.Scripts.User.Map
                 return _mapForeground;
             }
         }
+        #endregion 
 
         private Transform _character;
 
@@ -40,24 +49,28 @@ namespace Assets.Scripts.User.Map
         {
             get
             {
-                if (_character == null)
-                {
-                    _character = Util.GetCharacterTransform();
-                }
+                if (_character == null) _character = Util.GetCharacterTransform();
                 return _character;
             }
         }
 
-        protected override int Depth { get; set; } = 10;
+        public override int Depth => 10;
 
         protected override void Design()
         {
             DrawBackground();
+
+            // Map background
             GUI.DrawTexture(new Rect(ScreenSize.x / 2 - 225, ScreenSize.y / 2 - 225, 450, 450), MapTexture2D);
-            GUI.DrawTexture(new Rect(ScreenSize.x / 2 - 150, ScreenSize.y / 2 - _mapHeight / 2, 300, _mapHeight), MapForeground);
+
+            // Dungeon texture
+            GUI.DrawTexture(new Rect(ScreenSize.x / 2 - 150, ScreenSize.y / 2 - _mapHeight / 2, 300, _mapHeight),
+                MapForeground);
+
+            // Character position
             GUI.DrawTexture(new Rect(
-                ScreenSize.x / 2 + (Character.position.x / 0.8f) * _pixelSize, 
-                ScreenSize.y / 2 - (Character.position.y / 0.8f) * _pixelSize,
+                ScreenSize.x / 2 + Character.position.x / 0.8f * _pixelSize,
+                ScreenSize.y / 2 - Character.position.y / 0.8f * _pixelSize,
                 _pixelSize,
                 _pixelSize
             ), CharacterTexture);

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Assets.Scripts.Misc.ObjectManager;
+using Assets.Scripts.Misc.Translator;
 using UnityEngine;
 
 namespace Assets.Scripts.User.Messages
@@ -53,7 +54,7 @@ namespace Assets.Scripts.User.Messages
         {
             if (Messages.Count >= MAX_QUE_SIZE)
                 ShiftMessages();
-            Messages.Add(msg);
+            Messages.Add(T.Translate(msg));
         }
 
         /// <summary>

@@ -2,6 +2,9 @@
 
 namespace Assets.Scripts.World
 {
+    /// <summary>
+    /// Performs fade in animation
+    /// </summary>
     public class FadeIn : MonoBehaviour
     {
         public float Speed = 1;

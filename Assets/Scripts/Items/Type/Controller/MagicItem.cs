@@ -21,8 +21,8 @@ namespace Assets.Scripts.Items.Type.Controller
 
         public override void Use()
         {
-            DI.Fetch<MagicController>().LearnMagic(BookInfo.MagicId);
-            DI.Fetch<InventoryController>()?.RemoveItem(LocalId);
+            DI.Fetch<MagicController>()?.LearnMagic(BookInfo.MagicId);
+            InventoryManager.DropItem(this);
         }
     }
 }

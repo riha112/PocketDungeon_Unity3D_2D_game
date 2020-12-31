@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Assets.Scripts.Misc.Translator;
 using Assets.Scripts.SaveLoad;
-using Assets.Scripts.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -32,7 +31,7 @@ namespace Assets.Scripts.MainMenu
         {
             _lmc = new LocalMessageCache()
             {
-                CachedMessages = new List<string>
+                Messages = new List<string>
                 {
                     "New Game",         //0
                     "Load Game",        //1

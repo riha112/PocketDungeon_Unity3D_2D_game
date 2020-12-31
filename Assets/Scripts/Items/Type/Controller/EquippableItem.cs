@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Misc.ObjectManager;
 using Assets.Scripts.User.Attributes;
 using Assets.Scripts.User.Equipment;
+using Assets.Scripts.User.Inventory;
 
 namespace Assets.Scripts.Items.Type.Controller
 {
@@ -10,7 +11,19 @@ namespace Assets.Scripts.Items.Type.Controller
 
         public bool IsEquipped { get; set; } = false;
         public AttributeData Attribute { get; set; } = new AttributeData();
-        public float Durability { get; set; } = 1;
+
+        private float _durability = 1;
+
+        public float Durability
+        {
+            get => _durability;
+            set
+            {
+                _durability = value;
+                if (_durability < 0)
+                    Break();
+            }
+        }
 
         public bool Mount()
         {
@@ -43,6 +56,15 @@ namespace Assets.Scripts.Items.Type.Controller
         {
             var EC = DI.Fetch<EquipmentController>();
             EC?.UnEquipItem(EC.FindSlotForItem(this));
+        }
+
+        /// <summary>
+        /// Called when durability is less or equal to 0
+        /// - Removes item from users inventory/equipment
+        /// </summary>
+        protected virtual void Break()
+        {
+            InventoryManager.DropItem(this);
         }
     }
 }

@@ -36,6 +36,9 @@ namespace Assets.Scripts.Misc.Random
             if (_random == null)
                SetSeed();
 
+            if (min > max)
+                max = min + 1;
+
             return _random.Next(min, max);
         }
 

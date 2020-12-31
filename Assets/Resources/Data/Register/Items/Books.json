@@ -38,5 +38,13 @@
         "Type": 3,
         "Slot": 0,
         "MagicId": 5
+    },
+    {
+        "ItemId": 1005,
+        "Title": "SpellBook: Teleportation",
+        "PathToIcon": "Books/icon_book_spell",
+        "Type": 3,
+        "Slot": 0,
+        "MagicId": 6
     }
 ]

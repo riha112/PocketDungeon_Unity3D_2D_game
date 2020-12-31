@@ -33,8 +33,7 @@ namespace Assets.Scripts.Items.Type.Controller
                 LoadEffect();
             }
 
-
-            DI.Fetch<InventoryController>()?.RemoveItem(LocalId);
+            InventoryManager.DropItem(this);
         }
 
         protected virtual void LoadEffect()

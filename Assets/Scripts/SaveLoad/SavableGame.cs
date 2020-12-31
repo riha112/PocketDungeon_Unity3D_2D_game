@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using Assets.Scripts.Items;
 using Assets.Scripts.Misc;
 using Assets.Scripts.Misc.ObjectManager;
 using Assets.Scripts.Repository.Data;
+using Assets.Scripts.User.Attributes;
+using Assets.Scripts.User.Stats;
 using Assets.Scripts.World;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
@@ -22,8 +26,53 @@ namespace Assets.Scripts.SaveLoad
             World = new WorldData
             {
                 Title = title,
-                DungeonFloor = 1
+                DungeonFloor = 1,
             };
+
+            CharacterData = new SavableCharacter
+            {
+                HP = 100,
+                MP = 20,
+                Inventory = new []
+                {
+                    new SavableItem
+                    {
+                        Durability = 1,
+                        Grade = ItemGrade.E,
+                        ItemId = 214,
+                        LocalId = 1
+                    },
+                    new SavableItem
+                    {
+                        Durability = 1,
+                        Grade = ItemGrade.E,
+                        ItemId = 500,
+                        LocalId = 2
+                    },
+                    new SavableItem
+                    {
+                        Durability = 1,
+                        Grade = ItemGrade.E,
+                        ItemId = 501,
+                        LocalId = 3
+                    }
+                },
+                SavableEquipment = new List<int>()
+                {
+                    1
+                },
+                Attributes = new AttributeData()
+                {
+                    Agility = 0,
+                    Luck = 0,
+                    Magic = 0,
+                    Points = 5,
+                    Resistance = 0,
+                    Strength = 0,
+                    Vitality = 0
+                },
+            };
+
             PlayerPrefs.SetString("CurrentGame", title);
             WorldController.PopulateFloorSeeds(World, seed);
             Save();
@@ -61,6 +110,8 @@ namespace Assets.Scripts.SaveLoad
 
             var wc = DI.Fetch<WorldController>();
             wc.Data = World;
+
+            DI.Register(this);
         }
 
         private void CheckFileDir()

@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.User.Controller
 {
+    // TODO: REFACTOR WHOLE CLASS
     public class MovementController : MonoBehaviour
     {
         public float Speed = 2;
@@ -24,38 +25,6 @@ namespace Assets.Scripts.User.Controller
             _camera = Camera.main.transform;
 
             DI.Register(this);
-        }
-
-        /**
-         * Two-dimensional movement up-down / left-right
-         */
-        protected void Move()
-        {
-
-        }
-
-        /**
-         * Movement int up-down direction via ladder
-         */
-        protected void Climb()
-        {
-
-        }
-
-        /**
-         * Climbing onto elements with max-height of 1.0
-         */
-        protected void Jump()
-        {
-
-        }
-
-        /**
-         * Rush towards AKA adding rigidbody force toward specific point
-         */
-        protected void ForceTowards()
-        {
-
         }
 
         /**
@@ -80,7 +49,7 @@ namespace Assets.Scripts.User.Controller
             d.transform.right = Util.GetDirectionTowardsCursor(d.transform);
         }
 
-        void Update()
+        private void Update()
         {
             if (_dustTimer < 0)
             {
@@ -102,7 +71,7 @@ namespace Assets.Scripts.User.Controller
             }
 
             var newSpeed = Input.GetKey(KeyCode.LeftShift) ? Sprint : Speed;
-            if(newSpeed != _activeSpeed)
+            if (newSpeed != _activeSpeed)
                 InstallDust(1);
 
             _activeSpeed = newSpeed;
@@ -115,23 +84,15 @@ namespace Assets.Scripts.User.Controller
 
                 var prev = transform.localScale.x;
                 var newL = movementHorizontal < 0 ? 1 : -1;
-                if (prev != newL)
-                {
-                    InstallDust();
-                }
+                if (prev != newL) InstallDust();
 
                 transform.localScale = new Vector3(newL, 1, 1);
             }
 
             if (movementVertical != 0)
-            {
                 transform.position += Vector3.up * Time.deltaTime * movementVertical * _activeSpeed;
-            }
 
-            if (movementVertical != 0 || movementHorizontal != 0)
-            {
-                _dustTimer -= Time.deltaTime * (_activeSpeed / 2);
-            }
+            if (movementVertical != 0 || movementHorizontal != 0) _dustTimer -= Time.deltaTime * (_activeSpeed / 2);
 
             _animator.SetBool("IsMoving", movementVertical != 0 || movementHorizontal != 0);
         }

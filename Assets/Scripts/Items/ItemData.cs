@@ -2,6 +2,7 @@
 using Assets.Scripts.Misc;
 using Assets.Scripts.Misc.Translator;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.Items
 {
@@ -29,7 +30,7 @@ namespace Assets.Scripts.Items
 
         public string Description
         {
-            get => _description;
+            get => string.IsNullOrEmpty(_description) ? T.Translate("[No description]") : _description;
             set => _description = T.Translate(value);
         }
 

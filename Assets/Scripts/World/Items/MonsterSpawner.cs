@@ -1,93 +1,122 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Assets.Scripts.Misc.ObjectManager;
 using Assets.Scripts.Misc.Random;
-using Assets.Scripts.World.Generation;
+using Assets.Scripts.Repository;
+using Assets.Scripts.Repository.Data;
+using Assets.Scripts.User.FloorSwitcher;
 using Assets.Scripts.World.Generation.Data;
 using UnityEngine;
 
 namespace Assets.Scripts.World.Items
 {
-    [System.Serializable]
-    public struct MonsterSpawnerSettings
-    {
-        public GameObject Monster;
-        [Range(0, 100)]
-        public int PossibilityOfSpawning;
-    }
-
+    /// <summary>
+    /// Contains logic for item: Monster Spawner
+    /// - Initiates random monster, based on json data config,
+    ///   within given range...
+    /// - Spawns X monsters Y times, in interval of Z
+    /// </summary>
     public class MonsterSpawner : MonoBehaviour
     {
-        public List<MonsterSpawnerSettings> Monsters;
-        [Range(1, 50)]
-        public int SpawnPerBatch;
-        [Range(1, 10)]
-        public int Radius;
-        [Range(1, 120)]
-        public float CoolDownTimer;
+        private const int SPAWN_RADIUS = 3;
+
+        #region Config
+        private MonsterSpawnerData _data;
+        private int _coolDownTimer;
+        private int _spawnPerBatch;
+        private int _spawnBatchCount;
+        private int _currentBatchId = 0;
+        #endregion
 
         public GameObject SpawningEffect;
+        public GameObject EndEffect;
+        public EventHandler<bool> FinishedSpawningMonsters;
 
+        /// <summary>
+        /// Called on start of the object instance
+        /// </summary>
         private void Start()
         {
-            CoolDownTimer = R.RandomRange(30, 120);
-            SpawnPerBatch = R.RandomRange(2, 10);
+            _data = MonsterSpawnerRepository.GetMonsterSpawner();
+            if (_data == null)
+            {
+                EndOfSpawner();
+                return;
+            }
 
-            InvokeRepeating(nameof(SpawnMonsters), CoolDownTimer / 2, CoolDownTimer);
+            _coolDownTimer = R.RandomRange(_data.CoolDownRange.min, _data.CoolDownRange.max);
+            _spawnPerBatch = R.RandomRange(_data.SpawnAmountPerBatch.min, _data.SpawnAmountPerBatch.max);
+            _spawnBatchCount = R.RandomRange(_data.BatchRange.min, _data.BatchRange.max);
+
+            InvokeRepeating(nameof(SpawnMonsters), _coolDownTimer - 10, _coolDownTimer);
+            DI.Fetch<FloorSwitcher>()?.Register(this);
         }
 
+        /// <summary>
+        /// Loads monsters into game
+        /// </summary>
         private void SpawnMonsters()
         {
-            for (var i = 0; i < SpawnPerBatch; i++)
+            _currentBatchId++;
+
+            for (var i = 0; i < _spawnPerBatch; i++)
             {
                 var position = GetSpawnPoint();
                 if (position == null) continue;
 
-                var monster = Instantiate(GetMonsterToSpawn());
+                var monster = Instantiate(_data.GetRandomMonster());
 
                 monster.transform.position = position.Value;
 
                 var particle = Instantiate(SpawningEffect);
                 particle.transform.position = monster.transform.position;
             }
+
+            if (_currentBatchId >= _spawnBatchCount)
+            {
+                EndOfSpawner();
+            }
         }
 
+        /// <summary>
+        /// Tries 10 times to find spawn point within specific radius of the spawner,
+        /// so that spawning tile is Floor.
+        /// </summary>
+        /// <returns>Vector2 point for spawn location | on fail null</returns>
         private Vector2? GetSpawnPoint()
         {
+            // Allows up to 10 tries to find suitable spawn location for monster
             for (var c = 0; c < 10; c++)
             {
+                // Random position around spawner
                 var position = new Vector2(
-                    transform.position.x + R.RandomRange(-Radius, Radius + 1) * 0.8f,
-                    transform.position.y + R.RandomRange(-Radius, Radius + 1) * 0.8f
+                    transform.position.x + R.RandomRange(-SPAWN_RADIUS, SPAWN_RADIUS + 1) * 0.8f,
+                    transform.position.y + R.RandomRange(-SPAWN_RADIUS, SPAWN_RADIUS + 1) * 0.8f
                 );
 
-                var tileData = DI.Fetch<DungeonSectionData>().GetTileByCoords(position);
+                var tileData = DI.Fetch<DungeonSectionData>()?.GetTileByCoords(position);
 
+                // If tile is floor returns spawn position
                 if (tileData != null && tileData.Type == TileType.Floor &&
                     tileData.Instance.transform.childCount == 0)
-                {
                     return position;
-                }
             }
 
             return null;
         }
 
-        private GameObject GetMonsterToSpawn()
+        /// <summary>
+        /// Method that is executed when all monsters are spawned
+        /// </summary>
+        private void EndOfSpawner()
         {
-            var monsterPrc = R.RandomRange(0, 100);
-            var curr = 0;
-            for (var i = 0; i < Monsters.Count - 1; i++)
-            {
-                curr += Monsters[i].PossibilityOfSpawning;
-                if (curr > monsterPrc)
-                    return Monsters[i].Monster;
-            }
-            return Monsters[Monsters.Count - 1].Monster;
-        }
+            // TODO: Add animation for ending of the spawners life (shrinking (then puff) or exploding)
+            FinishedSpawningMonsters?.Invoke(this, true);
 
+            var effect = Instantiate(EndEffect);
+            effect.transform.position = transform.position;
+
+            DI.Fetch<FloorSwitcher>()?.Remove(this);
+            Destroy(gameObject);
+        }
     }
 }

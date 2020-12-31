@@ -7,6 +7,7 @@ using Assets.Scripts.Misc.ObjectManager;
 using Assets.Scripts.User.Attributes;
 using Assets.Scripts.User.Controller;
 using Assets.Scripts.User.Equipment;
+using Assets.Scripts.User.Messages;
 using Assets.Scripts.User.Resource;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -84,6 +85,9 @@ namespace Assets.Scripts.User
 
             // Pushes character away
             DI.Fetch<MovementController>()?.BounceOff();
+
+            // Outputs msg about taken damage
+            DI.Fetch<MessageController>()?.AddMessage($"Took damage: {realDamage}");
 
             return realDamage;
         }

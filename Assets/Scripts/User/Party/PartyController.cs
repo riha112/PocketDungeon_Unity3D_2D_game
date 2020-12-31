@@ -3,20 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assets.Scripts.Misc.GUI;
 using UnityEngine;
 
 namespace Assets.Scripts.User.Party
 {
-    public class PartyController : UI.UI
+    public class PartyController : UI
     {
         public List<IPartyMember> PartyMembers { get; set; } = new List<IPartyMember>();
 
-        public override void OnGUI()
+        public override void GuiDraw()
         {
             if(PartyMembers.Count == 0)
                 return;
 
-            base.OnGUI();
+            base.GuiDraw();
         }
 
         protected override void Design()

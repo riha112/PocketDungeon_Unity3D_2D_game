@@ -1,0 +1,19 @@
+{
+    "Strength": "Spēks",
+    "Vitality": "Veselība",
+    "Agility": "Ātrums",
+    "Magic": "Maģija",
+    "Resistance": "Pretestība",
+    "Luck": "Veiksme",
+    "ATTRIBUTES": "ATRIBŪTI",
+    "INVENTORY": "Inventārs",
+    "Drop": "Izmest",
+    "Use": "Lietot",
+    "About": "Apraksts",
+    "Cancel": "Atcelt",
+    "Accept": "Apstiprināt",
+    "RESOURCES": "Resursi",
+    "Wood": "Koks",
+    "Stone": "Akmens",
+    "Iron": "Dzelzs"
+}

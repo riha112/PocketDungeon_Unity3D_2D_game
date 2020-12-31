@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Misc;
+using Assets.Scripts.Weapons.Projectile;
 using UnityEngine;
 
 namespace Assets.Scripts.Enemy

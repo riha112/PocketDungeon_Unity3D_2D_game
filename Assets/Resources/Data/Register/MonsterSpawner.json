@@ -1,0 +1,31 @@
+[
+    {
+        "Id": 1,
+        "Monsters": [
+            {
+                "MonsterId": 0,
+                "PossibilityOfSpawning": 50
+            },
+            {
+                "MonsterId": 2,
+                "PossibilityOfSpawning": 50
+            }
+        ],
+        "SpawnAmountPerBatch": {
+            "item1": 2,
+            "item2": 5
+        },
+        "SpawnOnLevelsInRangeOf": {
+            "item1": 0,
+            "item2": 100
+        },
+        "BatchRange": {
+            "item1": 2,
+            "item2": 6
+        },
+        "CoolDownRange": {
+            "item1": 40,
+            "item2": 65
+        }
+    }
+]

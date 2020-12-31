@@ -20,6 +20,7 @@ namespace Assets.Scripts.Items
             get => _localId;
             set
             {
+                // Prevents from overlapping local ids
                 if (ItemCounter <= value)
                     ItemCounter = value + 1;
                 _localId = value;
@@ -52,6 +53,12 @@ namespace Assets.Scripts.Items
 
         public virtual void UnUse()
         {
+        }
+
+        public virtual string GetDescription()
+        {
+            return $"{Info.Description}\n" +
+                   $"<b>GRADE:</b>{Grade.ToString()}";
         }
     }
 }

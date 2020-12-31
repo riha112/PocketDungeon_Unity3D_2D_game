@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Assets.Scripts.Repository;
 
 namespace Assets.Scripts.User.Resource
 {
     public class ResourcesData
     {
-        private Dictionary<int, int> _resources;
+        public Dictionary<int, int> Resources { get; set; }
 
         /// <summary>
         /// Helper operation to transform class to array like access
@@ -20,18 +16,18 @@ namespace Assets.Scripts.User.Resource
         {
             get
             {
-                if (_resources is null)
-                    _resources = GetDefaultResources();
-                return _resources.ContainsKey(id) ? _resources[id] : 0;
+                if (Resources is null)
+                    Resources = GetDefaultResources();
+                return Resources.ContainsKey(id) ? Resources[id] : 0;
             }
             set
             {
-                if (_resources is null)
-                    _resources = GetDefaultResources();
-                if (!_resources.ContainsKey(id))
-                    _resources.Add(id, value);
+                if (Resources is null)
+                    Resources = GetDefaultResources();
+                if (!Resources.ContainsKey(id))
+                    Resources.Add(id, value);
                 else
-                    _resources[id] = value;
+                    Resources[id] = value;
             }
         }
 

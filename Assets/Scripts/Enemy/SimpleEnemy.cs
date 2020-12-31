@@ -1,11 +1,11 @@
-﻿using Assets.Scripts.Entity;
-using Assets.Scripts.Misc;
+﻿using Assets.Scripts.Misc;
 using Assets.Scripts.Misc.ObjectManager;
 using Assets.Scripts.Repository;
 using Assets.Scripts.Repository.Data;
 using Assets.Scripts.User.Attributes;
 using Assets.Scripts.User.Party;
 using Assets.Scripts.Weapons.Projectile;
+using Assets.Scripts.World;
 using Assets.Scripts.World.Items;
 using UnityEngine;
 
@@ -52,7 +52,6 @@ namespace Assets.Scripts.Enemy
         private bool _wasInRange;
         protected bool IsInAttackRange;
 
-
         #region IPartyMember parameters
         public float HealthMlt => Health / Stats.MaxHealth;
         public float MagicMlt => Magic / Stats.MaxMagic;
@@ -66,6 +65,7 @@ namespace Assets.Scripts.Enemy
         protected virtual void Start()
         {
             SetComponents();
+            Stats.CurrentLevel = GameBalancer.GetBalancedMonsterLevel();
             UpdateMyAttributes();
             SetBaseValues();
         }
@@ -113,7 +113,6 @@ namespace Assets.Scripts.Enemy
             Health = Stats.MaxHealth;
             Magic = Stats.MaxMagic;
         }
-
 
         /// <summary>
         /// Changes sprites X axis towards target, to simulate look at my

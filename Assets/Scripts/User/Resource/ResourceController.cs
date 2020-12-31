@@ -1,8 +1,8 @@
-﻿using Assets.Scripts.Misc.ObjectManager;
+﻿using Assets.Scripts.Misc.GUI;
+using Assets.Scripts.Misc.ObjectManager;
 using Assets.Scripts.Misc.Translator;
 using Assets.Scripts.Repository;
 using Assets.Scripts.Repository.Data;
-using Assets.Scripts.UI;
 using Assets.Scripts.User.Magic;
 using Assets.Scripts.User.Messages;
 using Assets.Scripts.World.Generation;

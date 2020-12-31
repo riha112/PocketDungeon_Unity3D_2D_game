@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Assets.Scripts.Misc;
+using Assets.Scripts.Misc.GUI;
 using Assets.Scripts.Misc.ObjectManager;
 using Assets.Scripts.Misc.Random;
 using Assets.Scripts.Repository.Data;
@@ -43,25 +40,29 @@ namespace Assets.Scripts.World
         {
             DI.Register(this);
             DI.Register(GetComponent<MonoUtil>());
-            DI.Register(Util.GetCharacterTransform().GetComponent<CharacterEntity>());
-            DI.Register(Util.GetCharacterTransform().GetComponent<MovementController>());
-            DI.Register(Util.GetCharacterTransform().GetComponent<FightingController>());
-            DI.Register(Util.GetCharacterTransform().GetComponent<InventoryController>());
-            DI.Register(Util.GetCharacterTransform().GetComponent<MagicController>());
-            DI.Register(Util.GetCharacterTransform().GetComponent<ResourceController>());
-            DI.Register(Util.GetCharacterTransform().GetComponent<MessageController>());
-            DI.Register(Util.GetCharacterTransform().GetComponent<PartyController>());
+            DI.Register(GetComponent<Gui>());
 
-            DI.Register(Camera.main.GetComponent<AttributeController>());
-            DI.Register(Camera.main.GetComponent<EquipmentController>());
-            DI.Register(Camera.main.GetComponent<UIController>());
-            DI.Register(Camera.main.GetComponent<MapController>());
-            DI.Register(Camera.main.GetComponent<InGameUiController>());
+            var character = Util.GetCharacterTransform();
+            DI.Register(character.GetComponent<CharacterEntity>());
+            DI.Register(character.GetComponent<MovementController>());
+            DI.Register(character.GetComponent<FightingController>());
+            DI.Register(character.GetComponent<InventoryPopupUi>());
+            DI.Register(character.GetComponent<MagicController>());
+            DI.Register(character.GetComponent<ResourceController>());
+            DI.Register(character.GetComponent<MessageController>());
+            DI.Register(character.GetComponent<PartyController>());
+
+            var mainCamera = Camera.main;
+            DI.Register(mainCamera.GetComponent<AttributePopupUi>());
+            DI.Register(mainCamera.GetComponent<EquipmentController>());
+            DI.Register(mainCamera.GetComponent<MapController>());
+            DI.Register(mainCamera.GetComponent<InGameUiController>());
+            DI.Register(mainCamera.GetComponent<UIController>());
         }
 
         public void StartGame()
         {
-            if(Data.DungeonFloorSeeds == null || Data.DungeonFloorSeeds.Length == 0)
+            if (Data.DungeonFloorSeeds == null || Data.DungeonFloorSeeds.Length == 0)
                 PopulateFloorSeeds(Data);
 
             GenerateDungeon(Data.DungeonFloor);
@@ -71,9 +72,13 @@ namespace Assets.Scripts.World
         {
             data.DungeonFloorSeeds = new string[100];
             var baseSeed = seed ?? DateTime.Now.ToString();
+            R.SetSeed(baseSeed);
+
             data.DungeonFloorSeeds[0] = baseSeed;
             for (var i = 1; i < 100; i++)
-                data.DungeonFloorSeeds[i] = $"{Random.Range(0, 100)}_{baseSeed}_{i}_{Random.Range(0, 999999999)}";
+            {
+                data.DungeonFloorSeeds[i] = $"{R.RandomRange(0, 999999)}_{baseSeed}_{i}_{R.RandomRange(0, 999999)}";
+            }
         }
 
         public void GenerateDungeon(int level)
@@ -87,8 +92,6 @@ namespace Assets.Scripts.World
         {
             Data.DungeonFloor++;
             SaveGame.Save();
-
-            // Destroy all GO.
 
             // Reload level.
             SceneManager.LoadScene("Dungeon");

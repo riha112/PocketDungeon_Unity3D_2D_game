@@ -92,26 +92,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa6ebcdb31a3d4247b1ddc03d9c8ec3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Monsters:
-  - Monster: {fileID: 149316675091488921, guid: c9eeb13b694e0f14b813783709112306,
-      type: 3}
-    PossibilityOfSpawning: 35
-  - Monster: {fileID: 365566562447169524, guid: ff131cd7ca25a024da0613b3d5777ee1,
-      type: 3}
-    PossibilityOfSpawning: 25
-  - Monster: {fileID: 3730856123278060869, guid: 50ddfcb46bb16be4eb46c94f35770a17,
-      type: 3}
-    PossibilityOfSpawning: 15
-  - Monster: {fileID: 2931236177961166853, guid: c6d0663899fc4344e9822c3f76121982,
-      type: 3}
-    PossibilityOfSpawning: 22
-  - Monster: {fileID: 2110088009407309031, guid: 0d7c60f48e603554ba6c1e4ca6ae01c7,
-      type: 3}
-    PossibilityOfSpawning: 3
-  SpawnPerBatch: 3
-  Radius: 2
-  CoolDownTimer: 120
   SpawningEffect: {fileID: 5685710397770142451, guid: 3cba79d562eb7b742b12a03baae4ef3f,
+    type: 3}
+  EndEffect: {fileID: 9015525973635122434, guid: 7f0e69d527e3aa94c9696a03fe2f752b,
     type: 3}
 --- !u!1 &643943511100212457
 GameObject:

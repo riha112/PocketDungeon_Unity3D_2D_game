@@ -37,7 +37,7 @@ namespace Assets.Scripts.SaveLoad
         public int[] Magic { get; set; }
 
         // -- User data --
-        public ResourcesData Resources;
+        public Dictionary<int, int> Resources;
         public AttributeData Attributes;
         public StatsData Stats;
 
@@ -73,7 +73,7 @@ namespace Assets.Scripts.SaveLoad
 
             HP = ce.Health;
             MP = ce.Magic;
-            Resources = ce.Resources;
+            Resources = ce.Resources.Resources;
             Attributes = ce.Attributes;
             Stats = ce.Stats;
         }
@@ -93,19 +93,15 @@ namespace Assets.Scripts.SaveLoad
 
         private void SaveInventory()
         {
-            var ic = DI.Fetch<InventoryController>();
-            if (ic == null)
-                return;
-
-            Inventory = new SavableItem[ic.InventoryGrid.Count];
-            for (var i = 0; i < ic.InventoryGrid.Count; i++)
+            Inventory = new SavableItem[InventoryManager.InventoryGrid.Count];
+            for (var i = 0; i < InventoryManager.InventoryGrid.Count; i++)
             {
                 Inventory[i] = new SavableItem
                 {
-                    Durability = ic.InventoryGrid[i] is EquipableItem item ? item.Durability : 1,
-                    Grade = ic.InventoryGrid[i].Grade,
-                    ItemId = ic.InventoryGrid[i].Info.ItemId,
-                    LocalId = ic.InventoryGrid[i].LocalId
+                    Durability = InventoryManager.InventoryGrid[i] is EquipableItem item ? item.Durability : 1,
+                    Grade = InventoryManager.InventoryGrid[i].Grade,
+                    ItemId = InventoryManager.InventoryGrid[i].Info.ItemId,
+                    LocalId = InventoryManager.InventoryGrid[i].LocalId
                 };
             }
         }
@@ -116,12 +112,17 @@ namespace Assets.Scripts.SaveLoad
             LoadMagicData();
             LoadInventory();
             LoadEquipment();
+
+            DI.Register(this);
         }
 
         private void LoadUserData()
         {
             var ud = DI.Fetch<CharacterEntity>();
-            ud.Resources = Resources ?? new ResourcesData();
+            ud.Resources = new ResourcesData()
+            {
+                Resources = Resources
+            };
             ud.Attributes = Attributes ?? new AttributeData();
             ud.Stats = Stats ?? new StatsData();
             ud.Health = HP ?? 100;
@@ -143,7 +144,6 @@ namespace Assets.Scripts.SaveLoad
         {
             if (Inventory is null) return;
 
-            var ic = DI.Fetch<InventoryController>();
             for (var i = 0; i < Inventory.Length; i++)
             {
                 var item = ItemRepository.GetItemObjectFromId(Inventory[i].ItemId);
@@ -151,7 +151,7 @@ namespace Assets.Scripts.SaveLoad
                 if (item is EquipableItem item1)
                     item1.Durability = Inventory[i].Durability;
                 item.LocalId = Inventory[i].LocalId;
-                ic.AddItem(item);
+                InventoryManager.AddItem(item);
             }
         }
         private void LoadEquipment()
@@ -159,13 +159,12 @@ namespace Assets.Scripts.SaveLoad
             if (SavableEquipment is null) return;
 
             var ec = DI.Fetch<EquipmentController>();
-            var ic = DI.Fetch<InventoryController>();
 
             DI.Fetch<FightingController>()?.Start();
 
             foreach (var localItemId in SavableEquipment)
             {
-                var item = ic?.GetItemByItemLocalId(localItemId);
+                var item = InventoryManager.GetItemByItemLocalId(localItemId);
                 if(item is EquipableItem item1)
                     ec?.EquipItem(item1);
             }

@@ -1,34 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Assets.Scripts.Items;
-using Assets.Scripts.Items.Type;
 using Assets.Scripts.Items.Type.Controller;
+using Assets.Scripts.Misc.GUI;
 using Assets.Scripts.Misc.ObjectManager;
 using Assets.Scripts.Misc.Translator;
-using Assets.Scripts.UI;
 using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Assets.Scripts.User.Equipment
 {
-    public class EquipmentSlot
-    {
-        public int Id { get; set; }
-        public EquipableItem CurrentItem { get; set; }
-        public ItemType AllowedItem { get; set; }
-        public Rect Position { get; set; }
-        public Texture2D EmptyTexture { get; set; }
-        public GameObject[] EquipmentPoints { get; set; }
-    }
-
     public class EquipmentController : Popup
     {
         private const short SLOT_SIZE = 75;
 
         private List<EquipmentSlot> _slots;
+
         public List<EquipmentSlot> Slots
         {
             get
@@ -42,6 +30,8 @@ namespace Assets.Scripts.User.Equipment
 
         public List<Texture2D> DefaultIcons;
 
+        public override int Depth => 10;
+
         public event EventHandler<(int, EquipableItem)> EquipmentChanged;
 
         protected override void Init()
@@ -52,9 +42,6 @@ namespace Assets.Scripts.User.Equipment
 
             RectConfig.ShowBackground = false;
             RectConfig.Title = T.Translate("INVENTORY");
-            Depth -= 5;
-
-           
         }
 
         protected override void DrawBody()
@@ -66,14 +53,14 @@ namespace Assets.Scripts.User.Equipment
                 if (GUI.Button(slot.Position,
                     isEmpty ? slot.EmptyTexture : slot.CurrentItem.Info.Icon.texture,
                     "eqpm_item"))
-                {
                     UnEquipItem(slot);
-                }
             }
         }
 
-        public List<EquipableItem> EquippedItems() =>
-            (from slot in Slots where !IsEmptyItem(slot.CurrentItem) select slot.CurrentItem).ToList();
+        public List<EquipableItem> EquippedItems()
+        {
+            return (from slot in Slots where !IsEmptyItem(slot.CurrentItem) select slot.CurrentItem).ToList();
+        }
 
         /**
          * Loads textures into games character to visualize equipped item
@@ -81,14 +68,12 @@ namespace Assets.Scripts.User.Equipment
          */
         protected void UpdateEquipmentVisual(EquipmentSlot slot)
         {
-            if(slot.EquipmentPoints == null) return;
+            if (slot.EquipmentPoints == null) return;
 
             // Removes old Design items
             foreach (var slotEquipmentPoint in slot.EquipmentPoints)
-            {
-                if(slotEquipmentPoint.transform.childCount > 0)
+                if (slotEquipmentPoint.transform.childCount > 0)
                     Destroy(slotEquipmentPoint.transform.GetChild(0).gameObject);
-            }
 
             if (slot.CurrentItem?.Info.Prefabs == null) return;
 
@@ -99,7 +84,7 @@ namespace Assets.Scripts.User.Equipment
                 if (counter >= slot.EquipmentPoints.Length)
                     break;
 
-                var design = GameObject.Instantiate(mount);
+                var design = Instantiate(mount);
                 design.transform.parent = slot.EquipmentPoints[counter].transform;
                 design.transform.localPosition = Vector3.zero;
                 design.transform.localEulerAngles = Vector3.zero;
@@ -126,8 +111,10 @@ namespace Assets.Scripts.User.Equipment
         }
 
         [CanBeNull]
-        public EquipmentSlot FindSlotForItem(EquipableItem item) =>
-            Slots.Find(slot => slot.CurrentItem?.LocalId == item.LocalId);
+        public EquipmentSlot FindSlotForItem(EquipableItem item)
+        {
+            return Slots.Find(slot => slot.CurrentItem?.LocalId == item.LocalId);
+        }
 
         /**
          * Equips item into UI
@@ -142,14 +129,14 @@ namespace Assets.Scripts.User.Equipment
             // Catches slot ID based on slot type
             // - Some items can be equipped into different slots, so
             // - we are preforming priority check
-            var slotId = (int)item.Info.Slot;
+            var slotId = (int) item.Info.Slot;
             switch (item.Info.Slot)
             {
                 case ItemSlot.PrimarySecondary:
-                    slotId = (IsEmptyItem(Slots[2].CurrentItem) || !IsEmptyItem(Slots[4].CurrentItem)) ? 2 : 4;
+                    slotId = IsEmptyItem(Slots[2].CurrentItem) || !IsEmptyItem(Slots[4].CurrentItem) ? 2 : 4;
                     break;
                 case ItemSlot.Socket:
-                    slotId = (IsEmptyItem(Slots[7].CurrentItem) || !IsEmptyItem(Slots[8].CurrentItem)) ? 7 : 8;
+                    slotId = IsEmptyItem(Slots[7].CurrentItem) || !IsEmptyItem(Slots[8].CurrentItem) ? 7 : 8;
                     break;
             }
 
@@ -158,7 +145,7 @@ namespace Assets.Scripts.User.Equipment
 
             // Equip item
             if (item is EquipableItem item1)
-            Slots[slotId].CurrentItem = item1;
+                Slots[slotId].CurrentItem = item1;
             item.Mount();
 
             EquipmentChanged?.Invoke(this, (slotId, Slots[slotId].CurrentItem));
@@ -171,10 +158,15 @@ namespace Assets.Scripts.User.Equipment
          * <param name="item">Slot</param>
          * <returns type="bool">True if slot is empty</returns>
          */
-        private static bool IsEmptyItem(EquipableItem item) => item?.Equals(null) == null;
+        private static bool IsEmptyItem(EquipableItem item)
+        {
+            return item?.Equals(null) == null;
+        }
 
-        public bool IsItemWithIdEquipped(int id) =>
-            Slots.Where(slot => !(IsEmptyItem(slot.CurrentItem))).Any(slot => slot.CurrentItem.Info.ItemId == id);
+        public bool IsItemWithIdEquipped(int id)
+        {
+            return Slots.Where(slot => !IsEmptyItem(slot.CurrentItem)).Any(slot => slot.CurrentItem.Info.ItemId == id);
+        }
 
         /**
          * Configuration setup for equipment UI slots
@@ -184,9 +176,9 @@ namespace Assets.Scripts.User.Equipment
             Slots = new List<EquipmentSlot>
             {
                 // Head
-                new EquipmentSlot()
+                new EquipmentSlot
                 {
-                    Id = (int)ItemSlot.Head,
+                    Id = (int) ItemSlot.Head,
                     CurrentItem = null,
                     AllowedItem = ItemType.Armor,
                     Position = new Rect(310 / 2 - SLOT_SIZE / 2, 60, SLOT_SIZE, SLOT_SIZE),
@@ -197,21 +189,22 @@ namespace Assets.Scripts.User.Equipment
                     }
                 },
                 // Neck
-                new EquipmentSlot()
+                new EquipmentSlot
                 {
-                    Id = (int)ItemSlot.Neck,
+                    Id = (int) ItemSlot.Neck,
                     CurrentItem = null,
                     AllowedItem = ItemType.Armor,
                     Position = new Rect(310 / 2 - SLOT_SIZE / 2 + 10 + SLOT_SIZE, 60, SLOT_SIZE, SLOT_SIZE),
                     EmptyTexture = DefaultIcons[1]
                 },
                 // Sword
-                new EquipmentSlot()
+                new EquipmentSlot
                 {
-                    Id = (int)ItemSlot.Primary,
+                    Id = (int) ItemSlot.Primary,
                     CurrentItem = null,
                     AllowedItem = ItemType.Armor,
-                    Position = new Rect(310 / 2 - SLOT_SIZE / 2 - SLOT_SIZE - 10, 60 + SLOT_SIZE * 1 + 10, SLOT_SIZE, SLOT_SIZE),
+                    Position = new Rect(310 / 2 - SLOT_SIZE / 2 - SLOT_SIZE - 10, 60 + SLOT_SIZE * 1 + 10, SLOT_SIZE,
+                        SLOT_SIZE),
                     EmptyTexture = DefaultIcons[2],
                     EquipmentPoints = new GameObject[1]
                     {
@@ -219,9 +212,9 @@ namespace Assets.Scripts.User.Equipment
                     }
                 },
                 // Armor
-                new EquipmentSlot()
+                new EquipmentSlot
                 {
-                    Id = (int)ItemSlot.Body,
+                    Id = (int) ItemSlot.Body,
                     CurrentItem = null,
                     AllowedItem = ItemType.Armor,
                     Position = new Rect(310 / 2 - SLOT_SIZE / 2, 60 + SLOT_SIZE * 1 + 10, SLOT_SIZE, SLOT_SIZE),
@@ -234,12 +227,13 @@ namespace Assets.Scripts.User.Equipment
                     }
                 },
                 // Secondary Item
-                new EquipmentSlot()
+                new EquipmentSlot
                 {
-                    Id = (int)ItemSlot.Secondary,
+                    Id = (int) ItemSlot.Secondary,
                     CurrentItem = null,
                     AllowedItem = ItemType.Armor,
-                    Position = new Rect(310 / 2 - SLOT_SIZE / 2 + SLOT_SIZE + 10, 60 + SLOT_SIZE * 1+ 10, SLOT_SIZE, SLOT_SIZE),
+                    Position = new Rect(310 / 2 - SLOT_SIZE / 2 + SLOT_SIZE + 10, 60 + SLOT_SIZE * 1 + 10, SLOT_SIZE,
+                        SLOT_SIZE),
                     EmptyTexture = DefaultIcons[4],
                     EquipmentPoints = new GameObject[1]
                     {
@@ -247,18 +241,18 @@ namespace Assets.Scripts.User.Equipment
                     }
                 },
                 // Pants
-                new EquipmentSlot()
+                new EquipmentSlot
                 {
-                    Id = (int)ItemSlot.Pants,
+                    Id = (int) ItemSlot.Pants,
                     CurrentItem = null,
                     AllowedItem = ItemType.Armor,
                     Position = new Rect(310 / 2 - SLOT_SIZE / 2, 60 + SLOT_SIZE * 2 + 10 * 2, SLOT_SIZE, SLOT_SIZE),
                     EmptyTexture = DefaultIcons[5]
                 },
                 // Shoes
-                new EquipmentSlot()
+                new EquipmentSlot
                 {
-                    Id = (int)ItemSlot.Shoes,
+                    Id = (int) ItemSlot.Shoes,
                     CurrentItem = null,
                     AllowedItem = ItemType.Armor,
                     Position = new Rect(310 / 2 - SLOT_SIZE / 2, 60 + SLOT_SIZE * 3 + 10 * 3, SLOT_SIZE, SLOT_SIZE),
@@ -270,21 +264,23 @@ namespace Assets.Scripts.User.Equipment
                     }
                 },
                 // Modifier 1
-                new EquipmentSlot()
+                new EquipmentSlot
                 {
-                    Id = (int)ItemSlot.Socket,
+                    Id = (int) ItemSlot.Socket,
                     CurrentItem = null,
                     AllowedItem = ItemType.Armor,
-                    Position = new Rect(310 / 2 - SLOT_SIZE / 2 - SLOT_SIZE - 10, 60 + SLOT_SIZE * 2 + 10 * 2, SLOT_SIZE, SLOT_SIZE),
-                    EmptyTexture = DefaultIcons[7],
+                    Position = new Rect(310 / 2 - SLOT_SIZE / 2 - SLOT_SIZE - 10, 60 + SLOT_SIZE * 2 + 10 * 2,
+                        SLOT_SIZE, SLOT_SIZE),
+                    EmptyTexture = DefaultIcons[7]
                 },
                 // Modifier 2
-                new EquipmentSlot()
+                new EquipmentSlot
                 {
-                    Id = (int)ItemSlot.Socket + 1,
+                    Id = (int) ItemSlot.Socket + 1,
                     CurrentItem = null,
                     AllowedItem = ItemType.Armor,
-                    Position = new Rect(310 / 2 - SLOT_SIZE / 2 - SLOT_SIZE - 10, 60 + SLOT_SIZE * 3 + 10 * 3, SLOT_SIZE, SLOT_SIZE),
+                    Position = new Rect(310 / 2 - SLOT_SIZE / 2 - SLOT_SIZE - 10, 60 + SLOT_SIZE * 3 + 10 * 3,
+                        SLOT_SIZE, SLOT_SIZE),
                     EmptyTexture = DefaultIcons[8]
                 }
             };

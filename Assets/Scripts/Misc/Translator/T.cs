@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Assets.Scripts.Misc.Translator
 {
@@ -10,6 +11,8 @@ namespace Assets.Scripts.Misc.Translator
     {
         private static Dictionary<string, string> Library { get; set; } = new Dictionary<string, string>();
 
+        public static EventHandler<string> LanguageChange;
+
         /// <summary>
         /// Translates sentence by looking it up in library
         /// </summary>
@@ -19,7 +22,7 @@ namespace Assets.Scripts.Misc.Translator
         {
             if (Library.Count == 0)
             {
-                BuildLibrary("jp_JP");
+                BuildLibrary("lv_LV");
             }
             return Library.ContainsKey(sentence) ? Library[sentence] : sentence;
         }
@@ -41,6 +44,7 @@ namespace Assets.Scripts.Misc.Translator
         public static void BuildLibrary(string language)
         {
             Library = Util.LoadJsonFromFile<Dictionary<string,string>>($"Languages/{language}");
+            LanguageChange?.Invoke(null, language);
         }
     }
 }

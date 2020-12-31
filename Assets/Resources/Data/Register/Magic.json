@@ -44,9 +44,19 @@
     {
         "Id": 5,
         "Title": "Summon Warriors (5)",
-        "PathToIcon": "icon_magic_type4",
+        "PathToIcon": "icon_magic_summon_warriors",
         "Cooldown": 5,
         "PathToObject": "magic_prefab_summon_warriors_4",
+        "EquippedItemRequirements": [
+            4
+        ]
+    },
+    {
+        "Id": 6,
+        "Title": "Teleportation",
+        "PathToIcon": "icon_magic_teleport",
+        "Cooldown": 5,
+        "PathToObject": "magic_prefab_teleport",
         "EquippedItemRequirements": [
             4
         ]

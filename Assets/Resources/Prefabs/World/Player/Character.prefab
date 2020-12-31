@@ -249,10 +249,13 @@ GameObject:
   - component: {fileID: 1375907424753844168}
   - component: {fileID: 3440700272922417716}
   - component: {fileID: 5596703593168041822}
+  - component: {fileID: 1151720875}
   - component: {fileID: 1151720862}
   - component: {fileID: 1151720863}
   - component: {fileID: 1151720869}
   - component: {fileID: 1151720871}
+  - component: {fileID: 3091755332998709489}
+  - component: {fileID: 1151720873}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -369,7 +372,7 @@ MonoBehaviour:
   - {fileID: 3440700273876477398}
   - {fileID: 3440700273798138514}
   - {fileID: 3440700273295031857}
-  DamageColor: {r: 1, g: 0.69411767, b: 0.38431373, a: 1}
+  DamageColor: {r: 1, g: 0.43137255, b: 0.38431373, a: 1}
 --- !u!114 &3440700272922417716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,6 +403,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b26e18c76e83e546905e9235935b135, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1151720875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3440700272922417713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc81940deb6a1d2488e397488514a829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Theme: {fileID: 11400000, guid: 9fbde34efd4ca0045b31158772489724, type: 2}
 --- !u!114 &1151720862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,6 +469,45 @@ MonoBehaviour:
   Tile: {fileID: 8040400651098394757, guid: 89414480bf532734c8954e07d1cc52c1, type: 3}
   TileColor: {r: 0.6431373, g: 0.6431373, b: 0.6431373, a: 1}
   Placeholder: {fileID: 0}
+--- !u!114 &3091755332998709489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3440700272922417713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e43d5a86264341f488c746c5e4c5ccf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Theme: {fileID: 11400000, guid: 9fbde34efd4ca0045b31158772489724, type: 2}
+--- !u!114 &1151720873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3440700272922417713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ef5d820b3f1d1b45bc0e540623dc107, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Messages: []
+  MessageColors:
+  - {r: 0.8901961, g: 0.8901961, b: 0.8901961, a: 0.101960786}
+  - {r: 0.8901961, g: 0.8901961, b: 0.8901961, a: 0.2}
+  - {r: 0.8901961, g: 0.8901961, b: 0.8901961, a: 0.29803923}
+  - {r: 0.8901961, g: 0.8901961, b: 0.8901961, a: 0.4}
+  - {r: 0.8901961, g: 0.8901961, b: 0.8901961, a: 0.5019608}
+  - {r: 0.8901961, g: 0.8901961, b: 0.8901961, a: 0.6}
+  - {r: 0.8901961, g: 0.8901961, b: 0.8901961, a: 0.69803923}
+  - {r: 0.8901961, g: 0.8901961, b: 0.8901961, a: 0.8}
+  - {r: 0.8901961, g: 0.8901961, b: 0.8901961, a: 0.9019608}
+  - {r: 0.8901961, g: 0.8901961, b: 0.8901961, a: 1}
+  Theme: {fileID: 11400000, guid: 416db35e5030f054694e5546ca3bcb48, type: 2}
+  Offset: 365
 --- !u!1 &3440700272948906146
 GameObject:
   m_ObjectHideFlags: 0
