@@ -95,9 +95,7 @@ namespace Assets.Scripts.World
         {
             Data.DungeonFloor++;
             SaveGame.Save();
-
-            // Reload level.
-            SceneManager.LoadScene("Dungeon");
+            Util.ChangeScene("Dungeon");
         }
     }
 }

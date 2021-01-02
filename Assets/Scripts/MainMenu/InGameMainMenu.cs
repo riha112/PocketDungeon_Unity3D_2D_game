@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assets.Scripts.Misc;
 using Assets.Scripts.Misc.GUI;
+using Assets.Scripts.Misc.ObjectManager;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -35,13 +37,14 @@ namespace Assets.Scripts.MainMenu
 
             if (GUI.Button(new Rect(40, 90, 200, 40), LT("Restart level")))
             {
-                SceneManager.LoadScene("Dungeon");
+                Util.ChangeScene("Dungeon");
             }
 
             if (GUI.Button(new Rect(40, 140, 200, 40), LT("To main menu")))
             {
-                SceneManager.LoadScene("Start");
+                Util.ChangeScene("Start");
             }
         }
+
     }
 }

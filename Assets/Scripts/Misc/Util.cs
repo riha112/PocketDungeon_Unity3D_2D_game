@@ -1,5 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using Assets.Scripts.Misc.ObjectManager;
+using Newtonsoft.Json;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.Misc
 {
@@ -9,6 +11,17 @@ namespace Assets.Scripts.Misc
     /// </summary>
     public static class Util
     {
+        /// <summary>
+        /// Switches between Unity 3D scenes
+        /// </summary>
+        /// <param name="name">Scene name</param>
+        public static void ChangeScene(string name)
+        {
+            DI.Flush();
+            Time.timeScale = 1;
+            SceneManager.LoadScene(name);
+        }
+
         /// <summary>
         /// Loads objects from JSON file within Resource directory
         /// </summary>

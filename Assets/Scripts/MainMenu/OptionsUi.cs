@@ -72,6 +72,9 @@ namespace Assets.Scripts.MainMenu
             _calculatedHeight = _calculatedLanguageHeight + _calculatedQualityHeight + _calculatedResolutionHeight;
         }
 
+        /// <summary>
+        /// Loads option configurations
+        /// </summary>
         private static void LoadConfiguration()
         {
             if (!PlayerPrefs.HasKey("option_language"))
@@ -81,6 +84,10 @@ namespace Assets.Scripts.MainMenu
             _currentLanguage = PlayerPrefs.GetString("option_language");
         }
 
+        /// <summary>
+        /// Changes games language
+        /// </summary>
+        /// <param name="langCode">Language code</param>
         private static void ChangeLanguage(string langCode)
         {
             PlayerPrefs.SetString("option_language", langCode);
@@ -88,6 +95,10 @@ namespace Assets.Scripts.MainMenu
             _currentLanguage = langCode;
         }
 
+        /// <summary>
+        /// Changes resolution
+        /// </summary>
+        /// <param name="resolution"></param>
         private static void ChangeResolution(Resolution resolution)
         {
             Screen.SetResolution(resolution.width, resolution.height, true);
@@ -95,6 +106,9 @@ namespace Assets.Scripts.MainMenu
             ResolutionChanged?.Invoke(null, resolution);
         }
 
+        /// <summary>
+        /// GUI For resolution selector
+        /// </summary>
         private void DrawResolutionSelector()
         {
             GUI.Label(new Rect(0, 0, 340, 50), LT("Resolution"), "option_label");
@@ -113,6 +127,9 @@ namespace Assets.Scripts.MainMenu
             }
         }
 
+        /// <summary>
+        /// GUI For quality selector
+        /// </summary>
         private void DrawGraphicsSelector()
         {
             GUI.Label(new Rect(0, 0, 340, 50), LT("Quality"), "option_label");
@@ -127,6 +144,9 @@ namespace Assets.Scripts.MainMenu
             }
         }
 
+        /// <summary>
+        /// GUI For Language selector
+        /// </summary>
         private void DrawLanguageSelector()
         {
             GUI.Label(new Rect(0, 0, 340, 50), LT("Language"), "option_label");

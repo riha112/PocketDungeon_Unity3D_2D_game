@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assets.Scripts.Misc;
+using Assets.Scripts.Misc.ObjectManager;
 using Assets.Scripts.Misc.Translator;
 using Assets.Scripts.SaveLoad;
 using UnityEngine;
@@ -203,7 +205,7 @@ namespace Assets.Scripts.MainMenu
             {
                 _timer = 1;
                 _started = true;
-                SceneManager.LoadScene("Dungeon");
+                Util.ChangeScene("Dungeon");
             }
         }
     }
