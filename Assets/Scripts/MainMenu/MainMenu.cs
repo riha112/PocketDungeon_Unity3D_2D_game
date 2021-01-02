@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Assets.Scripts.Misc;
-using Assets.Scripts.Misc.ObjectManager;
 using Assets.Scripts.Misc.Translator;
 using Assets.Scripts.SaveLoad;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.MainMenu
 {
@@ -34,19 +29,19 @@ namespace Assets.Scripts.MainMenu
 
         private void BuildLmc()
         {
-            _lmc = new LocalMessageCache()
+            _lmc = new LocalMessageCache
             {
                 Messages = new List<string>
                 {
-                    "New Game",         //0
-                    "Load Game",        //1
-                    "Options",          //2
-                    "Exit",             //3
-                    "Back",             //4
-                    "Title",            //5
-                    "Seed",             //6
-                    "Leave empty to generate random",   //7
-                    "Create"            //8
+                    "New Game", //0
+                    "Load Game", //1
+                    "Options", //2
+                    "Exit", //3
+                    "Back", //4
+                    "Title", //5
+                    "Seed", //6
+                    "Leave empty to generate random", //7
+                    "Create" //8
                 }
             };
             _lmc.BuildCachedMessages();
@@ -58,7 +53,7 @@ namespace Assets.Scripts.MainMenu
 
             switch (_activeWindow)
             {
-                case 0: 
+                case 0:
                     NewGameWindow();
                     break;
                 case 1:
@@ -72,10 +67,7 @@ namespace Assets.Scripts.MainMenu
                     break;
             }
 
-            if (_isStartGame)
-            {
-                StartGame();
-            }
+            if (_isStartGame) StartGame();
         }
 
         private void StartWindow()
@@ -83,7 +75,6 @@ namespace Assets.Scripts.MainMenu
             GUI.BeginGroup(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 100, 200, 200));
 
             for (var i = 0; i < 4; i++)
-            {
                 if (GUI.Button(new Rect(0, 50 * i, 200, 40), _lmc[i]))
                 {
                     _activeWindow = i;
@@ -95,24 +86,25 @@ namespace Assets.Scripts.MainMenu
                         case 1:
                             if (Directory.Exists(_savedGameDir))
                             {
-                                var files =  Directory.GetFiles(_savedGameDir, "*.json");
+                                var files = Directory.GetFiles(_savedGameDir, "*.json");
                                 _savedGameFiles = files.Select(Path.GetFileNameWithoutExtension).ToArray();
                             }
+
                             break;
                     }
                 }
-            }
 
             GUI.EndGroup();
         }
 
         private string _title;
         private string _seed;
+
         private void NewGameWindow()
         {
-            GUI.Box(new Rect(Screen.width / 2 - 215, Screen.height / 2- 175, 430, 350), "", "Holder");
+            GUI.Box(new Rect(Screen.width / 2 - 215, Screen.height / 2 - 175, 430, 350), "", "Holder");
 
-            GUI.Label(new Rect(Screen.width / 2 -175, Screen.height / 2 - 250, 350, 80), _lmc[0], "Title");
+            GUI.Label(new Rect(Screen.width / 2 - 175, Screen.height / 2 - 250, 350, 80), _lmc[0], "Title");
 
             GUI.BeginGroup(new Rect(Screen.width / 2 - 175, Screen.height / 2 - 130, 350, 260));
 
@@ -144,12 +136,8 @@ namespace Assets.Scripts.MainMenu
                 _scrollView = GUI.BeginScrollView(new Rect(0, 0, 350, 210), _scrollView,
                     new Rect(0, 0, 320, 50 * _savedGameFiles.Length));
                 for (var i = 0; i < _savedGameFiles.Length; i++)
-                {
                     if (GUI.Button(new Rect(0, 50 * i, 350, 45), _savedGameFiles[i], "LoadLevel"))
-                    {
                         LoadGame(_savedGameFiles[i]);
-                    }
-                }
                 GUI.EndScrollView();
             }
 
@@ -181,7 +169,7 @@ namespace Assets.Scripts.MainMenu
 
         private void CreateNewGame()
         {
-            if(string.IsNullOrEmpty(_title) || string.IsNullOrWhiteSpace(_title))
+            if (string.IsNullOrEmpty(_title) || string.IsNullOrWhiteSpace(_title))
                 return;
 
             var sg = new SavableGame();
@@ -190,10 +178,11 @@ namespace Assets.Scripts.MainMenu
             StartGame();
         }
 
-        private float _timer = 0;
-        private bool _isStartGame = false;
-        private bool _started = false;
+        private float _timer;
+        private bool _isStartGame;
+        private bool _started;
         public Texture2D FadeTexture;
+
         private void StartGame()
         {
             _timer += Time.deltaTime / 2;

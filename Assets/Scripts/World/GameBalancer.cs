@@ -21,10 +21,36 @@ namespace Assets.Scripts.World
         public static short GetBalancedMonsterLevel()
         {
             var baseLevel = CharacterStartData?.Stats?.CurrentLevel ?? 1;
-            var minLevel = baseLevel <= 2 ? 1 : baseLevel - 2;
+            var minLevel = baseLevel <= 5 ? 1 : baseLevel - 5;
             var maxLevel = baseLevel <= 2 ? 3 : baseLevel + 3;
 
             return (short)R.RandomRange(minLevel, maxLevel);
+        }
+
+        /// <summary>
+        /// Returns balanced room type percentage based on room size and dungeon
+        /// size
+        /// </summary>
+        /// <param name="size">(int treasure percentage, int design percentage)</param>
+        /// <returns></returns>
+        public static (int, int) GetBalancedRoomType(int size)
+        {
+            var baseLevel = CharacterStartData?.Stats?.CurrentLevel ?? 1;
+            
+            // Small Room percentage
+            if (size < 50)
+            {
+                return (baseLevel > 5) ? (13, 60) : (30, 70);
+            }
+
+            // Medium Room percentage
+            if (size < 90)
+            {
+                return (baseLevel > 5) ? (10, 35) : (30, 50);
+            }
+
+            // Large room percentage
+            return (baseLevel > 5) ? (5, 25) : (15, 30);
         }
     }
 }

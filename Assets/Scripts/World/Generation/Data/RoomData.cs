@@ -1,10 +1,8 @@
-﻿using Assets.Scripts.Repository;
-using Assets.Scripts.Repository.Data;
+﻿using Assets.Scripts.Repository.Data;
 
 namespace Assets.Scripts.World.Generation.Data
 {
     // TILE TYPES: 0 - empty, 1 - floor, 2 - wall, 3 - other
-
     public class RoomData
     {
         public TileData[,] Tiles;

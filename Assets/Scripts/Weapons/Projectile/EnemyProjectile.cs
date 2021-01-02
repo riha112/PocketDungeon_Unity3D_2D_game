@@ -2,9 +2,6 @@
 {
     public class EnemyProjectile : MovingDamagerOnCollision
     {
-        protected override string GetTargetTag()
-        {
-            return "Player";
-        }
+        protected override string GetTargetTag() => "Player";
     }
 }

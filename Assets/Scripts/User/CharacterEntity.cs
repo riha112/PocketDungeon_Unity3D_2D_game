@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Entity;
 using Assets.Scripts.Items.Type.Controller;
+using Assets.Scripts.MainMenu;
 using Assets.Scripts.Misc.ObjectManager;
 using Assets.Scripts.User.Attributes;
 using Assets.Scripts.User.Controller;
@@ -122,7 +123,7 @@ namespace Assets.Scripts.User
             DI.Fetch<FightingController>().enabled = false;
             DI.Fetch<MovementController>().enabled = false;
             DI.Fetch<UIController>().enabled = false;
-           // Invoke(nameof(ReloadDungeon), 0.5f);
+            DI.Fetch<InGameMainMenu>().Toggle(true);
         }
 
         private void ReloadDungeon()

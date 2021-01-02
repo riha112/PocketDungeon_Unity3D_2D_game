@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Assets.Scripts.Misc.ObjectManager;
+﻿using Assets.Scripts.Misc.ObjectManager;
 using Assets.Scripts.User;
 using UnityEngine;
 
 namespace Assets.Scripts.World.Items
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Summon : MonoBehaviour
     {
         public float Speed;
@@ -24,7 +22,7 @@ namespace Assets.Scripts.World.Items
         {
             _characterEntity = DI.Fetch<CharacterEntity>();
             _followPoint = GameObject.FindGameObjectWithTag("SummonFollowPoint").transform;
-            if(transform.parent.parent != null)
+            if (transform.parent.parent != null)
                 transform.parent = transform.parent.parent;
         }
 
@@ -40,6 +38,5 @@ namespace Assets.Scripts.World.Items
 
             transform.position = Vector2.Lerp(transform.position, _followPoint.position, Time.deltaTime * Speed);
         }
-
     }
 }

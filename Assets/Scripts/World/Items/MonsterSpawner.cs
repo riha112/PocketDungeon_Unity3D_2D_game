@@ -74,6 +74,7 @@ namespace Assets.Scripts.World.Items
                 particle.transform.position = monster.transform.position;
             }
 
+            // If all monsters are spawned -> destroy
             if (_currentBatchId >= _spawnBatchCount)
             {
                 EndOfSpawner();
@@ -112,7 +113,6 @@ namespace Assets.Scripts.World.Items
         /// </summary>
         private void EndOfSpawner()
         {
-            // TODO: Add animation for ending of the spawners life (shrinking (then puff) or exploding)
             FinishedSpawningMonsters?.Invoke(this, true);
 
             var effect = Instantiate(EndEffect);

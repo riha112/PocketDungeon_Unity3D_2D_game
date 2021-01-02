@@ -80,7 +80,7 @@ namespace Assets.Scripts.User.Attributes
             }
             else
             {
-                AttributeManager.Save();
+                AttributeManager.Cancel();
                 _activeItemId = -1;
             }
 

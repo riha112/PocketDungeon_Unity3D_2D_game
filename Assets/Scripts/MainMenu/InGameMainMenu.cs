@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Assets.Scripts.Misc;
 using Assets.Scripts.Misc.GUI;
-using Assets.Scripts.Misc.ObjectManager;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.MainMenu
 {
@@ -30,21 +24,21 @@ namespace Assets.Scripts.MainMenu
 
         protected override void DrawBody()
         {
-            if(GUI.Button(new Rect(40, 40, 200, 40), LT("Resume")))
-            {
-                Toggle(false);
-            }
+            if (GUI.Button(new Rect(40, 40, 200, 40), LT("Resume"))) Toggle(false);
 
-            if (GUI.Button(new Rect(40, 90, 200, 40), LT("Restart level")))
-            {
-                Util.ChangeScene("Dungeon");
-            }
+            if (GUI.Button(new Rect(40, 90, 200, 40), LT("Restart level"))) Util.ChangeScene("Dungeon");
 
-            if (GUI.Button(new Rect(40, 140, 200, 40), LT("To main menu")))
-            {
-                Util.ChangeScene("Start");
-            }
+            if (GUI.Button(new Rect(40, 140, 200, 40), LT("To main menu"))) Util.ChangeScene("Start");
         }
 
+        protected override List<string> GetLmcLibrary()
+        {
+            return new List<string>
+            {
+                "Resume",
+                "Restart level",
+                "To main menu"
+            };
+        }
     }
 }

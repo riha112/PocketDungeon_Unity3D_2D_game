@@ -69,10 +69,10 @@ namespace Assets.Scripts.User.Map
         {
             DrawBackground();
 
-            GUI.Label(new Rect(ScreenSize.x / 2 - 225, ScreenSize.y / 2 - 285, 450, 60), $"Floor {_floor}", "map_title");
+            GUI.Label(new Rect(ScreenSize.x / 2 - 225, ScreenSize.y / 2 - 370, 450, 60), $"Floor {_floor}", "map_title");
 
             // Map background
-            GUI.DrawTexture(new Rect(ScreenSize.x / 2 - 225, ScreenSize.y / 2 - 225, 450, 450), MapTexture2D);
+            GUI.DrawTexture(new Rect(ScreenSize.x / 2 - 300, ScreenSize.y / 2 - 300, 600, 600), MapTexture2D);
 
             // Dungeon texture
             GUI.DrawTexture(new Rect(ScreenSize.x / 2 - 150, ScreenSize.y / 2 - _mapHeight / 2, 300, _mapHeight),

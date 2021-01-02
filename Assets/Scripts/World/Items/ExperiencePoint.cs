@@ -5,9 +5,13 @@ using UnityEngine;
 
 namespace Assets.Scripts.World.Items
 {
+    /// <summary>
+    /// When character collides with object, adds exp to collided character
+    /// </summary>
     public class ExperiencePoint : MonoBehaviour
     {
         public int ExpToAdd = 1;
+
         private void OnTriggerEnter2D(Collider2D col)
         {
             if (col.tag != "Player") return;
