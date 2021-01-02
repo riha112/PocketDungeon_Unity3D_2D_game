@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Assets.Scripts.Misc.Translator
 {
@@ -9,10 +10,25 @@ namespace Assets.Scripts.Misc.Translator
     /// </summary>
     public static class T
     {
-        private static Dictionary<string, string> Library { get; set; } = new Dictionary<string, string>();
+        private static Dictionary<string, string> Library { get; set; }
 
         public static EventHandler<string> LanguageChange;
 
+        /// <summary>
+        /// Loads language from PlayerPrefs or passed variable "langcode"
+        /// and rebuilds library
+        /// </summary>
+        /// <param name="langCode">Language code to use | if null uses playerPrefs</param>
+        public static void SetLanguage(string langCode = null)
+        {
+            if (string.IsNullOrEmpty(langCode))
+            {
+                langCode = PlayerPrefs.HasKey("option_language") ? PlayerPrefs.GetString("option_language") : "en_EN";
+            }
+
+            BuildLibrary(langCode);
+        }
+        
         /// <summary>
         /// Translates sentence by looking it up in library
         /// </summary>
@@ -20,9 +36,9 @@ namespace Assets.Scripts.Misc.Translator
         /// <returns>Translated or original sentence</returns>
         public static string Translate(string sentence)
         {
-            if (Library.Count == 0)
+            if (Library is null)
             {
-                BuildLibrary("lv_LV");
+                SetLanguage();
             }
             return Library.ContainsKey(sentence) ? Library[sentence] : sentence;
         }

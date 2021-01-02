@@ -136,7 +136,7 @@
         "AttackDistance": 6,
         "BaseCoolDownForAttack": 1.5,
         "PathToPrefabs": [
-            "enemy_prefab_type1_skeleton"
+            "enemy_prefab_type1_skeleton_range"
         ]
     },
     {

@@ -99,6 +99,14 @@ namespace Assets.Scripts.Misc.GUI
             return null;
         }
 
+        /// <summary>
+        /// Localized Translation (LT),
+        /// - uses LMC if exists,
+        /// - on fail uses Translator
+        /// - on fail returns original message
+        /// </summary>
+        /// <param name="text">Text to be translated</param>
+        /// <returns>Translated message from LMC or T | on fail original message</returns>
         protected string LT(string text)
         {
             return LMC.Messages != null && LMC.Messages.Contains(text) ? LMC[text] : T.Translate(text);

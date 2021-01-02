@@ -14,6 +14,7 @@ namespace Assets.Scripts.MainMenu
     public class MainMenu : MonoBehaviour
     {
         public GUISkin Theme;
+        public OptionsUi Options;
 
         private LocalMessageCache _lmc;
         private int _activeWindow = -1;
@@ -157,8 +158,16 @@ namespace Assets.Scripts.MainMenu
 
         private void OptionsWindow()
         {
-            if (GUI.Button(new Rect(0, 0, 200, 40), _lmc[4]))
+            GUI.Box(new Rect(Screen.width / 2 - 215, Screen.height / 2 - 175, 430, 350), "", "Holder");
+
+            GUI.Label(new Rect(Screen.width / 2 - 175, Screen.height / 2 - 250, 350, 80), _lmc[2], "Title");
+            GUI.BeginGroup(new Rect(Screen.width / 2 - 175, Screen.height / 2 - 125, 350, 260));
+
+            Options.GuiDraw();
+
+            if (GUI.Button(new Rect(240, 220, 110, 40), _lmc[4]))
                 _activeWindow = -1;
+            GUI.EndGroup();
         }
 
         private void LoadGame(string title)
