@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Assets.Scripts.Items;
 using Assets.Scripts.Items.Type.Controller;
 using Assets.Scripts.Misc.ObjectManager;
@@ -27,6 +28,7 @@ namespace Assets.Scripts.SaveLoad
 
         // -- In Game UI -- 
         public SavableEquipment[] PinnedEquipment { get; set; }
+        public SavableEquipment[] PinnedMagic { get; set; }
 
         // -- Magic --
         public int[] Magic { get; set; }
@@ -45,6 +47,7 @@ namespace Assets.Scripts.SaveLoad
             SaveInventory();
             SaveMagic();
             SaveUserEquipment();
+            SavePinnedData();
         }
 
         private void SaveMagic()
@@ -71,6 +74,29 @@ namespace Assets.Scripts.SaveLoad
             Resources = ce.Resources.Resources;
             Attributes = ce.Attributes;
             Stats = ce.Stats;
+        }
+
+        private void SavePinnedData()
+        {
+            var pc = DI.Fetch<PinnableSlotUiController>();
+            if(pc == null)
+                return;
+
+            PinnedMagic = new SavableEquipment[PinnableSlotUiController.MAGIC_SLOT_COUNT];
+            PinnedEquipment = new SavableEquipment[PinnableSlotUiController.OTHER_SLOT_COUNT];
+            for (var i = 0; i < PinnableSlotUiController.MAGIC_SLOT_COUNT + PinnableSlotUiController.OTHER_SLOT_COUNT; i++)
+            {
+                var element = new SavableEquipment
+                {
+                    ItemLocalId = pc.PinnedSlots[i].Pinnable?.Id ?? -1,
+                    SlotId = i
+                };
+
+                if (i >= PinnableSlotUiController.MAGIC_SLOT_COUNT)
+                    PinnedEquipment[i - PinnableSlotUiController.MAGIC_SLOT_COUNT] = element;
+                else
+                    PinnedMagic[i] = element;
+            }
         }
 
         private void SaveUserEquipment()
@@ -110,6 +136,7 @@ namespace Assets.Scripts.SaveLoad
             LoadMagicData();
             LoadInventory();
             LoadEquipment();
+            LoadPinnedData();
 
             DI.Register(this);
         }
@@ -154,6 +181,7 @@ namespace Assets.Scripts.SaveLoad
                 InventoryManager.AddItem(item);
             }
         }
+
         private void LoadEquipment()
         {
             if (SavableEquipment is null) return;
@@ -169,6 +197,40 @@ namespace Assets.Scripts.SaveLoad
             }
 
             DI.Fetch<PinnableSlotUiController>()?.OnEquipmentChanged(null, (0, null));
+        }
+
+        private void LoadPinnedData()
+        {
+            var pc = DI.Fetch<PinnableSlotUiController>();
+            if (pc == null)
+                return;
+
+            if (PinnedEquipment != null)
+            {
+                foreach (var item in PinnedEquipment)
+                {
+                    if (item.ItemLocalId == -1)
+                        continue;
+
+                    pc.PinnedSlots[item.SlotId].Pinnable =
+                        (IPinnable)InventoryManager.GetItemByItemLocalId(item.ItemLocalId);
+                }
+            }
+
+            if (PinnedMagic == null) return;
+
+            var mc = DI.Fetch<MagicController>();
+            if (mc == null)
+                return;
+
+            foreach (var magic in PinnedMagic)
+            {
+                if (magic.ItemLocalId == -1)
+                    continue;
+
+                pc.PinnedSlots[magic.SlotId].Pinnable = 
+                    mc.MyMagic.Find(m => m.Id == magic.ItemLocalId);
+            }
         }
     }
 

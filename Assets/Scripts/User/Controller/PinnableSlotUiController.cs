@@ -22,8 +22,8 @@ namespace Assets.Scripts.User.Controller
     {
         private const short ICON_SIZE = 60;
         private const short FAN_SLOT_SIZE = 40;
-        private const short MAGIC_SLOT_COUNT = 4;
-        private const short OTHER_SLOT_COUNT = 2;
+        public static readonly short MAGIC_SLOT_COUNT = 4;
+        public static readonly short OTHER_SLOT_COUNT = 2;
 
         /// <summary>
         /// Placeholder texture for empty slot
@@ -33,7 +33,21 @@ namespace Assets.Scripts.User.Controller
         /// <summary>
         /// List of slots
         /// </summary>
-        public PinnableSlotConfiguration[] PinnedSlots { get; protected set; } = new PinnableSlotConfiguration[MAGIC_SLOT_COUNT + OTHER_SLOT_COUNT];
+        private PinnableSlotConfiguration[] _pinnableSlots;
+
+        public PinnableSlotConfiguration[] PinnedSlots
+        {
+            get
+            {
+                if (_pinnableSlots == null)
+                {
+                    BuildSlotConfig();
+                }
+
+                return _pinnableSlots;
+            }
+            protected set => _pinnableSlots = value;
+        }
 
         /// <summary>
         /// List of pinnable items that are not already pinned
@@ -56,7 +70,6 @@ namespace Assets.Scripts.User.Controller
 
         protected override void Init()
         {
-            BuildSlotConfig();;
             ToggleEvent += OnUiToggle;
 
             _character = Util.GetCharacterTransform();
@@ -238,8 +251,8 @@ namespace Assets.Scripts.User.Controller
             GUI.EndGroup();
         }
 
-        private const int STATS_BAR_SIZE = ICON_SIZE * MAGIC_SLOT_COUNT + 50;
-        private const int STATS_BAR_HALF_SIZE = STATS_BAR_SIZE / 2 - 5;
+        private static readonly int STATS_BAR_SIZE = ICON_SIZE * MAGIC_SLOT_COUNT + 50;
+        private static readonly int STATS_BAR_HALF_SIZE = STATS_BAR_SIZE / 2 - 5;
         private void DrawStatData()
         {
             GUI.BeginGroup(new Rect(25, ScreenSize.y - 160, STATS_BAR_SIZE, 50));
@@ -292,6 +305,7 @@ namespace Assets.Scripts.User.Controller
 
         private void BuildSlotConfig()
         {
+            _pinnableSlots = new PinnableSlotConfiguration[MAGIC_SLOT_COUNT + OTHER_SLOT_COUNT];
             var keyMap = new[]
             {
                 KeyCode.Alpha1,
