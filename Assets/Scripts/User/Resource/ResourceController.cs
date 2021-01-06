@@ -3,9 +3,8 @@ using Assets.Scripts.Misc.ObjectManager;
 using Assets.Scripts.Misc.Translator;
 using Assets.Scripts.Repository;
 using Assets.Scripts.Repository.Data;
-using Assets.Scripts.User.Magic;
+using Assets.Scripts.User.Controller;
 using Assets.Scripts.User.Messages;
-using Assets.Scripts.World.Generation;
 using Assets.Scripts.World.Generation.Data;
 using UnityEngine;
 
@@ -23,6 +22,7 @@ namespace Assets.Scripts.User.Resource
         private SpriteRenderer _placeholdersSpriteRenderer;
 
         private DungeonSectionData _dungeonData;
+
         private DungeonSectionData DungeonData
         {
             get
@@ -34,6 +34,7 @@ namespace Assets.Scripts.User.Resource
         }
 
         private CharacterEntity _characterEntity;
+
         private CharacterEntity CharacterEntity
         {
             get
@@ -51,7 +52,7 @@ namespace Assets.Scripts.User.Resource
             {
                 _buildMode = value;
                 RectConfig.ShowBackground = !_buildMode;
-                DI.Fetch<InGameUiController>().enabled = !_buildMode;
+                DI.Fetch<PinnableSlotUiController>().enabled = !_buildMode;
                 DI.Fetch<MessageController>().Offset = _buildMode ? 220 : 365;
                 Placeholder.gameObject.SetActive(_buildMode);
             }
@@ -102,21 +103,24 @@ namespace Assets.Scripts.User.Resource
                 }
 
                 GUI.Box(new Rect(20 + i * 105, 140, 90, 20), ResourceRepository.Repository[i].Title, "att_points");
-                GUI.Label(new Rect(80 + i * 105, 115, 25, 15), GetResourceCount(ResourceRepository.Repository[i].Id).ToString());
+                GUI.Label(new Rect(80 + i * 105, 115, 25, 15),
+                    GetResourceCount(ResourceRepository.Repository[i].Id).ToString());
             }
         }
 
-        private int GetResourceCount(int id) => CharacterEntity.Resources[id];
+        private int GetResourceCount(int id)
+        {
+            return CharacterEntity.Resources[id];
+        }
 
         private void BuildingScreen()
         {
             if (GUI.Button(new Rect(ScreenSize.x - 100, ScreenSize.y - 100, 80, 80), _activeResource.Icon,
                 "magic_slot"))
-            {
                 BuildMode = false;
-            }
 
-            GUI.Label(new Rect(ScreenSize.x - 45, ScreenSize.y - 35, 25, 15), GetResourceCount(_activeResource.Id).ToString());
+            GUI.Label(new Rect(ScreenSize.x - 45, ScreenSize.y - 35, 25, 15),
+                GetResourceCount(_activeResource.Id).ToString());
 
             var point = Camera.main.ScreenPointToRay(Input.mousePosition).origin;
             var tile = DungeonData.GetTileByCoords(point);
@@ -124,7 +128,8 @@ namespace Assets.Scripts.User.Resource
             if (tile != null && tile.Instance != null)
             {
                 Placeholder.transform.position = tile.Instance.transform.position;
-                if((tile.Type != TileType.Floor && tile.Type != TileType.Water) || tile.Instance.transform.childCount > 0)
+                if (tile.Type != TileType.Floor && tile.Type != TileType.Water ||
+                    tile.Instance.transform.childCount > 0)
                     _placeholdersSpriteRenderer.color = Color.red;
                 else
                     _placeholdersSpriteRenderer.color = Color.white;
@@ -138,7 +143,7 @@ namespace Assets.Scripts.User.Resource
                     return;
                 }
 
-                if (tile == null || tile.Instance == null || (tile.Type != TileType.Floor && tile.Type != TileType.Water))
+                if (tile == null || tile.Instance == null || tile.Type != TileType.Floor && tile.Type != TileType.Water)
                     return;
 
                 if (tile.Instance.transform.childCount > 0)
@@ -166,7 +171,7 @@ namespace Assets.Scripts.User.Resource
                 else
                 {
                     block.AddComponent<ResourceObject>();
-                    block.GetComponent<ResourceObject>().Durability = (int)_activeResource.Durability;
+                    block.GetComponent<ResourceObject>().Durability = (int) _activeResource.Durability;
                     block.tag = "Resource";
                     sr.sortingOrder = 2;
                     sr.sprite = _activeResource.Grounded;

@@ -19,7 +19,6 @@ using Assets.Scripts.User.Resource;
 using Assets.Scripts.World.Generation;
 using JetBrains.Annotations;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.World
 {
@@ -36,6 +35,9 @@ namespace Assets.Scripts.World
             StartGame();
         }
 
+        /// <summary>
+        /// Registers all objects into DI class
+        /// </summary>
         private void RegisterDi()
         {
             DI.Register(this);
@@ -57,7 +59,7 @@ namespace Assets.Scripts.World
             DI.Register(mainCamera.GetComponent<AttributePopupUi>());
             DI.Register(mainCamera.GetComponent<EquipmentController>());
             DI.Register(mainCamera.GetComponent<MapController>());
-            DI.Register(mainCamera.GetComponent<InGameUiController>());
+            DI.Register(mainCamera.GetComponent<PinnableSlotUiController>());
             DI.Register(mainCamera.GetComponent<UIController>());
         }
 
@@ -71,6 +73,11 @@ namespace Assets.Scripts.World
             GenerateDungeon(Data.DungeonFloor);
         }
 
+        /// <summary>
+        /// Generates random seed for each floor
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="seed">Main seed</param>
         public static void PopulateFloorSeeds(WorldData data, [CanBeNull] string seed = null)
         {
             data.DungeonFloorSeeds = new string[100];
@@ -79,9 +86,7 @@ namespace Assets.Scripts.World
 
             data.DungeonFloorSeeds[0] = baseSeed;
             for (var i = 1; i < 100; i++)
-            {
                 data.DungeonFloorSeeds[i] = $"{R.RandomRange(0, 999999)}_{baseSeed}_{i}_{R.RandomRange(0, 999999)}";
-            }
         }
 
         public void GenerateDungeon(int level)

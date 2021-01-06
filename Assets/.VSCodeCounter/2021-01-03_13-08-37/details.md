@@ -1,10 +1,10 @@
 # Details
 
-Date : 2020-12-31 19:55:36
+Date : 2021-01-03 13:08:37
 
 Directory e:\Unity\NewProjects\PocketDungeon_Unity3D_2D_game\PoketsuDungeon\Assets\Scripts
 
-Total : 145 files,  6738 codes, 1144 comments, 1293 blanks, all 9175 lines
+Total : 148 files,  6908 codes, 1340 comments, 1315 blanks, all 9563 lines
 
 [summary](results.md)
 
@@ -28,8 +28,8 @@ Total : 145 files,  6738 codes, 1144 comments, 1293 blanks, all 9175 lines
 | [Scripts/Items/ItemManager.cs](/Scripts/Items/ItemManager.cs) | C# | 28 | 10 | 4 | 42 |
 | [Scripts/Items/ItemSlot.cs](/Scripts/Items/ItemSlot.cs) | C# | 16 | 0 | 0 | 16 |
 | [Scripts/Items/ItemType.cs](/Scripts/Items/ItemType.cs) | C# | 17 | 0 | 0 | 17 |
-| [Scripts/Items/SimpleItem.cs](/Scripts/Items/SimpleItem.cs) | C# | 51 | 2 | 11 | 64 |
-| [Scripts/Items/Type/Controller/EquippableItem.cs](/Scripts/Items/Type/Controller/EquippableItem.cs) | C# | 55 | 4 | 12 | 71 |
+| [Scripts/Items/SimpleItem.cs](/Scripts/Items/SimpleItem.cs) | C# | 52 | 2 | 11 | 65 |
+| [Scripts/Items/Type/Controller/EquippableItem.cs](/Scripts/Items/Type/Controller/EquippableItem.cs) | C# | 77 | 4 | 16 | 97 |
 | [Scripts/Items/Type/Controller/GemItem.cs](/Scripts/Items/Type/Controller/GemItem.cs) | C# | 35 | 0 | 9 | 44 |
 | [Scripts/Items/Type/Controller/MagicItem.cs](/Scripts/Items/Type/Controller/MagicItem.cs) | C# | 25 | 0 | 4 | 29 |
 | [Scripts/Items/Type/Controller/PotionItem.cs](/Scripts/Items/Type/Controller/PotionItem.cs) | C# | 60 | 1 | 12 | 73 |
@@ -39,14 +39,17 @@ Total : 145 files,  6738 codes, 1144 comments, 1293 blanks, all 9175 lines
 | [Scripts/Items/Type/Controller/Weapons/SwordWeaponItem.cs](/Scripts/Items/Type/Controller/Weapons/SwordWeaponItem.cs) | C# | 47 | 1 | 11 | 59 |
 | [Scripts/Items/Type/Controller/Weapons/ThrowableWeaponItem.cs](/Scripts/Items/Type/Controller/Weapons/ThrowableWeaponItem.cs) | C# | 30 | 1 | 8 | 39 |
 | [Scripts/Items/Type/Info/BookItemData.cs](/Scripts/Items/Type/Info/BookItemData.cs) | C# | 17 | 0 | 3 | 20 |
+| [Scripts/Items/Type/Info/EquipableItemData.cs](/Scripts/Items/Type/Info/EquipableItemData.cs) | C# | 14 | 0 | 3 | 17 |
 | [Scripts/Items/Type/Info/PotionItemData.cs](/Scripts/Items/Type/Info/PotionItemData.cs) | C# | 19 | 0 | 4 | 23 |
 | [Scripts/Items/Type/Info/WeaponItemData.cs](/Scripts/Items/Type/Info/WeaponItemData.cs) | C# | 17 | 0 | 4 | 21 |
-| [Scripts/MainMenu/MainMenu.cs](/Scripts/MainMenu/MainMenu.cs) | C# | 160 | 0 | 30 | 190 |
+| [Scripts/MainMenu/InGameMainMenu.cs](/Scripts/MainMenu/InGameMainMenu.cs) | C# | 37 | 0 | 7 | 44 |
+| [Scripts/MainMenu/MainMenu.cs](/Scripts/MainMenu/MainMenu.cs) | C# | 164 | 0 | 37 | 201 |
+| [Scripts/MainMenu/OptionsUi.cs](/Scripts/MainMenu/OptionsUi.cs) | C# | 147 | 29 | 24 | 200 |
 | [Scripts/Misc/GUI/Gui.cs](/Scripts/Misc/GUI/Gui.cs) | C# | 33 | 16 | 8 | 57 |
 | [Scripts/Misc/GUI/Popup.cs](/Scripts/Misc/GUI/Popup.cs) | C# | 56 | 23 | 11 | 90 |
 | [Scripts/Misc/GUI/PopupConfig.cs](/Scripts/Misc/GUI/PopupConfig.cs) | C# | 12 | 6 | 3 | 21 |
 | [Scripts/Misc/GUI/Searchable.cs](/Scripts/Misc/GUI/Searchable.cs) | C# | 21 | 4 | 3 | 28 |
-| [Scripts/Misc/GUI/UI.cs](/Scripts/Misc/GUI/UI.cs) | C# | 50 | 42 | 16 | 108 |
+| [Scripts/Misc/GUI/UI.cs](/Scripts/Misc/GUI/UI.cs) | C# | 50 | 50 | 16 | 116 |
 | [Scripts/Misc/MonoUtil.cs](/Scripts/Misc/MonoUtil.cs) | C# | 16 | 14 | 2 | 32 |
 | [Scripts/Misc/ObjectManager/DI.cs](/Scripts/Misc/ObjectManager/DI.cs) | C# | 14 | 23 | 5 | 42 |
 | [Scripts/Misc/ObjectManager/Injectable.cs](/Scripts/Misc/ObjectManager/Injectable.cs) | C# | 21 | 0 | 4 | 25 |
@@ -56,8 +59,8 @@ Total : 145 files,  6738 codes, 1144 comments, 1293 blanks, all 9175 lines
 | [Scripts/Misc/Random/R.cs](/Scripts/Misc/Random/R.cs) | C# | 30 | 17 | 7 | 54 |
 | [Scripts/Misc/SpriteLoader/SpriteLoader.cs](/Scripts/Misc/SpriteLoader/SpriteLoader.cs) | C# | 21 | 4 | 6 | 31 |
 | [Scripts/Misc/Translator/LocalMessageCache.cs](/Scripts/Misc/Translator/LocalMessageCache.cs) | C# | 34 | 12 | 9 | 55 |
-| [Scripts/Misc/Translator/T.cs](/Scripts/Misc/Translator/T.cs) | C# | 27 | 18 | 6 | 51 |
-| [Scripts/Misc/Util.cs](/Scripts/Misc/Util.cs) | C# | 55 | 26 | 12 | 93 |
+| [Scripts/Misc/Translator/T.cs](/Scripts/Misc/Translator/T.cs) | C# | 36 | 23 | 8 | 67 |
+| [Scripts/Misc/Util.cs](/Scripts/Misc/Util.cs) | C# | 63 | 30 | 13 | 106 |
 | [Scripts/Repository/Data/EnemyData.cs](/Scripts/Repository/Data/EnemyData.cs) | C# | 46 | 0 | 11 | 57 |
 | [Scripts/Repository/Data/LootTableData.cs](/Scripts/Repository/Data/LootTableData.cs) | C# | 24 | 1 | 4 | 29 |
 | [Scripts/Repository/Data/LootTableItemData.cs](/Scripts/Repository/Data/LootTableItemData.cs) | C# | 8 | 0 | 0 | 8 |
@@ -84,30 +87,30 @@ Total : 145 files,  6738 codes, 1144 comments, 1293 blanks, all 9175 lines
 | [Scripts/Repository/ResourceRepository.cs](/Scripts/Repository/ResourceRepository.cs) | C# | 9 | 4 | 1 | 14 |
 | [Scripts/Repository/TileMapRepository.cs](/Scripts/Repository/TileMapRepository.cs) | C# | 13 | 4 | 2 | 19 |
 | [Scripts/SaveLoad/ISavable.cs](/Scripts/SaveLoad/ISavable.cs) | C# | 13 | 0 | 2 | 15 |
-| [Scripts/SaveLoad/SavableCharacter.cs](/Scripts/SaveLoad/SavableCharacter.cs) | C# | 144 | 8 | 27 | 179 |
+| [Scripts/SaveLoad/SavableCharacter.cs](/Scripts/SaveLoad/SavableCharacter.cs) | C# | 140 | 8 | 28 | 176 |
 | [Scripts/SaveLoad/SavableEquipment.cs](/Scripts/SaveLoad/SavableEquipment.cs) | C# | 8 | 0 | 1 | 9 |
 | [Scripts/SaveLoad/SavableGame.cs](/Scripts/SaveLoad/SavableGame.cs) | C# | 109 | 2 | 17 | 128 |
 | [Scripts/SaveLoad/SavableItem.cs](/Scripts/SaveLoad/SavableItem.cs) | C# | 16 | 0 | 2 | 18 |
 | [Scripts/User/Attributes/AttributeData.cs](/Scripts/User/Attributes/AttributeData.cs) | C# | 98 | 50 | 18 | 166 |
-| [Scripts/User/Attributes/AttributeManager.cs](/Scripts/User/Attributes/AttributeManager.cs) | C# | 58 | 0 | 16 | 74 |
-| [Scripts/User/Attributes/AttributePopupUi.cs](/Scripts/User/Attributes/AttributePopupUi.cs) | C# | 88 | 4 | 19 | 111 |
-| [Scripts/User/CharacterEntity.cs](/Scripts/User/CharacterEntity.cs) | C# | 84 | 30 | 20 | 134 |
+| [Scripts/User/Attributes/AttributeManager.cs](/Scripts/User/Attributes/AttributeManager.cs) | C# | 62 | 0 | 17 | 79 |
+| [Scripts/User/Attributes/AttributePopupUi.cs](/Scripts/User/Attributes/AttributePopupUi.cs) | C# | 89 | 4 | 19 | 112 |
+| [Scripts/User/CharacterEntity.cs](/Scripts/User/CharacterEntity.cs) | C# | 85 | 30 | 20 | 135 |
 | [Scripts/User/Controller/FightingController.cs](/Scripts/User/Controller/FightingController.cs) | C# | 57 | 29 | 14 | 100 |
 | [Scripts/User/Controller/MovementController.cs](/Scripts/User/Controller/MovementController.cs) | C# | 77 | 4 | 19 | 100 |
-| [Scripts/User/Controller/UIController.cs](/Scripts/User/Controller/UIController.cs) | C# | 112 | 36 | 15 | 163 |
+| [Scripts/User/Controller/UIController.cs](/Scripts/User/Controller/UIController.cs) | C# | 121 | 36 | 15 | 172 |
 | [Scripts/User/Equipment/EquipmentController.cs](/Scripts/User/Equipment/EquipmentController.cs) | C# | 224 | 37 | 28 | 289 |
 | [Scripts/User/Equipment/EquipmentSlot.cs](/Scripts/User/Equipment/EquipmentSlot.cs) | C# | 15 | 0 | 1 | 16 |
 | [Scripts/User/FloorSwitcher/FloorSwitcher.cs](/Scripts/User/FloorSwitcher/FloorSwitcher.cs) | C# | 35 | 18 | 8 | 61 |
 | [Scripts/User/Inventory/InventoryManager.cs](/Scripts/User/Inventory/InventoryManager.cs) | C# | 55 | 22 | 9 | 86 |
 | [Scripts/User/Inventory/InventoryPopupUi.cs](/Scripts/User/Inventory/InventoryPopupUi.cs) | C# | 116 | 21 | 21 | 158 |
 | [Scripts/User/Inventory/ItemInformation.cs](/Scripts/User/Inventory/ItemInformation.cs) | C# | 43 | 18 | 10 | 71 |
-| [Scripts/User/Magic/AbstractMagic.cs](/Scripts/User/Magic/AbstractMagic.cs) | C# | 82 | 5 | 15 | 102 |
+| [Scripts/User/Magic/AbstractMagic.cs](/Scripts/User/Magic/AbstractMagic.cs) | C# | 82 | 10 | 15 | 107 |
 | [Scripts/User/Magic/IPinnable.cs](/Scripts/User/Magic/IPinnable.cs) | C# | 21 | 0 | 3 | 24 |
-| [Scripts/User/Magic/InGameUiController.cs](/Scripts/User/Magic/InGameUiController.cs) | C# | 230 | 10 | 45 | 285 |
+| [Scripts/User/Magic/InGameUiController.cs](/Scripts/User/Magic/InGameUiController.cs) | C# | 225 | 10 | 45 | 280 |
 | [Scripts/User/Magic/MagicController.cs](/Scripts/User/Magic/MagicController.cs) | C# | 26 | 0 | 6 | 32 |
 | [Scripts/User/Magic/MagicData.cs](/Scripts/User/Magic/MagicData.cs) | C# | 43 | 0 | 6 | 49 |
 | [Scripts/User/Magic/MagicType.cs](/Scripts/User/Magic/MagicType.cs) | C# | 21 | 3 | 5 | 29 |
-| [Scripts/User/Magic/Spells/TeleportingSpell.cs](/Scripts/User/Magic/Spells/TeleportingSpell.cs) | C# | 21 | 5 | 1 | 27 |
+| [Scripts/User/Magic/Spells/TeleportingSpell.cs](/Scripts/User/Magic/Spells/TeleportingSpell.cs) | C# | 21 | 6 | 3 | 30 |
 | [Scripts/User/Magic/SummoningMagic.cs](/Scripts/User/Magic/SummoningMagic.cs) | C# | 77 | 0 | 15 | 92 |
 | [Scripts/User/Map/MapController.cs](/Scripts/User/Map/MapController.cs) | C# | 66 | 12 | 17 | 95 |
 | [Scripts/User/Map/MapDraw/MapCreator.cs](/Scripts/User/Map/MapDraw/MapCreator.cs) | C# | 62 | 13 | 11 | 86 |
@@ -121,40 +124,40 @@ Total : 145 files,  6738 codes, 1144 comments, 1293 blanks, all 9175 lines
 | [Scripts/User/Stats/StatsData.cs](/Scripts/User/Stats/StatsData.cs) | C# | 21 | 6 | 4 | 31 |
 | [Scripts/Weapons/Projectile/DamageOnCollision.cs](/Scripts/Weapons/Projectile/DamageOnCollision.cs) | C# | 58 | 0 | 14 | 72 |
 | [Scripts/Weapons/Projectile/DamageOnCollisionPlayer.cs](/Scripts/Weapons/Projectile/DamageOnCollisionPlayer.cs) | C# | 7 | 0 | 1 | 8 |
-| [Scripts/Weapons/Projectile/EnemyProjectile.cs](/Scripts/Weapons/Projectile/EnemyProjectile.cs) | C# | 10 | 0 | 0 | 10 |
+| [Scripts/Weapons/Projectile/EnemyProjectile.cs](/Scripts/Weapons/Projectile/EnemyProjectile.cs) | C# | 7 | 0 | 0 | 7 |
 | [Scripts/Weapons/Projectile/IDamagable.cs](/Scripts/Weapons/Projectile/IDamagable.cs) | C# | 7 | 0 | 1 | 8 |
 | [Scripts/Weapons/Projectile/MovingDamagerOnCollision.cs](/Scripts/Weapons/Projectile/MovingDamagerOnCollision.cs) | C# | 12 | 0 | 2 | 14 |
 | [Scripts/Weapons/RotatingWreckingBall.cs](/Scripts/Weapons/RotatingWreckingBall.cs) | C# | 35 | 5 | 11 | 51 |
-| [Scripts/Weapons/ThrowingDagger.cs](/Scripts/Weapons/ThrowingDagger.cs) | C# | 47 | 0 | 6 | 53 |
+| [Scripts/Weapons/ThrowingDagger.cs](/Scripts/Weapons/ThrowingDagger.cs) | C# | 45 | 0 | 5 | 50 |
 | [Scripts/World/CursorStyle.cs](/Scripts/World/CursorStyle.cs) | C# | 12 | 3 | 2 | 17 |
 | [Scripts/World/FadeIn.cs](/Scripts/World/FadeIn.cs) | C# | 19 | 3 | 5 | 27 |
-| [Scripts/World/GameBalancer.cs](/Scripts/World/GameBalancer.cs) | C# | 18 | 9 | 4 | 31 |
+| [Scripts/World/GameBalancer.cs](/Scripts/World/GameBalancer.cs) | C# | 30 | 18 | 8 | 56 |
 | [Scripts/World/Generation/Data/DungeonSectionData.cs](/Scripts/World/Generation/Data/DungeonSectionData.cs) | C# | 32 | 0 | 9 | 41 |
-| [Scripts/World/Generation/Data/RoomData.cs](/Scripts/World/Generation/Data/RoomData.cs) | C# | 40 | 1 | 10 | 51 |
+| [Scripts/World/Generation/Data/RoomData.cs](/Scripts/World/Generation/Data/RoomData.cs) | C# | 39 | 1 | 9 | 49 |
 | [Scripts/World/Generation/Data/TileData.cs](/Scripts/World/Generation/Data/TileData.cs) | C# | 14 | 0 | 2 | 16 |
 | [Scripts/World/Generation/Data/TileType.cs](/Scripts/World/Generation/Data/TileType.cs) | C# | 11 | 0 | 1 | 12 |
 | [Scripts/World/Generation/Data/WallType.cs](/Scripts/World/Generation/Data/WallType.cs) | C# | 26 | 0 | 1 | 27 |
-| [Scripts/World/Generation/DungeonGenerator.cs](/Scripts/World/Generation/DungeonGenerator.cs) | C# | 135 | 2 | 21 | 158 |
-| [Scripts/World/Generation/DungeonSectionProcessors/AddMobsProcessor.cs](/Scripts/World/Generation/DungeonSectionProcessors/AddMobsProcessor.cs) | C# | 45 | 0 | 10 | 55 |
-| [Scripts/World/Generation/DungeonSectionProcessors/AddResourcesProcessor.cs](/Scripts/World/Generation/DungeonSectionProcessors/AddResourcesProcessor.cs) | C# | 52 | 0 | 7 | 59 |
-| [Scripts/World/Generation/DungeonSectionProcessors/AddTrapsProcessor.cs](/Scripts/World/Generation/DungeonSectionProcessors/AddTrapsProcessor.cs) | C# | 47 | 0 | 6 | 53 |
-| [Scripts/World/Generation/DungeonSectionProcessors/ApplyRoomTilesProcessor.cs](/Scripts/World/Generation/DungeonSectionProcessors/ApplyRoomTilesProcessor.cs) | C# | 31 | 1 | 5 | 37 |
-| [Scripts/World/Generation/DungeonSectionProcessors/ColorTilesProcessor.cs](/Scripts/World/Generation/DungeonSectionProcessors/ColorTilesProcessor.cs) | C# | 40 | 2 | 11 | 53 |
-| [Scripts/World/Generation/DungeonSectionProcessors/ConnectRoomsProcessor.cs](/Scripts/World/Generation/DungeonSectionProcessors/ConnectRoomsProcessor.cs) | C# | 64 | 5 | 14 | 83 |
-| [Scripts/World/Generation/DungeonSectionProcessors/CreateRoomProcessor.cs](/Scripts/World/Generation/DungeonSectionProcessors/CreateRoomProcessor.cs) | C# | 74 | 3 | 16 | 93 |
-| [Scripts/World/Generation/DungeonSectionProcessors/PlaceWaterProcessor.cs](/Scripts/World/Generation/DungeonSectionProcessors/PlaceWaterProcessor.cs) | C# | 56 | 0 | 10 | 66 |
-| [Scripts/World/Generation/DungeonSectionProcessors/PostProcessProcessor.cs](/Scripts/World/Generation/DungeonSectionProcessors/PostProcessProcessor.cs) | C# | 52 | 0 | 7 | 59 |
-| [Scripts/World/Generation/DungeonSectionProcessors/SetFloorTypeProcessor.cs](/Scripts/World/Generation/DungeonSectionProcessors/SetFloorTypeProcessor.cs) | C# | 116 | 3 | 21 | 140 |
-| [Scripts/World/Generation/DungeonSectionProcessors/SetSpriteProcessor.cs](/Scripts/World/Generation/DungeonSectionProcessors/SetSpriteProcessor.cs) | C# | 25 | 0 | 4 | 29 |
-| [Scripts/World/Generation/DungeonSectionProcessors/WallTypeFixerProcessor.cs](/Scripts/World/Generation/DungeonSectionProcessors/WallTypeFixerProcessor.cs) | C# | 285 | 44 | 38 | 367 |
-| [Scripts/World/Generation/RoomProcessors/PopulateRoomProcessor.cs](/Scripts/World/Generation/RoomProcessors/PopulateRoomProcessor.cs) | C# | 157 | 2 | 19 | 178 |
-| [Scripts/World/Generation/RoomProcessors/TileTypeProcessor.cs](/Scripts/World/Generation/RoomProcessors/TileTypeProcessor.cs) | C# | 35 | 2 | 5 | 42 |
-| [Scripts/World/Items/ExperiencePoint.cs](/Scripts/World/Items/ExperiencePoint.cs) | C# | 18 | 0 | 2 | 20 |
+| [Scripts/World/Generation/DungeonGenerator.cs](/Scripts/World/Generation/DungeonGenerator.cs) | C# | 128 | 1 | 21 | 150 |
+| [Scripts/World/Generation/DungeonSectionProcessors/AddMobsProcessor.cs](/Scripts/World/Generation/DungeonSectionProcessors/AddMobsProcessor.cs) | C# | 42 | 14 | 7 | 63 |
+| [Scripts/World/Generation/DungeonSectionProcessors/AddResourcesProcessor.cs](/Scripts/World/Generation/DungeonSectionProcessors/AddResourcesProcessor.cs) | C# | 50 | 23 | 9 | 82 |
+| [Scripts/World/Generation/DungeonSectionProcessors/AddTrapsProcessor.cs](/Scripts/World/Generation/DungeonSectionProcessors/AddTrapsProcessor.cs) | C# | 40 | 18 | 8 | 66 |
+| [Scripts/World/Generation/DungeonSectionProcessors/ApplyRoomTilesProcessor.cs](/Scripts/World/Generation/DungeonSectionProcessors/ApplyRoomTilesProcessor.cs) | C# | 18 | 5 | 3 | 26 |
+| [Scripts/World/Generation/DungeonSectionProcessors/ColorTilesProcessor.cs](/Scripts/World/Generation/DungeonSectionProcessors/ColorTilesProcessor.cs) | C# | 37 | 15 | 9 | 61 |
+| [Scripts/World/Generation/DungeonSectionProcessors/ConnectRoomsProcessor.cs](/Scripts/World/Generation/DungeonSectionProcessors/ConnectRoomsProcessor.cs) | C# | 56 | 22 | 12 | 90 |
+| [Scripts/World/Generation/DungeonSectionProcessors/CreateRoomProcessor.cs](/Scripts/World/Generation/DungeonSectionProcessors/CreateRoomProcessor.cs) | C# | 60 | 28 | 14 | 102 |
+| [Scripts/World/Generation/DungeonSectionProcessors/PlaceWaterProcessor.cs](/Scripts/World/Generation/DungeonSectionProcessors/PlaceWaterProcessor.cs) | C# | 47 | 19 | 10 | 76 |
+| [Scripts/World/Generation/DungeonSectionProcessors/PostProcessProcessor.cs](/Scripts/World/Generation/DungeonSectionProcessors/PostProcessProcessor.cs) | C# | 51 | 9 | 10 | 70 |
+| [Scripts/World/Generation/DungeonSectionProcessors/SetFloorTypeProcessor.cs](/Scripts/World/Generation/DungeonSectionProcessors/SetFloorTypeProcessor.cs) | C# | 101 | 3 | 20 | 124 |
+| [Scripts/World/Generation/DungeonSectionProcessors/SetSpriteProcessor.cs](/Scripts/World/Generation/DungeonSectionProcessors/SetSpriteProcessor.cs) | C# | 25 | 6 | 5 | 36 |
+| [Scripts/World/Generation/DungeonSectionProcessors/WallTypeFixerProcessor.cs](/Scripts/World/Generation/DungeonSectionProcessors/WallTypeFixerProcessor.cs) | C# | 312 | 1 | 16 | 329 |
+| [Scripts/World/Generation/RoomProcessors/PopulateRoomProcessor.cs](/Scripts/World/Generation/RoomProcessors/PopulateRoomProcessor.cs) | C# | 150 | 26 | 20 | 196 |
+| [Scripts/World/Generation/RoomProcessors/TileTypeProcessor.cs](/Scripts/World/Generation/RoomProcessors/TileTypeProcessor.cs) | C# | 22 | 6 | 3 | 31 |
+| [Scripts/World/Items/ExperiencePoint.cs](/Scripts/World/Items/ExperiencePoint.cs) | C# | 18 | 3 | 2 | 23 |
 | [Scripts/World/Items/LootChest.cs](/Scripts/World/Items/LootChest.cs) | C# | 137 | 45 | 32 | 214 |
 | [Scripts/World/Items/MonsterSpawner.cs](/Scripts/World/Items/MonsterSpawner.cs) | C# | 81 | 24 | 20 | 125 |
 | [Scripts/World/Items/SpikeTrap.cs](/Scripts/World/Items/SpikeTrap.cs) | C# | 31 | 11 | 10 | 52 |
-| [Scripts/World/Items/SplashPotion.cs](/Scripts/World/Items/SplashPotion.cs) | C# | 37 | 5 | 12 | 54 |
-| [Scripts/World/Items/Summon.cs](/Scripts/World/Items/Summon.cs) | C# | 38 | 0 | 8 | 46 |
-| [Scripts/World/WorldController.cs](/Scripts/World/WorldController.cs) | C# | 88 | 1 | 12 | 101 |
+| [Scripts/World/Items/SplashPotion.cs](/Scripts/World/Items/SplashPotion.cs) | C# | 32 | 3 | 9 | 44 |
+| [Scripts/World/Items/Summon.cs](/Scripts/World/Items/Summon.cs) | C# | 33 | 3 | 6 | 42 |
+| [Scripts/World/WorldController.cs](/Scripts/World/WorldController.cs) | C# | 89 | 0 | 12 | 101 |
 
 [summary](results.md)

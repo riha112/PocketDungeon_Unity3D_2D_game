@@ -15,13 +15,18 @@ namespace Assets.Scripts.Repository
         public static IndexedRepository<MonsterSpawnerData> Repository =
             new IndexedRepository<MonsterSpawnerData>("Register/MonsterSpawner");
 
+        /// <returns>Returns random monster spawner within specific level range</returns>
+        // TODO: Move to ILevelFiltrable
         public static MonsterSpawnerData GetMonsterSpawner()
         {
-            // TODO: Move to ILevelFiltrable
+            // Get current level of dungeon, defaults to 1
             var level = DI.Fetch<SavableGame>()?.World.DungeonFloor ?? 1;
+
+            // Fetches all spawners that are within the range of current level
             var filteredOutSpwaners = Repository.Raw.Where(s =>
                 s.Value.SpawnOnLevelsInRangeOf.min <= level && s.Value.SpawnOnLevelsInRangeOf.max >= level).ToList();
 
+            // Returns random spawner, or null on fail
             return filteredOutSpwaners.Count == 0
                 ? null
                 : filteredOutSpwaners[R.RandomRange(0, filteredOutSpwaners.Count)].Value;

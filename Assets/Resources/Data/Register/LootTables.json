@@ -3,20 +3,32 @@
         "Id": 0,
         "Items": [
             {
+                "ItemId": 0,
+                "PossibilityOfSpawning": 5
+            },
+            {
+                "ItemId": 1,
+                "PossibilityOfSpawning": 5
+            },
+            {
                 "ItemId": 2,
-                "PossibilityOfSpawning": 10
+                "PossibilityOfSpawning": 5
+            },
+            {
+                "ItemId": 4,
+                "PossibilityOfSpawning": 5
             },
             {
                 "ItemId": 500,
-                "PossibilityOfSpawning": 40
+                "PossibilityOfSpawning": 38
             },
             {
                 "ItemId": 501,
-                "PossibilityOfSpawning": 40
+                "PossibilityOfSpawning": 37
             },
             {
                 "ItemId": 3,
-                "PossibilityOfSpawning": 10
+                "PossibilityOfSpawning": 5
             }
         ],
         "ItemCount": {
@@ -32,29 +44,199 @@
         "Id": 1,
         "Items": [
             {
-                "ItemId": 211,
-                "PossibilityOfSpawning": 25
+                "ItemId": 1000,
+                "PossibilityOfSpawning": 10
             },
             {
-                "ItemId": 215,
-                "PossibilityOfSpawning": 25
+                "ItemId": 1001,
+                "PossibilityOfSpawning": 5
             },
             {
-                "ItemId": 205,
-                "PossibilityOfSpawning": 20
+                "ItemId": 1002,
+                "PossibilityOfSpawning": 35
             },
             {
-                "ItemId": 210,
-                "PossibilityOfSpawning": 20
+                "ItemId": 1003,
+                "PossibilityOfSpawning": 35
             },
             {
-                "ItemId": 201,
+                "ItemId": 1004,
+                "PossibilityOfSpawning": 5
+            },
+            {
+                "ItemId": 1005,
                 "PossibilityOfSpawning": 10
             }
         ],
         "ItemCount": {
             "item1": 0,
-            "item2": 4
+            "item2": 2
+        },
+        "SpawnOnLevelsInRangeOf": {
+            "item1": 5,
+            "item2": 100
+        }
+    },
+    {
+        "Id": 2,
+        "Items": [
+            {
+                "ItemId": 200,
+                "PossibilityOfSpawning": 5
+            },
+            {
+                "ItemId": 202,
+                "PossibilityOfSpawning": 5
+            },
+            {
+                "ItemId": 202,
+                "PossibilityOfSpawning": 5
+            },
+            {
+                "ItemId": 203,
+                "PossibilityOfSpawning": 4
+            },
+            {
+                "ItemId": 204,
+                "PossibilityOfSpawning": 4
+            },
+            {
+                "ItemId": 205,
+                "PossibilityOfSpawning": 4
+            },
+            {
+                "ItemId": 206,
+                "PossibilityOfSpawning": 5
+            },
+            {
+                "ItemId": 207,
+                "PossibilityOfSpawning": 4
+            },
+            {
+                "ItemId": 208,
+                "PossibilityOfSpawning": 4
+            },
+            {
+                "ItemId": 209,
+                "PossibilityOfSpawning": 5
+            },
+            {
+                "ItemId": 210,
+                "PossibilityOfSpawning": 5
+            },
+            {
+                "ItemId": 211,
+                "PossibilityOfSpawning": 4
+            },
+            {
+                "ItemId": 212,
+                "PossibilityOfSpawning": 4
+            },
+            {
+                "ItemId": 213,
+                "PossibilityOfSpawning": 5
+            },
+            {
+                "ItemId": 214,
+                "PossibilityOfSpawning": 4
+            },
+            {
+                "ItemId": 215,
+                "PossibilityOfSpawning": 4
+            },
+            {
+                "ItemId": 216,
+                "PossibilityOfSpawning": 5
+            },
+            {
+                "ItemId": 217,
+                "PossibilityOfSpawning": 4
+            },
+            {
+                "ItemId": 218,
+                "PossibilityOfSpawning": 1
+            },
+            {
+                "ItemId": 219,
+                "PossibilityOfSpawning": 4
+            },
+            {
+                "ItemId": 220,
+                "PossibilityOfSpawning": 3
+            },
+            {
+                "ItemId": 221,
+                "PossibilityOfSpawning": 3
+            }
+        ],
+        "ItemCount": {
+            "item1": 0,
+            "item2": 3
+        },
+        "SpawnOnLevelsInRangeOf": {
+            "item1": 0,
+            "item2": 100
+        }
+    },
+    {
+        "Id": 3,
+        "Items": [
+            {
+                "ItemId": 21,
+                "PossibilityOfSpawning": 6
+            },
+            {
+                "ItemId": 5,
+                "PossibilityOfSpawning": 6
+            },
+            {
+                "ItemId": 6,
+                "PossibilityOfSpawning": 6
+            },
+            {
+                "ItemId": 7,
+                "PossibilityOfSpawning": 6
+            },
+            {
+                "ItemId": 8,
+                "PossibilityOfSpawning": 6
+            },
+            {
+                "ItemId": 9,
+                "PossibilityOfSpawning": 6
+            },
+            {
+                "ItemId": 12,
+                "PossibilityOfSpawning": 6
+            },
+            {
+                "ItemId": 14,
+                "PossibilityOfSpawning": 6
+            },
+            {
+                "ItemId": 15,
+                "PossibilityOfSpawning": 6
+            },
+            {
+                "ItemId": 16,
+                "PossibilityOfSpawning": 6
+            },
+            {
+                "ItemId": 17,
+                "PossibilityOfSpawning": 6
+            },
+            {
+                "ItemId": 18,
+                "PossibilityOfSpawning": 6
+            },
+            {
+                "ItemId": 19,
+                "PossibilityOfSpawning": 6
+            }
+        ],
+        "ItemCount": {
+            "item1": 0,
+            "item2": 3
         },
         "SpawnOnLevelsInRangeOf": {
             "item1": 0,

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Assets.Scripts.Items;
-using Assets.Scripts.Repository;
+﻿using Assets.Scripts.Repository;
 using UnityEngine;
 
 namespace Assets.Scripts.User.Magic
@@ -23,6 +17,7 @@ namespace Assets.Scripts.User.Magic
 
         public GameObject Prefab { get; set; }
         private string _pathToObject;
+
         public string PathToObject
         {
             get => _pathToObject;
@@ -35,6 +30,7 @@ namespace Assets.Scripts.User.Magic
 
         public Sprite Icon { get; set; }
         private string _pathToIcon;
+
         public string PathToIcon
         {
             get => _pathToIcon;

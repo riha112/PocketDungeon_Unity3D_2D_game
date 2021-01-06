@@ -1,16 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Assets.Scripts.Entity;
 using Assets.Scripts.Weapons.Projectile;
 using UnityEngine;
 
 namespace Assets.Scripts.User.Resource
 {
+    /// <summary>
+    /// Class for placed resource object
+    /// </summary>
     public class ResourceObject : MonoBehaviour, IDamagable
     {
         public int Durability;
-        public int ResourceId;
 
         private SpriteRenderer _renderer;
         private Color _startColor;
@@ -21,9 +20,15 @@ namespace Assets.Scripts.User.Resource
             _startColor = _renderer.color;
         }
 
+        /// <summary>
+        /// Reduces durability for block...
+        /// If Durability is less or equal then 0 ... destroys the gameObject
+        /// </summary>
+        /// <param name="hitPoints">Max damage to take</param>
+        /// <returns>Real damage taken</returns>
         public int TakeDamage(int hitPoints)
         {
-            var realDamage = Random.Range(1, (hitPoints < 2) ? 2 : hitPoints);
+            var realDamage = Random.Range(1, hitPoints < 2 ? 2 : hitPoints);
             Durability -= realDamage;
             if (Durability < 0)
                 Destroy(gameObject);

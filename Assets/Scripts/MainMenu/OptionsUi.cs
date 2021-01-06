@@ -54,14 +54,26 @@ namespace Assets.Scripts.MainMenu
 
         protected override void Awake()
         {
-            _resolutions = Screen.resolutions;
             _currentResolution = Screen.currentResolution;
             _qualityNames = QualitySettings.names;
             _currentQualityLevel = QualitySettings.GetQualityLevel();
+            PopulateResolutions();
             ReCalculate();
             LoadConfiguration();
 
             base.Awake();
+        }
+
+        private static void PopulateResolutions()
+        {
+            var resolutions = new List<Resolution>();
+            foreach (var resolution in Screen.resolutions)
+            {
+                if(resolutions.Exists(r => r.width == resolution.width && r.height == resolution.height))
+                    continue;
+                resolutions.Add(resolution);
+            }
+            _resolutions = resolutions.ToArray();
         }
 
         private static void ReCalculate()

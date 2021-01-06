@@ -9,6 +9,11 @@ using Object = UnityEngine.Object;
 
 namespace Assets.Scripts.User.Magic
 {
+    /// <summary>
+    /// Base class for magic
+    /// - initiates magic prefab on use
+    /// - checks for magic requirements
+    /// </summary>
     public class AbstractMagic : IPinnable
     {
         private static Transform _character;
@@ -46,12 +51,14 @@ namespace Assets.Scripts.User.Magic
 
         public MagicData Data { get; set; } = new MagicData();
 
+        #region IPinnable
         public int Id => Data.Id;
         public bool CanUse => true;
         public float CoolDownTimer => Data.Cooldown;
         public Texture2D Icon => Data.Icon.texture;
         public string Title => Data.Title;
         public bool IsSingleUse => false;
+        #endregion
 
         public virtual void OnPinned() { }
 

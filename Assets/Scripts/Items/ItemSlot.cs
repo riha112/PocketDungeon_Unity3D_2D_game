@@ -1,5 +1,8 @@
 ﻿namespace Assets.Scripts.Items
 {
+    /// <summary>
+    /// In which equipment slot can a item be placed
+    /// </summary>
     public enum ItemSlot
     {
         None = -1,

@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Assets.Scripts.Items.Type;
+﻿using System.Collections.Generic;
 using Assets.Scripts.Items.Type.Controller;
 using Assets.Scripts.Misc;
 using Assets.Scripts.Misc.GUI;
 using Assets.Scripts.Misc.ObjectManager;
 using Assets.Scripts.User.Equipment;
 using Assets.Scripts.User.Inventory;
+using Assets.Scripts.User.Magic;
 using JetBrains.Annotations;
 using UnityEngine;
 
-namespace Assets.Scripts.User.Magic
+namespace Assets.Scripts.User.Controller
 {
     public class PinnableSlotConfiguration
     {
@@ -22,24 +18,40 @@ namespace Assets.Scripts.User.Magic
         public KeyCode Key { get; set; }
     }
 
-    public class InGameUiController : UI
+    public class PinnableSlotUiController : UI
     {
         private const short ICON_SIZE = 60;
         private const short FAN_SLOT_SIZE = 40;
         private const short MAGIC_SLOT_COUNT = 4;
         private const short OTHER_SLOT_COUNT = 2;
 
-
+        /// <summary>
+        /// Placeholder texture for empty slot
+        /// </summary>
         public Texture2D[] Placeholder;
 
+        /// <summary>
+        /// List of slots
+        /// </summary>
         public PinnableSlotConfiguration[] PinnedSlots { get; protected set; } = new PinnableSlotConfiguration[MAGIC_SLOT_COUNT + OTHER_SLOT_COUNT];
+
+        /// <summary>
+        /// List of pinnable items that are not already pinned
+        /// </summary>
         private List<IPinnable> _filteredOutPinnables;
 
+        /// <summary>
+        /// Active pinnable slot
+        /// </summary>
         private short _idActiveSlot = -1;
 
         private Transform _character;
         private static CharacterEntity _characterEntity;
         private static MagicController _magicController;
+
+        /// <summary>
+        /// Draws fan for items with durability
+        /// </summary>
         private List<EquipableItem> _durableItems;
 
         protected override void Init()
@@ -54,6 +66,11 @@ namespace Assets.Scripts.User.Magic
             DI.Fetch<EquipmentController>().EquipmentChanged += OnEquipmentChanged;
         }
 
+        /// <summary>
+        /// Hides fan when Popup is visible
+        /// </summary>
+        /// <param name="sender">UI that is changing state</param>
+        /// <param name="state">new state of UI</param>
         private void OnUiToggle([CanBeNull] object sender, bool state)
         {
             if (sender is Popup && state)
@@ -62,11 +79,23 @@ namespace Assets.Scripts.User.Magic
             }
         }
 
+        /// <summary>
+        /// Populates list of items that are equipped, so that durability window
+        /// can be shown in game
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="data"></param>
         public void OnEquipmentChanged([CanBeNull] object sender, (int slotId, EquipableItem item) data)
         {
             _durableItems = DI.Fetch<EquipmentController>()?.EquippedItems() ?? new List<EquipableItem>();
         }
 
+        /// <summary>
+        /// Filters out already pinned items & splits them by:
+        /// Magic and items
+        /// </summary>
+        /// <param name="slotId">For which slot to show items</param>
+        /// <returns></returns>
         protected bool FilterOut(short slotId)
         {
             if (_idActiveSlot == slotId)

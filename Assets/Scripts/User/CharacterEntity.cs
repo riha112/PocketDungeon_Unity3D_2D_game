@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Assets.Scripts.Entity;
+﻿using System.Collections.Generic;
 using Assets.Scripts.Items.Type.Controller;
 using Assets.Scripts.MainMenu;
 using Assets.Scripts.Misc.ObjectManager;
@@ -12,7 +9,6 @@ using Assets.Scripts.User.Messages;
 using Assets.Scripts.User.Resource;
 using JetBrains.Annotations;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.User
 {
@@ -124,11 +120,6 @@ namespace Assets.Scripts.User
             DI.Fetch<MovementController>().enabled = false;
             DI.Fetch<UIController>().enabled = false;
             DI.Fetch<InGameMainMenu>().Toggle(true);
-        }
-
-        private void ReloadDungeon()
-        {
-            SceneManager.LoadScene("Dungeon");
         }
     }
 }

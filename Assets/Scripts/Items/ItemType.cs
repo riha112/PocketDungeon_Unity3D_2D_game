@@ -1,5 +1,8 @@
 ﻿namespace Assets.Scripts.Items
 {
+    /// <summary>
+    /// What kind of item is this
+    /// </summary>
     public enum ItemType
     {
         Misc = 0,

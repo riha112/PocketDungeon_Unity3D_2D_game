@@ -12,6 +12,7 @@ namespace Assets.Scripts.User.Attributes
 
         protected override void Init()
         {
+            AttributeManager.Reset();
             RectConfig.Title = T.Translate("ATTRIBUTES");
             RectConfig.Popup.y = ScreenSize.y / 2 - 283;
             RectConfig.Popup.height = 515;

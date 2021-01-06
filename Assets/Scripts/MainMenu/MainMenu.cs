@@ -104,7 +104,7 @@ namespace Assets.Scripts.MainMenu
         {
             GUI.Box(new Rect(Screen.width / 2 - 215, Screen.height / 2 - 175, 430, 350), "", "Holder");
 
-            GUI.Label(new Rect(Screen.width / 2 - 175, Screen.height / 2 - 250, 350, 80), _lmc[0], "Title");
+            GUI.Label(new Rect(Screen.width / 2 - 175, Screen.height / 2 - 240, 350, 80), _lmc[0], "Title");
 
             GUI.BeginGroup(new Rect(Screen.width / 2 - 175, Screen.height / 2 - 130, 350, 260));
 
@@ -128,7 +128,7 @@ namespace Assets.Scripts.MainMenu
         {
             GUI.Box(new Rect(Screen.width / 2 - 215, Screen.height / 2 - 175, 430, 350), "", "Holder");
 
-            GUI.Label(new Rect(Screen.width / 2 - 175, Screen.height / 2 - 250, 350, 80), _lmc[1], "Title");
+            GUI.Label(new Rect(Screen.width / 2 - 175, Screen.height / 2 - 240, 350, 80), _lmc[1], "Title");
             GUI.BeginGroup(new Rect(Screen.width / 2 - 175, Screen.height / 2 - 125, 350, 260));
 
             if (_savedGameFiles != null)
@@ -150,7 +150,7 @@ namespace Assets.Scripts.MainMenu
         {
             GUI.Box(new Rect(Screen.width / 2 - 215, Screen.height / 2 - 175, 430, 350), "", "Holder");
 
-            GUI.Label(new Rect(Screen.width / 2 - 175, Screen.height / 2 - 250, 350, 80), _lmc[2], "Title");
+            GUI.Label(new Rect(Screen.width / 2 - 175, Screen.height / 2 - 240, 350, 80), _lmc[2], "Title");
             GUI.BeginGroup(new Rect(Screen.width / 2 - 175, Screen.height / 2 - 125, 350, 260));
 
             Options.GuiDraw();

@@ -1,5 +1,4 @@
 ﻿using Assets.Scripts.Misc.Random;
-using UnityEngine;
 
 namespace Assets.Scripts.Repository.Data
 {

@@ -8,15 +8,15 @@
             "Luck": 0,
             "Resistance": 0,
             "Agility": 2,
-            "Strength": 8
+            "Strength": 5
         },
         "AttributesMultiplierByLevel": {
-            "Vitality": 5,
+            "Vitality": 2,
             "Magic": 0,
             "Luck": 0,
             "Resistance": 2,
             "Agility": 1,
-            "Strength": 4
+            "Strength": 3
         },
         "ExpToDrop": 2,
         "ExpMultiplierByLevel": 1,
@@ -36,7 +36,7 @@
             "Luck": 0,
             "Resistance": 2,
             "Agility": 2,
-            "Strength": 12
+            "Strength": 10
         },
         "AttributesMultiplierByLevel": {
             "Vitality": 5,
@@ -44,10 +44,10 @@
             "Luck": 0,
             "Resistance": 2,
             "Agility": 1,
-            "Strength": 8
+            "Strength": 3
         },
         "ExpToDrop": 3,
-        "ExpMultiplierByLevel": 2,
+        "ExpMultiplierByLevel": 1,
         "AggroRange": 5,
         "AttackDistance": 1.5,
         "BaseCoolDownForAttack": 3.5,
@@ -64,7 +64,7 @@
             "Luck": 0,
             "Resistance": 0,
             "Agility": 2,
-            "Strength": 8
+            "Strength": 5
         },
         "AttributesMultiplierByLevel": {
             "Vitality": 5,
@@ -72,7 +72,7 @@
             "Luck": 0,
             "Resistance": 2,
             "Agility": 1,
-            "Strength": 8
+            "Strength": 3
         },
         "ExpToDrop": 2,
         "ExpMultiplierByLevel": 1,
@@ -91,19 +91,19 @@
             "Magic": 0,
             "Luck": 0,
             "Resistance": 10,
-            "Agility": 12,
-            "Strength": 40
+            "Agility": 20,
+            "Strength": 20
         },
         "AttributesMultiplierByLevel": {
             "Vitality": 20,
             "Magic": 0,
             "Luck": 0,
             "Resistance": 10,
-            "Agility": 1,
-            "Strength": 8
+            "Agility": 3,
+            "Strength": 5
         },
         "ExpToDrop": 10,
-        "ExpMultiplierByLevel": 2,
+        "ExpMultiplierByLevel": 1,
         "AggroRange": 6,
         "AttackDistance": 1,
         "BaseCoolDownForAttack": 10,
@@ -120,7 +120,7 @@
             "Luck": 0,
             "Resistance": 0,
             "Agility": 2,
-            "Strength": 8
+            "Strength": 4
         },
         "AttributesMultiplierByLevel": {
             "Vitality": 5,
@@ -128,10 +128,10 @@
             "Luck": 0,
             "Resistance": 2,
             "Agility": 1,
-            "Strength": 8
+            "Strength": 2
         },
         "ExpToDrop": 5,
-        "ExpMultiplierByLevel": 2,
+        "ExpMultiplierByLevel": 1,
         "AggroRange": 6,
         "AttackDistance": 6,
         "BaseCoolDownForAttack": 1.5,
@@ -148,7 +148,7 @@
             "Luck": 0,
             "Resistance": 0,
             "Agility": 2,
-            "Strength": 8
+            "Strength": 5
         },
         "AttributesMultiplierByLevel": {
             "Vitality": 5,
@@ -156,7 +156,7 @@
             "Luck": 0,
             "Resistance": 2,
             "Agility": 1,
-            "Strength": 8
+            "Strength": 2
         },
         "ExpToDrop": 0,
         "ExpMultiplierByLevel": 0,
@@ -187,7 +187,7 @@
             "Luck": 0,
             "Resistance": 2,
             "Agility": 1,
-            "Strength": 8
+            "Strength": 3
         },
         "ExpToDrop": 0,
         "ExpMultiplierByLevel": 0,

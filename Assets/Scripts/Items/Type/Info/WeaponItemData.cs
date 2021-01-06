@@ -1,20 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Assets.Scripts.Misc;
 
 namespace Assets.Scripts.Items.Type.Info
 {
-    public class WeaponItemData : ItemData
+    /// <summary>
+    /// Holds information about items that player can
+    /// attack with
+    /// </summary>
+    public class WeaponItemData : EquipableItemData
     {
-        public override string GetDataLoadPath() => "Weapons";
+        /// <inheritdoc cref="ItemData"/>
+        public override string GetDataLoadPath()
+        {
+            return "Weapons";
+        }
 
+        /// <summary>
+        /// Holds information about how much time must player
+        /// wait between attacks
+        /// </summary>
         public float AttackCoolDown { get; set; } = 0.5f;
 
-        public override List<object> LoadObjects(string path) => new List<object>(
-            Util.LoadJsonFromFile<List<WeaponItemData>>($"{path}{GetDataLoadPath()}")
-        );
+        /// <inheritdoc cref="ItemData"/>
+        public override List<object> LoadObjects(string path)
+        {
+            return new List<object>(
+                Util.LoadJsonFromFile<List<WeaponItemData>>($"{path}{GetDataLoadPath()}")
+            );
+        }
     }
 }

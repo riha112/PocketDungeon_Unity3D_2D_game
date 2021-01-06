@@ -2,7 +2,11 @@
 {
     public class RoomLayoutData
     {
+        /// <summary>
+        /// Only used in JSON file to differentiate the objects
+        /// </summary>
         public string Comment;
+
         public int Width;
         public int Height;
 

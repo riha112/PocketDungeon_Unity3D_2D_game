@@ -10,8 +10,7 @@ namespace Assets.Scripts.World
     /// </summary>
     public static class GameBalancer
     {
-        private static SavableCharacter _characterStartData;
-        private static SavableCharacter CharacterStartData => _characterStartData ?? (_characterStartData = DI.Fetch<SavableCharacter>());
+        private static SavableCharacter CharacterStartData =>  DI.Fetch<SavableCharacter>();
 
         /// <summary>
         /// Generates balanced LVL for enemy by selecting users LVL at start

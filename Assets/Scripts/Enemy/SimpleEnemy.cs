@@ -8,6 +8,7 @@ using Assets.Scripts.Weapons.Projectile;
 using Assets.Scripts.World;
 using Assets.Scripts.World.Items;
 using UnityEngine;
+using IDamagable = Assets.Scripts.Entity.IDamagable;
 
 namespace Assets.Scripts.Enemy
 {

@@ -4,7 +4,6 @@
         "Title": "SpellBook: Fire Storm",
         "PathToIcon": "Books/icon_book_spell_fire",
         "Type": 3,
-        "Slot": 0,
         "MagicId": 1
     },
     {
@@ -12,7 +11,6 @@
         "Title": "SpellBook: Fire Storm double",
         "PathToIcon": "Books/icon_book_spell_water",
         "Type": 3,
-        "Slot": 0,
         "MagicId": 2
     },
     {
@@ -20,7 +18,6 @@
         "Title": "SpellBook: Fire Horizontal",
         "PathToIcon": "Books/icon_book_spell_wind",
         "Type": 3,
-        "Slot": 0,
         "MagicId": 3
     },
     {
@@ -28,7 +25,6 @@
         "Title": "SpellBook: Fire Vertical",
         "PathToIcon": "Books/icon_book_spell",
         "Type": 3,
-        "Slot": 0,
         "MagicId": 4
     },
     {
@@ -36,7 +32,6 @@
         "Title": "SpellBook: Summon Warriors (4)",
         "PathToIcon": "Books/icon_book_spell",
         "Type": 3,
-        "Slot": 0,
         "MagicId": 5
     },
     {
@@ -44,7 +39,6 @@
         "Title": "SpellBook: Teleportation",
         "PathToIcon": "Books/icon_book_spell",
         "Type": 3,
-        "Slot": 0,
         "MagicId": 6
     }
 ]

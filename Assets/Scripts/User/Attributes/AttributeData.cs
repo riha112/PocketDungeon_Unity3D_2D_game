@@ -132,11 +132,11 @@ namespace Assets.Scripts.User.Attributes
         /// <param name="a">Attribute to be multiplied</param>
         /// <param name="mlt">Amount to which multiply</param>
         /// <returns>Multiplied object</returns>
-        public static AttributeData operator *(AttributeData a, short mlt)
+        public static AttributeData operator *(AttributeData a, float mlt)
         {
             for (var i = 0; i < ATT_COUNT; i++)
             {
-                a[i] *= mlt;
+                a[i] = (short)(a[i] * mlt);
             }
 
             return a;

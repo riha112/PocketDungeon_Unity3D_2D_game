@@ -2,6 +2,11 @@
 
 namespace Assets.Scripts.Weapons
 {
+    /// <summary>
+    /// Controller for Wrecking ball
+    /// - Extends to specific size based on distance between character and mouse
+    /// - Rotates wrecking ball
+    /// </summary>
     public class RotatingWreckingBall : MonoBehaviour
     {
         public Transform Ball;
@@ -16,7 +21,7 @@ namespace Assets.Scripts.Weapons
         private Vector2 _targetPosition;
         private float _chainSizeX;
 
-        void Start()
+        private void Start()
         {
             if (Ball == null && transform.childCount > 0)
                 Ball = transform.GetChild(0);
@@ -24,8 +29,7 @@ namespace Assets.Scripts.Weapons
             _chainSizeX = Chain.size.x;
         }
 
-        // Update is called once per frame
-        void Update()
+        private void Update()
         {
             // Rotate parent itself
             transform.Rotate(0, 0, RotationSpeed * Time.deltaTime);
@@ -35,7 +39,10 @@ namespace Assets.Scripts.Weapons
                 Ball.localPosition = Vector2.Lerp(Ball.localPosition, _targetPosition, Time.deltaTime * LerpSpeed);
 
             // Calculate distance
-            _targetPosition = new Vector2(Vector2.Distance(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition)) * Delta, 0);
+            _targetPosition =
+                new Vector2(
+                    Vector2.Distance(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition)) * Delta,
+                    0);
             if (_targetPosition.x > MaxDistance)
                 _targetPosition.x = MaxDistance;
 

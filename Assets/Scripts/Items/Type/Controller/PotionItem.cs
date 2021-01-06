@@ -8,10 +8,21 @@ using UnityEngine;
 
 namespace Assets.Scripts.Items.Type.Controller
 {
+    /// <summary>
+    /// Holds real items data for items with which user can use
+    /// to update its attribute/stats values
+    /// </summary>
     public class PotionItem : SimpleItem, IPinnable
     {
-        public override ItemType[] Resolves() => new[] { ItemType.Potion };
+        /// <inheritdoc cref="SimpleItem"/>
+        public override ItemType[] Resolves()
+        {
+            return new[] {ItemType.Potion};
+        }
 
+        /// <summary>
+        /// Converts current ItemData object into PotionItemData object
+        /// </summary>
         public PotionItemData PotionInfo
         {
             get
@@ -22,6 +33,7 @@ namespace Assets.Scripts.Items.Type.Controller
             }
         }
 
+        /// <inheritdoc cref="SimpleItem"/>
         public override void Use()
         {
             var userData = DI.Fetch<CharacterEntity>();
@@ -36,13 +48,14 @@ namespace Assets.Scripts.Items.Type.Controller
             InventoryManager.DropItem(this);
         }
 
+        /// <summary>
+        /// Adds visual effect onto player when used
+        /// TODO: Better effect fetcher
+        /// </summary>
         protected virtual void LoadEffect()
         {
             var effectName = "healing";
-            if (PotionInfo.EffectAmount.Magic > 0)
-            {
-                effectName = "healing_mp";
-            }
+            if (PotionInfo.EffectAmount.Magic > 0) effectName = "healing_mp";
 
             var effectPrefab = Resources.Load<GameObject>($"Prefabs/Player/Effects/prefab_player_effect_{effectName}");
             var effect = MonoUtil.Load(effectPrefab);
@@ -51,7 +64,7 @@ namespace Assets.Scripts.Items.Type.Controller
             MonoUtil.Remove(effect, 3);
         }
 
-        // IPinnable
+        #region IPinnable
         public int Id => LocalId;
         public bool CanUse => true;
         public float CoolDownTimer => 1;
@@ -59,14 +72,20 @@ namespace Assets.Scripts.Items.Type.Controller
         public string Title => Info.Title;
         public bool IsSingleUse => true;
 
-        public void OnPinned() {}
+        public void OnPinned()
+        {
+        }
 
-        public void OnUnPinned() {}
+        public void OnUnPinned()
+        {
+        }
 
         public bool OnUsed()
         {
             Use();
             return true;
         }
+        #endregion
+
     }
 }

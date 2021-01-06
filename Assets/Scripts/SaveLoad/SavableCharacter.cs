@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Assets.Scripts.Items;
 using Assets.Scripts.Items.Type.Controller;
-using Assets.Scripts.Misc;
 using Assets.Scripts.Misc.ObjectManager;
 using Assets.Scripts.Repository;
 using Assets.Scripts.User;
@@ -16,7 +11,6 @@ using Assets.Scripts.User.Inventory;
 using Assets.Scripts.User.Magic;
 using Assets.Scripts.User.Resource;
 using Assets.Scripts.User.Stats;
-using UnityEngine;
 
 namespace Assets.Scripts.SaveLoad
 {
@@ -146,9 +140,9 @@ namespace Assets.Scripts.SaveLoad
 
         private void LoadInventory()
         {
-            if (Inventory is null) return;
-
             InventoryManager.InventoryGrid = new List<SimpleItem>();
+
+            if (Inventory is null) return;
 
             for (var i = 0; i < Inventory.Length; i++)
             {
@@ -174,7 +168,7 @@ namespace Assets.Scripts.SaveLoad
                     ec?.EquipItem(item1);
             }
 
-            DI.Fetch<InGameUiController>()?.OnEquipmentChanged(null, (0, null));
+            DI.Fetch<PinnableSlotUiController>()?.OnEquipmentChanged(null, (0, null));
         }
     }
 

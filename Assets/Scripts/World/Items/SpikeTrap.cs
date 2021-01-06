@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Weapons.Projectile;
+﻿using Assets.Scripts.Entity;
+using Assets.Scripts.Weapons.Projectile;
 using UnityEngine;
 
 namespace Assets.Scripts.World.Items
@@ -27,7 +28,7 @@ namespace Assets.Scripts.World.Items
         private void OnTriggerEnter2D(Collider2D col)
         {
             // Can add also "Enemy" tag... maybe later when added
-            // pathfinding
+            // path-finding
             if (col.tag != "Player") return;
 
             // Sets style to be with spikes out

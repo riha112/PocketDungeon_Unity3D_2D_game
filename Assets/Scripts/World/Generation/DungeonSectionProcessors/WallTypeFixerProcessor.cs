@@ -305,21 +305,6 @@ namespace Assets.Scripts.World.Generation.DungeonSectionProcessors
             return WallType.None;
         }
 
-        private bool B(int x, int y)
-        {
-            return !(x < 0 || y < 0 || x >= _data.Width || y >= _data.Height || !_wallMap[x, y]);
-        }
-
-        private bool IsNoneOrFloor(int x, int y)
-        {
-            return T(x, y) == TileType.Floor || T(x, y) == TileType.None;
-        }
-
-        private bool IsNoneOrWall(int x, int y)
-        {
-            return T(x, y) == TileType.Wall || T(x, y) == TileType.None;
-        }
-
         private TileType T(int x, int y)
         {
             if (x < 0 || y < 0 || x >= _data.Width || y >= _data.Height) return TileType.None;

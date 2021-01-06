@@ -17,10 +17,13 @@ namespace Assets.Scripts.User.Magic.Spells
         {
             var cursorPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             var tile = DI.Fetch<DungeonSectionData>()?.GetTileByCoords(cursorPosition);
+
+            // If tile is floor then teleport, otherwise error message 
             if (tile == null || tile.Type != TileType.Floor)
                 DI.Fetch<MessageController>()?.AddMessage("Unable to teleport to specific point");
             else
                 Util.GetCharacterTransform().position = tile.Instance.transform.position;
+
             Destroy(gameObject);
         }
     }

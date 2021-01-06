@@ -123,14 +123,14 @@ namespace Assets.Scripts.User.Equipment
         public void EquipItem(EquipableItem item)
         {
             // If item is ether equipped or is un-equipable then return
-            if (item.IsEquipped || item.Info.Slot == ItemSlot.None)
+            if (item.IsEquipped || item.EquipableData.Slot == ItemSlot.None)
                 return;
 
             // Catches slot ID based on slot type
             // - Some items can be equipped into different slots, so
             // - we are preforming priority check
-            var slotId = (int) item.Info.Slot;
-            switch (item.Info.Slot)
+            var slotId = (int) item.EquipableData.Slot;
+            switch (item.EquipableData.Slot)
             {
                 case ItemSlot.PrimarySecondary:
                     slotId = IsEmptyItem(Slots[2].CurrentItem) || !IsEmptyItem(Slots[4].CurrentItem) ? 2 : 4;

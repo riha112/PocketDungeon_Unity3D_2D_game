@@ -9,6 +9,10 @@ using UnityEngine;
 
 namespace Assets.Scripts.World.Generation
 {
+    /// <summary>
+    /// Class that initiates dungeon generation and
+    /// forwards dungeon sections towards Pipeline
+    /// </summary>
     public class DungeonGenerator : MonoBehaviour
     {
         #region Config
@@ -37,6 +41,10 @@ namespace Assets.Scripts.World.Generation
             BuildGraphics();
         }
 
+        /// <summary>
+        /// Converts data to actual GameObject instances
+        /// NOTE: Maybe move to new pipeline process
+        /// </summary>
         private void BuildGraphics()
         {
             DI.Register(_dungeonSections[0]);
@@ -74,6 +82,7 @@ namespace Assets.Scripts.World.Generation
                     {
                         var child = Instantiate(tileData.Child);
                         child.transform.position = tile.transform.position;
+                        child.transform.position -= tile.transform.forward * 0.1f;
                         child.transform.parent = tile.transform;
                     }
 
@@ -84,10 +93,17 @@ namespace Assets.Scripts.World.Generation
             }
         }
 
+        /// <summary>
+        /// Sets characters location in dungeon
+        /// when dungeon is generated
+        /// </summary>
+        /// <param name="dungeon"></param>
         private void SetDungeonStartPoint(DungeonSectionData dungeon)
         {
             for (var x = dungeon.Width - 1; x > 0; x--)
             for (var y = dungeon.Height - 1; y > 0; y--)
+                // Finds location in dungeon where upper to walls are front-facing and bottom
+                // two rows are empty floor tiles
                 if (dungeon.DungeonGrid[x, y].Type == TileType.Wall &&
                     dungeon.DungeonGrid[x - 1, y].Type == TileType.Wall &&
                     dungeon.DungeonGrid[x, y].TileMapSectionTypeId == (int) WallType.Top &&
@@ -104,6 +120,7 @@ namespace Assets.Scripts.World.Generation
                     Util.GetCharacterTransform().position =
                         dungeon.DungeonGrid[x, y - 1].Instance.transform.position - Vector3.right * 0.4f;
 
+                    // Loads door design
                     for (var i = 0; i < 2; i++)
                     {
                         var doorPart = Instantiate(TilePrefab);
@@ -121,6 +138,9 @@ namespace Assets.Scripts.World.Generation
                 }
         }
 
+        /// <summary>
+        /// Populates data with dungeon sections
+        /// </summary>
         private void PopulateSections()
         {
             _dungeonSections = new List<DungeonSectionData>();
@@ -134,10 +154,12 @@ namespace Assets.Scripts.World.Generation
                     RoomSizeRange = (R.RandomRange(5, 7), R.RandomRange(7, 14)),
                     TileSetId = R.RandomRange(0, TileMapRepository.Repository.Count)
                 });
-                //_dungeonSections[i].TileSetId = 3;
             }
         }
 
+        /// <summary>
+        /// Runs dungeon data through pipeline
+        /// </summary>
         private void PipeData()
         {
             if (_dungeonPipeline == null)

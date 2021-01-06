@@ -1,15 +1,43 @@
-﻿using Assets.Scripts.Misc.ObjectManager;
+﻿using Assets.Scripts.Items.Type.Info;
+using Assets.Scripts.Misc.ObjectManager;
+using Assets.Scripts.Misc.Translator;
 using Assets.Scripts.User.Attributes;
 using Assets.Scripts.User.Equipment;
 using Assets.Scripts.User.Inventory;
 
 namespace Assets.Scripts.Items.Type.Controller
 {
+    /// <summary>
+    /// Used for items that can be equipped onto character - weapons, armor, ...
+    /// <seealso cref="EquipmentController"/>
+    /// </summary>
     public class EquipableItem : SimpleItem
     {
-        public override ItemType[] Resolves() => new[] { ItemType.Armor };
+        /// <inheritdoc cref="SimpleItem"/>
+        public override ItemType[] Resolves()
+        {
+            return new[] {ItemType.Armor};
+        }
 
-        public bool IsEquipped { get; set; } = false;
+        /// <summary>
+        /// Converts current ItemData object into EquipableItemData object
+        /// </summary>
+        public EquipableItemData EquipableData
+        {
+            get
+            {
+                if (Info is EquipableItemData item)
+                    return item;
+                return null;
+            }
+        }
+
+        public bool IsEquipped { get; set; }
+
+        /// <summary>
+        /// Holds items actual attribute increase rate, as they can differ
+        /// from base rate because of items grade
+        /// </summary>
         public AttributeData Attribute { get; set; } = new AttributeData();
 
         private float _durability = 1;
@@ -25,37 +53,55 @@ namespace Assets.Scripts.Items.Type.Controller
             }
         }
 
+        /// <summary>
+        /// Called when equipping item
+        /// </summary>
+        /// <returns>Whether or not item was equipped</returns>
         public bool Mount()
         {
             IsEquipped = true;
-            return Info.Slot != ItemSlot.None && OnMount();
+            return EquipableData.Slot != ItemSlot.None && OnMount();
         }
 
+        /// <summary>
+        /// Called when dismounting item
+        /// </summary>
+        /// <returns>Whether or not item was dismounted</returns>
         public bool Dismount()
         {
             IsEquipped = false;
             return OnDismount();
         }
 
+        /// <summary>
+        /// Action that is happening while mounting item
+        /// </summary>
+        /// <returns>Whether or not item was equipped</returns>
         protected virtual bool OnMount()
         {
             return true;
         }
 
+        /// <summary>
+        /// Action that is happening while dismounting item
+        /// </summary>
+        /// <returns>Whether or not item was dismounted</returns>
         protected virtual bool OnDismount()
         {
             return true;
         }
 
+        /// <inheritdoc cref="SimpleItem"/>
         public override void Use()
         {
             DI.Fetch<EquipmentController>()?.EquipItem(this);
         }
 
+        /// <inheritdoc cref="SimpleItem"/>
         public override void UnUse()
         {
-            var EC = DI.Fetch<EquipmentController>();
-            EC?.UnEquipItem(EC.FindSlotForItem(this));
+            var ec = DI.Fetch<EquipmentController>();
+            ec?.UnEquipItem(ec.FindSlotForItem(this));
         }
 
         /// <summary>
@@ -67,17 +113,16 @@ namespace Assets.Scripts.Items.Type.Controller
             InventoryManager.DropItem(this);
         }
 
+        // TODO: Use enum names instead
+        private static readonly string[] ATT_NAMES = { "Strength", "Vitality", "Agility", "Magic", "Resistance", "Luck" };
 
-        private static readonly string[] ATT_NAMES = {"Strength", "Vitality", "Agility", "Magic", "Resistance", "Luck"};
+        /// <inheritdoc cref="SimpleItem"/>
         public override string GetDescription()
         {
-            var output = base.GetDescription() + 
-                   $"\n<b>Durability: </b>{Durability}";
+            var output = base.GetDescription() +
+                         $"\n<b>{T.Translate("Durability")}: </b>{Durability}";
 
-            for (var i = 0; i < 6; i++)
-            {
-                output += $"\n{ATT_NAMES[i]}: {Attribute[i]}";
-            }
+            for (var i = 0; i < 6; i++) output += $"\n{T.Translate(ATT_NAMES[i])}: {Attribute[i]}/{EquipableData.BaseAttributes[i]}";
 
             return output;
         }

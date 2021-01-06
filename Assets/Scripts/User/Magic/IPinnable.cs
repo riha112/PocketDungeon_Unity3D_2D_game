@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.User.Magic
 {
+    /// <summary>
+    /// Used for items that user can pin onto game-screen action slots
+    /// </summary>
     public interface IPinnable
     {
         int Id { get; }

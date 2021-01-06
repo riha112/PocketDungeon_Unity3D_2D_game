@@ -5,10 +5,21 @@ using Assets.Scripts.User.Magic;
 
 namespace Assets.Scripts.Items.Type.Controller
 {
+    /// <summary>
+    /// Holds real items data for items with which user can use
+    /// to learn new magic
+    /// </summary>
     public class MagicItem : SimpleItem
     {
-        public override ItemType[] Resolves() => new[] { ItemType.SpellBook };
+        /// <inheritdoc cref="SimpleItem"/>
+        public override ItemType[] Resolves()
+        {
+            return new[] {ItemType.SpellBook};
+        }
 
+        /// <summary>
+        /// Converts current ItemData object into BookItemData object
+        /// </summary>
         public BookItemData BookInfo
         {
             get
@@ -19,6 +30,7 @@ namespace Assets.Scripts.Items.Type.Controller
             }
         }
 
+        /// <inheritdoc cref="SimpleItem"/>
         public override void Use()
         {
             DI.Fetch<MagicController>()?.LearnMagic(BookInfo.MagicId);

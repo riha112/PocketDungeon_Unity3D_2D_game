@@ -49,35 +49,62 @@ namespace Assets.Scripts.User.Controller
             d.transform.right = Util.GetDirectionTowardsCursor(d.transform);
         }
 
-        private void Update()
+        /// <summary>
+        /// Makes so that camera follows player
+        /// </summary>
+        private void CameraFollow()
         {
-            if (_dustTimer < 0)
-            {
-                _dustTimer = 1;
-                InstallDust(_activeSpeed == Sprint ? Random.Range(0, 2) : 0);
-            }
-
             _camera.transform.position = new Vector3(
                 transform.position.x,
                 transform.position.y,
                 _camera.transform.position.z
             );
+        }
 
+        private void ImpulseMove()
+        {
+            _rigidbody.AddForce(Util.GetDirectionTowardsCursor(transform) * 250);
+            InstallWoff();
+            InstallDust(1);
+        }
+
+        private void Update()
+        {
+            CameraFollow();
+
+            #region MyRegion
+            // Initiates dust particle every X seconds
+            if (_dustTimer < 0)
+            {
+                _dustTimer = 1;
+                InstallDust(_activeSpeed == Sprint ? Random.Range(0, 2) : 0);
+            }
+            #endregion
+
+            #region Impulse
+            // Movement for impulse
             if (Input.GetMouseButtonUp(2))
             {
-                _rigidbody.AddForce(Util.GetDirectionTowardsCursor(transform) * 250);
-                InstallWoff();
-                InstallDust(1);
+                ImpulseMove();
             }
+            #endregion
 
+            #region Speed change effect
             var newSpeed = Input.GetKey(KeyCode.LeftShift) ? Sprint : Speed;
+
+            // If speed has changed then initiate dust particle
             if (newSpeed != _activeSpeed)
                 InstallDust(1);
 
             _activeSpeed = newSpeed;
+            #endregion
 
+            #region Movement Axis
             var movementHorizontal = Input.GetAxis("Horizontal");
             var movementVertical = Input.GetAxis("Vertical");
+            #endregion
+
+
             if (movementHorizontal != 0)
             {
                 transform.position += Vector3.right * Time.deltaTime * movementHorizontal * _activeSpeed;
@@ -92,7 +119,8 @@ namespace Assets.Scripts.User.Controller
             if (movementVertical != 0)
                 transform.position += Vector3.up * Time.deltaTime * movementVertical * _activeSpeed;
 
-            if (movementVertical != 0 || movementHorizontal != 0) _dustTimer -= Time.deltaTime * (_activeSpeed / 2);
+            if (movementVertical != 0 || movementHorizontal != 0)
+                _dustTimer -= Time.deltaTime * (_activeSpeed / 2);
 
             _animator.SetBool("IsMoving", movementVertical != 0 || movementHorizontal != 0);
         }

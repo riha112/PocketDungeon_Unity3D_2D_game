@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Items.Type.Controller;
 using Assets.Scripts.Misc.Random;
+using Assets.Scripts.User.Attributes;
 
 namespace Assets.Scripts.Items
 {
@@ -36,6 +37,46 @@ namespace Assets.Scripts.Items
                 item.Grade = ItemGrade.S;
             else
                 item.Grade = ItemGrade.SS;
+
+            if(item is EquipableItem item1)
+                SetItemsAttributesByGrade(item1);
+        }
+
+        /// <summary>
+        /// Updates items attributes based on items grade
+        /// </summary>
+        /// <param name="item">EquipableItem to update</param>
+        private static void SetItemsAttributesByGrade(EquipableItem item)
+        {
+            AttributeData.MoveData(item.Attribute, item.EquipableData.BaseAttributes);
+
+            float multiplier;
+            switch (item.Grade)
+            {
+                case ItemGrade.S:
+                    multiplier = 0.85f;
+                    break;
+                case ItemGrade.A:
+                    multiplier = 0.7f;
+                    break;
+                case ItemGrade.B:
+                    multiplier = 0.55f;
+                    break;
+                case ItemGrade.C:
+                    multiplier = 0.4f;
+                    break;
+                case ItemGrade.D:
+                    multiplier = 0.25f;
+                    break;
+                case ItemGrade.E:
+                    multiplier = 0.1f;
+                    break;
+                default:
+                    multiplier = 1;
+                    break;
+            }
+
+            item.Attribute *= multiplier;
         }
     }
 }

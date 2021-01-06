@@ -1,12 +1,17 @@
 ﻿using Assets.Scripts.User.Magic;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace Assets.Scripts.Items.Type.Controller
 {
     public class GemItem : EquipableItem, IPinnable
     {
-        public override ItemType[] Resolves() => new[] { ItemType.Gem };
+        /// <inheritdoc cref="SimpleItem"/>
+        public override ItemType[] Resolves()
+        {
+            return new[] {ItemType.Gem};
+        }
+
+        #region IPinnable
 
         public int Id => LocalId;
         public bool CanUse => true;
@@ -15,6 +20,9 @@ namespace Assets.Scripts.Items.Type.Controller
         public Texture2D Icon => Info.Icon.texture;
         public string Title => Info.Title;
 
+        #endregion
+
+        /// <inheritdoc cref="SimpleItem"/>
         public override void Use()
         {
             base.Use();
@@ -25,15 +33,17 @@ namespace Assets.Scripts.Items.Type.Controller
             particle.transform.localPosition = Vector3.zero;
         }
 
-
+        /// <inheritdoc cref="IPinnable"/>
         public void OnPinned()
         {
         }
 
+        /// <inheritdoc cref="IPinnable"/>
         public void OnUnPinned()
         {
         }
 
+        /// <inheritdoc cref="IPinnable"/>
         public bool OnUsed()
         {
             Use();

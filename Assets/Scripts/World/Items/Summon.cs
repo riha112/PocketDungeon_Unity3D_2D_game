@@ -5,7 +5,10 @@ using UnityEngine;
 namespace Assets.Scripts.World.Items
 {
     /// <summary>
-    /// 
+    /// GameObject that initiates one of two summon type objects:
+    /// - Fairy
+    /// - Wizard
+    /// Follows player and every X second adds ether Y amount of magic and or health
     /// </summary>
     public class Summon : MonoBehaviour
     {
@@ -28,6 +31,7 @@ namespace Assets.Scripts.World.Items
 
         private void Update()
         {
+            // Updates timer and when its time adds health and/or magic
             _timer -= Time.deltaTime;
             if (_timer < 0)
             {
@@ -36,6 +40,7 @@ namespace Assets.Scripts.World.Items
                 _timer = 2;
             }
 
+            // Moves towards player
             transform.position = Vector2.Lerp(transform.position, _followPoint.position, Time.deltaTime * Speed);
         }
     }

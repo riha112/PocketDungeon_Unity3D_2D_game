@@ -24,6 +24,11 @@ namespace Assets.Scripts.User.Attributes
         public static int GetPointsFor(int attributeId) =>
             _backupAttributeData[attributeId];
 
+        public static void Reset()
+        {
+            _characterEntity = null;
+        }
+
         public static void AddPointTo(int attributeId)
         {
             if (Points <= 0)
