@@ -48,6 +48,12 @@ namespace Assets.Scripts.Items
         /// <param name="item">EquipableItem to update</param>
         private static void SetItemsAttributesByGrade(EquipableItem item)
         {
+            if(item.Attribute == null)
+                item.Attribute = new AttributeData();
+
+            if(item.EquipableData.BaseAttributes == null)
+                return;
+
             AttributeData.MoveData(item.Attribute, item.EquipableData.BaseAttributes);
 
             float multiplier;

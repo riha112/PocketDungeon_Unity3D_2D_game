@@ -73,7 +73,7 @@ namespace Assets.Scripts.World.Items
         /// - Populates loot table
         /// - Loads components
         /// </summary>
-        protected void Start()
+        protected override void Start()
         {
             _lootTableData = LootTableRepository.GetLootTable();
             _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -112,6 +112,7 @@ namespace Assets.Scripts.World.Items
                 return;
             }
 
+            Debug.Log("asd");
             if (Vector2.Distance(transform.position, characterPosition) < ACCESS_RANGE)
                 ShowChest();
         }
