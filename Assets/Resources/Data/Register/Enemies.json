@@ -199,5 +199,36 @@
         "PathToPrefabs": [
             "enemy_prefab_type5_bat"
         ]
+    },
+    {
+        "Id": 7,
+        "Title": "Summoned Bat",
+        "PathToIcon": "icon_enemy_summon_bat",
+        "BaseAttributes": {
+            "Vitality": 10,
+            "Magic": 0,
+            "Luck": 0,
+            "Resistance": 0,
+            "Agility": 2,
+            "Strength": 5
+        },
+        "AttributesMultiplierByLevel": {
+            "Vitality": 5,
+            "Magic": 0,
+            "Luck": 0,
+            "Resistance": 2,
+            "Agility": 1,
+            "Strength": 2
+        },
+        "ExpToDrop": 0,
+        "ExpMultiplierByLevel": 0,
+        "AggroRange": 100,
+        "AttackDistance": 2,
+        "BaseCoolDownForAttack": 3,
+        "KeepAggroIfAttacked": true,
+        "KeepAggroAfterFirstInRange": true,
+        "PathToPrefabs": [
+            "enemy_prefab_summoned_type1_bat"
+        ]
     }
 ]

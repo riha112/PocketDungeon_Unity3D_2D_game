@@ -60,5 +60,15 @@
         "EquippedItemRequirements": [
             4
         ]
+    },
+    {
+        "Id": 7,
+        "Title": "Summon Bat (5)",
+        "PathToIcon": "icon_magic_summon_warriors",
+        "Cooldown": 5,
+        "PathToObject": "magic_prefab_summon_bat_5",
+        "EquippedItemRequirements": [
+            4
+        ]
     }
 ]

@@ -91,8 +91,6 @@ namespace Assets.Scripts.User.Controller
         {
             var mouse = Input.mousePosition;
 
-            Debug.Log(mouse);
-
             if (mouse.y > 200) return false;
             return mouse.x < 320 || mouse.x > Screen.width - 180;
         }

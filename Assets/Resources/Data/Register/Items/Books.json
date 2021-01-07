@@ -40,5 +40,12 @@
         "PathToIcon": "Books/icon_book_spell",
         "Type": 3,
         "MagicId": 6
+    },
+    {
+        "ItemId": 1006,
+        "Title": "SpellBook: Summon Bat (5)",
+        "PathToIcon": "Books/icon_book_spell",
+        "Type": 3,
+        "MagicId": 7
     }
 ]

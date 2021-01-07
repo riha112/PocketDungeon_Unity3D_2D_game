@@ -112,7 +112,6 @@ namespace Assets.Scripts.World.Items
                 return;
             }
 
-            Debug.Log("asd");
             if (Vector2.Distance(transform.position, characterPosition) < ACCESS_RANGE)
                 ShowChest();
         }
