@@ -2,6 +2,17 @@
 ## Description
 Unity3D rouge like 2D game project with procedural generation.
 
+### Quick preview
+
+#### Simple combat
+<img src="./readme/Gif/combat.gif">
+
+#### Simple combat 2
+<img src="./readme/Gif/enemy_skull.gif">
+
+#### New enemy - bat
+<img src="./readme/Gif/enemy_bat2.gif">
+
 ### Screenshots
 #### Main menu screen
 <img src="./readme/screenshots/sh_4.png">
