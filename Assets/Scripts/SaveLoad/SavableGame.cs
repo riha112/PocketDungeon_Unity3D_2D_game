@@ -17,7 +17,8 @@ namespace Assets.Scripts.SaveLoad
         public WorldData World { get; set; }
         public SavableCharacter CharacterData { get; set; } = new SavableCharacter();
 
-        private string FileLocation() => $"{Application.persistentDataPath}/Games/{PlayerPrefs.GetString("CurrentGame")}.json";
+        public static string FileDirectory => $"{Application.persistentDataPath}/Games/";
+        private string FileLocation => $"{FileDirectory}{PlayerPrefs.GetString("CurrentGame")}.json";
 
         public void CreateNewGame(string title, [CanBeNull] string seed = null)
         {
@@ -88,28 +89,33 @@ namespace Assets.Scripts.SaveLoad
             CheckFileDir();
 
             var savableJsonText = JsonConvert.SerializeObject(this, Formatting.Indented);
-            //if (!File.Exists(FileLocation()))
-            //    File.Create(FileLocation());
-            File.WriteAllText(FileLocation(), savableJsonText);
+            File.WriteAllText(FileLocation, savableJsonText);
         }
 
         public void Load()
         {
             CheckFileDir();
 
-            var jsonData = File.ReadAllText(FileLocation());
-            var loadedData = JsonConvert.DeserializeObject<SavableGame>(jsonData);
-            World = loadedData.World;
-            CharacterData = loadedData.CharacterData;
+            var jsonData = File.ReadAllText(FileLocation);
+            try
+            {
+                var loadedData = JsonConvert.DeserializeObject<SavableGame>(jsonData);
+                World = loadedData.World;
+                CharacterData = loadedData.CharacterData;
 
-            CharacterData.Load();
-            if (!File.Exists(FileLocation()))
-                throw new Exception($"Save file not found at: {FileLocation()}");
+                CharacterData.Load();
+                if (!File.Exists(FileLocation))
+                    throw new Exception($"Save file not found at: {FileLocation}");
 
-            var wc = DI.Fetch<WorldController>();
-            wc.Data = World;
+                var wc = DI.Fetch<WorldController>();
+                wc.Data = World;
 
-            DI.Register(this);
+                DI.Register(this);
+            }
+            catch (Exception)
+            {
+                throw new Exception("File is broken");
+            }
         }
 
         private void CheckFileDir()

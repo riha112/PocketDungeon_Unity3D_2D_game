@@ -2,12 +2,16 @@
 using System.IO;
 using System.Linq;
 using Assets.Scripts.Misc;
+using Assets.Scripts.Misc.ObjectManager;
 using Assets.Scripts.Misc.Translator;
 using Assets.Scripts.SaveLoad;
+using Assets.Scripts.User.Messages;
 using UnityEngine;
 
 namespace Assets.Scripts.MainMenu
 {
+    /// <summary>
+    /// </summary>
     public class MainMenu : MonoBehaviour
     {
         public GUISkin Theme;
@@ -70,6 +74,8 @@ namespace Assets.Scripts.MainMenu
             if (_isStartGame) StartGame();
         }
 
+        /// <summary>
+        /// </summary>
         private void StartWindow()
         {
             GUI.BeginGroup(new Rect(Screen.width / 2 - 100, Screen.height / 2 - 100, 200, 200));
@@ -100,6 +106,8 @@ namespace Assets.Scripts.MainMenu
         private string _title;
         private string _seed;
 
+        /// <summary>
+        /// </summary>
         private void NewGameWindow()
         {
             GUI.Box(new Rect(Screen.width / 2 - 215, Screen.height / 2 - 175, 430, 350), "", "Holder");
@@ -124,6 +132,8 @@ namespace Assets.Scripts.MainMenu
             GUI.EndGroup();
         }
 
+        /// <summary>
+        /// </summary>
         private void LoadGameWindow()
         {
             GUI.Box(new Rect(Screen.width / 2 - 215, Screen.height / 2 - 175, 430, 350), "", "Holder");
@@ -146,6 +156,8 @@ namespace Assets.Scripts.MainMenu
             GUI.EndGroup();
         }
 
+        /// <summary>
+        /// </summary>
         private void OptionsWindow()
         {
             GUI.Box(new Rect(Screen.width / 2 - 215, Screen.height / 2 - 175, 430, 350), "", "Holder");
@@ -160,6 +172,9 @@ namespace Assets.Scripts.MainMenu
             GUI.EndGroup();
         }
 
+        /// <summary>
+        /// </summary>
+        /// <param name="title"></param>
         private void LoadGame(string title)
         {
             PlayerPrefs.SetString("CurrentGame", title);
@@ -167,10 +182,23 @@ namespace Assets.Scripts.MainMenu
             StartGame();
         }
 
+        /// <summary>
+        /// </summary>
         private void CreateNewGame()
         {
+            // Checks if title is set
             if (string.IsNullOrEmpty(_title) || string.IsNullOrWhiteSpace(_title))
+            {
+                DI.Fetch<MessageController>()?.AddMessage("Title is empty!");
                 return;
+            }
+
+            // Checks if file already exists
+            if (File.Exists($"{SavableGame.FileDirectory}{_title}.json"))
+            {
+                DI.Fetch<MessageController>()?.AddMessage("Game with this title already exists");
+                return;
+            }
 
             var sg = new SavableGame();
             sg.CreateNewGame(_title, string.IsNullOrEmpty(_seed) ? null : _seed);
@@ -178,11 +206,19 @@ namespace Assets.Scripts.MainMenu
             StartGame();
         }
 
+        #region FadeIn effect variables
+
         private float _timer;
         private bool _isStartGame;
         private bool _started;
         public Texture2D FadeTexture;
 
+        #endregion
+
+
+        /// <summary>
+        ///     FadeIn effect
+        /// </summary>
         private void StartGame()
         {
             _timer += Time.deltaTime / 2;

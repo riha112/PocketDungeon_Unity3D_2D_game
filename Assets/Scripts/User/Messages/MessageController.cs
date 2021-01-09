@@ -30,7 +30,12 @@ namespace Assets.Scripts.User.Messages
         /// UI position from bottom, used to change toggle location
         /// when hiding InGameUi component
         /// </summary>
-        public int Offset = 365;
+        public int OffsetY = 365;
+
+        /// <summary>
+        /// UI position from left
+        /// </summary>
+        public int OffsetX = 25;
 
         /// <summary>
         /// Called on instance initiation
@@ -40,10 +45,24 @@ namespace Assets.Scripts.User.Messages
             // Registers itself  into dependency injection class for later access
             DI.Register(this);
 
+            // Fixes colors if not set or less than QUE size
+            if (MessageColors == null || MessageColors.Count < MAX_QUE_SIZE)
+                BuildDefaultMessageColors();
+
             // Invokes message clearing... removes one message per 3 seconds
             InvokeRepeating(nameof(ShiftMessages), 2, 3);
         }
 
+        /// <summary>
+        /// Sets default color values for messages.
+        /// </summary>
+        private void BuildDefaultMessageColors()
+        {
+            MessageColors = new List<Color>();
+            const float delta = 1.0f / MAX_QUE_SIZE;
+            for(var i = 0; i < MAX_QUE_SIZE; i++)
+                MessageColors.Add(new Color(1,1,1, delta * i));
+        }
 
         /// <summary>
         /// Adds message into que, if count
@@ -81,7 +100,7 @@ namespace Assets.Scripts.User.Messages
             GUI.skin = Theme;
             GUI.depth = 200;
 
-            GUI.BeginGroup(new Rect(25, Screen.height - Offset, 350, 200));
+            GUI.BeginGroup(new Rect(OffsetX, Screen.height - OffsetY, 350, 200));
 
             for (var i = 0; i < Messages.Count; i++)
             {

@@ -53,7 +53,7 @@ namespace Assets.Scripts.User.Resource
                 _buildMode = value;
                 RectConfig.ShowBackground = !_buildMode;
                 DI.Fetch<PinnableSlotUiController>().enabled = !_buildMode;
-                DI.Fetch<MessageController>().Offset = _buildMode ? 220 : 365;
+                DI.Fetch<MessageController>().OffsetY = _buildMode ? 220 : 365;
                 Placeholder.gameObject.SetActive(_buildMode);
             }
         }
