@@ -51,7 +51,7 @@ Unity3D rouge like 2D game project with procedural generation.
 <img src="./readme/screenshots/sh_3.png">
 
 
-## Original Concept art for project (Depracted)
+## Original Concept art for project (Deprecated)
 - Link to Figma project design: https://www.figma.com/proto/DMoUBiK9zdIY0Xcdcq4oA0/PocketDungeonProject?node-id=40%3A22&viewport=-23044%2C631%2C12.507408142089844&scaling=contain
 ## Goals
 - Maze like map generation
