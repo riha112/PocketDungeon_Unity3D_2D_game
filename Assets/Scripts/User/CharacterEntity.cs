@@ -5,6 +5,7 @@ using Assets.Scripts.Misc.ObjectManager;
 using Assets.Scripts.User.Attributes;
 using Assets.Scripts.User.Controller;
 using Assets.Scripts.User.Equipment;
+using Assets.Scripts.User.Inventory;
 using Assets.Scripts.User.Messages;
 using Assets.Scripts.User.Resource;
 using JetBrains.Annotations;

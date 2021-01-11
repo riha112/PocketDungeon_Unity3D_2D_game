@@ -73,6 +73,10 @@ namespace Assets.Scripts.World.Generation.DungeonSectionProcessors
                     if (data.DungeonGrid[x, y].Type != TileType.Floor ||
                         !(data.DungeonGrid[x, y].Child is null)) continue;
 
+                    // Prevents from two-tile height wall overlapping with resource
+                    if(y - 1 >= 0 && data.DungeonGrid[x, y - 1].Type == TileType.Wall)
+                        continue;
+
                     // Loads resource prefab from repository
                     data.DungeonGrid[x, y].Child = PrefabRepository.Repository[resourceId].Prefab;
                 }

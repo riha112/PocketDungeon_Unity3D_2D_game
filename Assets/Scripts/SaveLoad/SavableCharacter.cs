@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Assets.Scripts.Items;
 using Assets.Scripts.Items.Type.Controller;
 using Assets.Scripts.Misc.ObjectManager;
@@ -20,27 +19,37 @@ namespace Assets.Scripts.SaveLoad
     /// </summary>
     public class SavableCharacter : ISavable
     {
-        // -- Inventory --
+        /// <summary>
+        /// Inventory data
+        /// </summary>
         public SavableItem[] Inventory { get; set; }
 
-        // -- Equipment --
+        /// <summary>
+        /// Equipment data
+        /// </summary>
         public List<int> SavableEquipment { get; set; }
 
-        // -- In Game UI -- 
+        /// <summary>
+        /// In-game bottom menu
+        /// </summary>
         public SavableEquipment[] PinnedEquipment { get; set; }
         public SavableEquipment[] PinnedMagic { get; set; }
 
-        // -- Magic --
+        /// <summary>
+        /// Learned magic data
+        /// </summary>
         public int[] Magic { get; set; }
 
-        // -- User data --
+        #region UserData
         public Dictionary<int, int> Resources;
         public AttributeData Attributes;
         public StatsData Stats;
 
         public float? HP = 100;
         public float? MP = 20;
-        
+        #endregion
+
+        /// <inheritdoc cref="ISavable"/>
         public void Save()
         {
             SaveUserData();
@@ -50,12 +59,16 @@ namespace Assets.Scripts.SaveLoad
             SavePinnedData();
         }
 
+        /// <summary>
+        /// Saves characters learned magic
+        /// </summary>
         private void SaveMagic()
         {
             var mc = DI.Fetch<MagicController>();
             if(mc == null)
                 return;
 
+            // Converts MagicData list to Int list of magic IDs
             Magic = new int[mc.MyMagic.Count];
             for (var i = 0; i < Magic.Length; i++)
             {
@@ -63,6 +76,9 @@ namespace Assets.Scripts.SaveLoad
             }
         }
 
+        /// <summary>
+        /// Saves users base data
+        /// </summary>
         private void SaveUserData()
         {
             var ce = DI.Fetch<CharacterEntity>();
@@ -76,6 +92,9 @@ namespace Assets.Scripts.SaveLoad
             Stats = ce.Stats;
         }
 
+        /// <summary>
+        /// Saves in-game pinned menu data
+        /// </summary>
         private void SavePinnedData()
         {
             var pc = DI.Fetch<PinnableSlotUiController>();

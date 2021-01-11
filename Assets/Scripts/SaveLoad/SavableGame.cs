@@ -20,6 +20,11 @@ namespace Assets.Scripts.SaveLoad
         public static string FileDirectory => $"{Application.persistentDataPath}/Games/";
         private string FileLocation => $"{FileDirectory}{PlayerPrefs.GetString("CurrentGame")}.json";
 
+        /// <summary>
+        /// Creates new game with default values
+        /// </summary>
+        /// <param name="title">New games title + file name</param>
+        /// <param name="seed">Generation seed</param>
         public void CreateNewGame(string title, [CanBeNull] string seed = null)
         {
             World = new WorldData

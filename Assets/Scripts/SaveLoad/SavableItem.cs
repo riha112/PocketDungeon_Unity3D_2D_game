@@ -2,6 +2,9 @@
 
 namespace Assets.Scripts.SaveLoad
 {
+    /// <summary>
+    /// Used to store item data
+    /// </summary>
     public class SavableItem
     {
         public int ItemId { get; set; }
