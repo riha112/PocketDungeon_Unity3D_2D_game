@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Assets.Scripts.Items;
+using UnityEngine;
 
 namespace Assets.Scripts.User.Inventory
 {
@@ -20,6 +21,11 @@ namespace Assets.Scripts.User.Inventory
         }
 
         public static EventHandler<SimpleItem> InventoryUpdated;
+
+        public static void Reset()
+        {
+            _inventoryGrid = new List<SimpleItem>();
+        }
 
         /// <summary>
         /// Adds item to inventory

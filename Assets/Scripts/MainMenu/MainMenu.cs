@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Assets.Scripts.Misc;
@@ -6,6 +7,7 @@ using Assets.Scripts.Misc.ObjectManager;
 using Assets.Scripts.Misc.Translator;
 using Assets.Scripts.SaveLoad;
 using Assets.Scripts.User.Messages;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace Assets.Scripts.MainMenu
@@ -177,6 +179,22 @@ namespace Assets.Scripts.MainMenu
         /// <param name="title"></param>
         private void LoadGame(string title)
         {
+            // Checks if object is loadable
+            try
+            {
+                // Tries to load & convert file
+                var data = File.ReadAllText($"{SavableGame.FileDirectory}{title}.json");
+                var file = JsonConvert.DeserializeObject<SavableGame>(data);
+                if (file == null)
+                    throw new Exception("File not set");
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning(e);
+                DI.Fetch<MessageController>()?.AddMessage("Data is corrupted!");
+                return;
+            }
+
             PlayerPrefs.SetString("CurrentGame", title);
             _isStartGame = true;
             StartGame();

@@ -25,14 +25,14 @@ namespace Assets.Scripts.SaveLoad
             World = new WorldData
             {
                 Title = title,
-                DungeonFloor = 1,
+                DungeonFloor = 1
             };
 
             CharacterData = new SavableCharacter
             {
                 HP = 100,
                 MP = 20,
-                Inventory = new []
+                Inventory = new[]
                 {
                     new SavableItem
                     {
@@ -56,11 +56,11 @@ namespace Assets.Scripts.SaveLoad
                         LocalId = 3
                     }
                 },
-                SavableEquipment = new List<int>()
+                SavableEquipment = new List<int>
                 {
                     1
                 },
-                Attributes = new AttributeData()
+                Attributes = new AttributeData
                 {
                     Agility = 0,
                     Luck = 0,
@@ -69,7 +69,7 @@ namespace Assets.Scripts.SaveLoad
                     Resistance = 0,
                     Strength = 0,
                     Vitality = 0
-                },
+                }
             };
 
             PlayerPrefs.SetString("CurrentGame", title);
@@ -79,10 +79,7 @@ namespace Assets.Scripts.SaveLoad
 
         public void Save()
         {
-            if (World is null)
-            {
-                World = DI.Fetch<WorldController>()?.Data;
-            }
+            if (World is null) World = DI.Fetch<WorldController>()?.Data;
 
             CharacterData.Save();
 

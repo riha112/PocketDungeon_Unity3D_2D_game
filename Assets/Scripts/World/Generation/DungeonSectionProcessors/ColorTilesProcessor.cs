@@ -23,7 +23,7 @@ namespace Assets.Scripts.World.Generation.DungeonSectionProcessors
         /// <inheritdoc cref="IPipelineProcess{T}" />
         public DungeonSectionData Translate(DungeonSectionData data)
         {
-            // Offset for perlin noise 
+            // OffsetY for perlin noise 
             _offsetX = R.RandomRange(0, 1000);
             _offsetY = R.RandomRange(0, 1000);
 

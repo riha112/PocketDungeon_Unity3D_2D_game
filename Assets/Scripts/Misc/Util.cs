@@ -1,4 +1,6 @@
 ﻿using Assets.Scripts.Misc.ObjectManager;
+using Assets.Scripts.User.Attributes;
+using Assets.Scripts.User.Inventory;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -18,6 +20,8 @@ namespace Assets.Scripts.Misc
         public static void ChangeScene(string name)
         {
             DI.Flush();
+            InventoryManager.Reset();
+            AttributeManager.Reset();
             Time.timeScale = 1;
             SceneManager.LoadScene(name);
         }

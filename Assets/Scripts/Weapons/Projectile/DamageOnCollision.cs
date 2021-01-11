@@ -23,7 +23,7 @@ namespace Assets.Scripts.Weapons.Projectile
         public bool GlueOnHit = true;
 
         /// <summary>
-        /// Offset for object from the targets center when "gluing" it
+        /// OffsetY for object from the targets center when "gluing" it
         /// onto target.
         /// </summary>
         public Vector2 Offset;
